@@ -1,0 +1,8 @@
+@keyframes my-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.my-spin {
+  animation: my-spin 3s linear infinite;
+}

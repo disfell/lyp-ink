@@ -1,0 +1,25 @@
+{
+  "name": "lyp-ink",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxt/content": "2.12.0",
+    "@tailwindcss/typography": "0.5.10",
+    "@types/node": "18",
+    "@vueuse/core": "10.1.2",
+    "@vueuse/nuxt": "10.1.2",
+    "autoprefixer": "10.4.18",
+    "feed": "4.2.2",
+    "lazysizes": "5.3.2",
+    "nuxt": "3.10.3",
+    "postcss": "8.4.35",
+    "sitemap": "7.1.1",
+    "tailwindcss": "3.4.1"
+  }
+}
