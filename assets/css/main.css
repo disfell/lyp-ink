@@ -114,6 +114,11 @@ code {
 	transition: opacity 500ms;
 }
 
-/* .Yuanti {
-  font-family: 'Yuanti SC', sans-serif;
-} */
+@font-face {
+  font-family: 'BandFont';
+  src: url('/ttf/MouldyCheeseRegular-WyMWG.ttf') format('truetype');
+}
+
+.band-font {
+  font-family: 'BandFont', sans-serif;
+}

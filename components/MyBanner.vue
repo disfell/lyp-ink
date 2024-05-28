@@ -13,10 +13,10 @@
           d="M546.808 477.072c-8.324-8.308-21.836-8.308-30.162 0-0.296 0.312-0.578 0.656-0.86 0.968l-0.046-0.062L94.556 899.164c-8.324 8.34-8.324 21.836 0 30.178 8.326 8.342 21.822 8.31 30.164 0l421.182-421.184-0.032-0.062c0.312-0.282 0.624-0.532 0.938-0.844 8.312-8.342 8.312-21.838 0-30.18z"
           fill="#646C77" p-id="2665"></path>
       </svg> -->
-      <NuxtLink to="/" class="text-4xl ml-1 pt-2
+      <NuxtLink to="/" class="text-5xl ml-1 pt-2
         bg-clip-text text-transparent bg-gradient-to-r
         from-stone-950 to-amber-500 dark:from-stone-100 dark:to-stone-500
-        font-black Yuanti">
+        font-black band-font">
         {{ appConfig.title }}
       </NuxtLink>
     </div>
