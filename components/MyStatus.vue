@@ -57,7 +57,7 @@ onMounted(() => {
 })
 
 const config = useAppConfig()
-const statusUrl = 'https://havegooday.top/api/status'
+const statusUrl = config.statusAPI
 const interval = config.statusFetchInterval
 const showCard = ref(false)
 const showSteamOnline = ref(false)
@@ -79,11 +79,10 @@ onUnmounted(() => {
 })
 
 async function getData() {
+  loadingMyStatus.value = true
   try {
-    loadingMyStatus.value = true
     const response = await fetch(statusUrl)
     statusData.value = await response.json()
-    loadingMyStatus.value = false
     showCard.value = // cond
       ('personastate' in statusData.value && statusData.value?.personastate && statusData.value?.personastate == 1) ||
       ('working' in statusData.value && statusData.value?.working) ||
@@ -98,6 +97,7 @@ async function getData() {
     // 捕获并处理请求或响应过程中的错误
     console.error('There was a problem with the fetch operation:', error);
   }
+  loadingMyStatus.value = false
 }
 </script>
 <style>

@@ -24,7 +24,7 @@
           <ContentRendererMarkdown :value="data"
             class="p-3 md:px-14 md:py-10 break-words prose 2xl:prose-lg dark:prose-invert prose-pre:bg-gray-100
             dark:prose-pre:bg-black"/>
-          </ContentRenderer>
+        </ContentRenderer>
         
         <!-- <div class="my-10"></div> -->
         <!-- <Waline :serverURL="havegooday" path="/about" :locale="locale" class="waline md:px-20"/> -->

@@ -7,5 +7,6 @@ export default defineAppConfig({
     address: "广州",
     domain: 'https://lyp.ink',
     cloudimg: 'https://cvgmcqzqpa.cloudimg.io',
-    statusFetchInterval: 89999
+    statusFetchInterval: 89999,
+    statusAPI: 'https://havegooday.top/api/status'
 })
