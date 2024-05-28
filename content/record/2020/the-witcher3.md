@@ -17,7 +17,7 @@ last: 2023/08/13
 
 # 石之心
 
-短小精悍的剧情，好久没这样的内心触动了，我会一直保留“爱丽丝”这把刀
+短小精悍的剧情，泪目，我会一直保留“爱丽丝”这把刀
 
 ![The Witcher 3: Wild Hunt – Hearts of Stone](/imgs/2020/the-witcher3/5.jpg)
 
@@ -27,7 +27,7 @@ last: 2023/08/13
 
 ![The Witcher 3: Wild Hunt – Blood and Wine](/imgs/2020/the-witcher3/6.jpg)
 
-# 通关了🎉
+# 通关 🎉
 
 ::MyImgs{:srcs="/imgs/2020/the-witcher3/7.jpg|*|/imgs/2020/the-witcher3/8.jpg|*|/imgs/2020/the-witcher3/9.jpg"}
 ::
