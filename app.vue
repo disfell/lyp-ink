@@ -4,7 +4,9 @@
     <Body class="antialiased dark:bg-neutral-800" />
     <div v-show="loading">
       <Transition>
-        <LazyMyLoading />
+        <div class="grid place-items-center h-screen">
+          <LazyMyLoading />
+        </div>
       </Transition>
     </div>
     <div v-show="!loading">

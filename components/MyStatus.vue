@@ -1,6 +1,11 @@
 <template>
   <div class="flex items-center justify-center">
-    <div v-if="showCard" class="block
+    <div v-if="loadingMyStatus" class="block
+        backdrop-blur-xl dark:bg-zinc-700/30 bg-gray-50 hover:bg-gray-100 dark:text-slate-400
+        z-50 px-3 py-2 rounded-2xl online-card">
+        <LazyMyLoading />
+    </div>
+    <div v-if="showCard && !loadingMyStatus" class="block
         backdrop-blur-xl dark:bg-zinc-700/30 bg-gray-50 hover:bg-gray-100 dark:text-slate-400
         z-50 px-3 py-2 rounded-2xl online-card">
       <div v-if="showSteamOnline" id="steam-card" class="mt-3">
@@ -59,6 +64,7 @@ const showSteamOnline = ref(false)
 const showSteamGaming = ref(false)
 const showListening = ref(false)
 const showMyStatus = ref(false)
+const loadingMyStatus = ref(false)
 const timer = ref(null)
 const statusData = ref({})
 
@@ -73,17 +79,24 @@ onUnmounted(() => {
 })
 
 async function getData() {
-  const statusDataTmp = await fetch(statusUrl)
-  statusData.value = await statusDataTmp.json()
-  showCard.value = // cond
-    ('personastate' in statusData.value && statusData.value?.personastate && statusData.value?.personastate == 1) ||
-    ('working' in statusData.value && statusData.value?.working) ||
-    ('listening_music' in statusData.value && statusData.value?.listening_music)
-  if (showCard) {
-    showSteamOnline.value = statusData.value?.personastate && statusData.value?.personastate == 1
-    showSteamGaming.value = 'gameid' in statusData.value && statusData.value?.gameid
-    showListening.value = 'listening_music' in statusData.value && statusData.value?.listening_music
-    showMyStatus.value = 'working' in statusData.value && statusData.value?.working
+  try {
+    loadingMyStatus.value = true
+    const response = await fetch(statusUrl)
+    statusData.value = await response.json()
+    loadingMyStatus.value = false
+    showCard.value = // cond
+      ('personastate' in statusData.value && statusData.value?.personastate && statusData.value?.personastate == 1) ||
+      ('working' in statusData.value && statusData.value?.working) ||
+      ('listening_music' in statusData.value && statusData.value?.listening_music)
+    if (showCard) {
+      showSteamOnline.value = statusData.value?.personastate && statusData.value?.personastate == 1
+      showSteamGaming.value = 'gameid' in statusData.value && statusData.value?.gameid
+      showListening.value = 'listening_music' in statusData.value && statusData.value?.listening_music
+      showMyStatus.value = 'working' in statusData.value && statusData.value?.working
+    }
+  } catch (error) { 
+    // 捕获并处理请求或响应过程中的错误
+    console.error('There was a problem with the fetch operation:', error);
   }
 }
 </script>
