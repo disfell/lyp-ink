@@ -14,11 +14,7 @@ export default defineEventHandler(async (event) => {
   const steamRecentlyURL = `http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v1?key=${steamToken}&steamid=${steamId}`
 
   const steamPlayingLastQryDiff = (current.getTime() - localCache.steamPlayingLastQry.getTime()) / (1000 * 60)
-  const steamRecentlyLastQryDiff = (current.getTime() - localCache.steamRecentlyLastQry.getTime()) / (1000 * 60)
-
-  // 请求 Steam Api
   if (steamPlayingLastQryDiff > 1) {
-    localCache.steamPlayingLastQry = current
     try {
       const result = await fetch(steamPlayingURL)
       const data = await result.json();
@@ -29,16 +25,16 @@ export default defineEventHandler(async (event) => {
       if (players['gameid'] in steamGameDictCN) {
         localCache.gameextrainfo_cn = steamGameDictCN[players['gameid']]
       }
-      console.log('qry steamPlayingURL' + current)
+      console.log(`current = ${current}, steamPlayingLastQry = ${localCache.steamPlayingLastQry}, steamPlayingLastQryDiff = ${steamPlayingLastQryDiff}`)
+      localCache.steamPlayingLastQry = current
     } catch (err) {
       localCache.steamPlayingLastQry = new Date('2000-01-01T00:00:00')
       console.error(err)
     }
   }
 
-  // 请求 Steam Api
+  const steamRecentlyLastQryDiff = (current.getTime() - localCache.steamRecentlyLastQry.getTime()) / (1000 * 60)
   if (steamRecentlyLastQryDiff > 60) {
-    localCache.steamRecentlyLastQry = current
     try {
       const result = await fetch(steamRecentlyURL)
       const data = await result.json() as ApiResponse
@@ -56,7 +52,8 @@ export default defineEventHandler(async (event) => {
         return simplifiedGame;
       })
       localCache.games = playerList
-      console.log('qry steamRecentlyURL' + current)
+      console.log(`current = ${current}, steamRecentlyLastQry = ${localCache.steamRecentlyLastQry}, steamRecentlyLastQryDiff = ${steamRecentlyLastQryDiff}`)
+      localCache.steamRecentlyLastQry = current
     } catch (err) {
       localCache.steamRecentlyLastQry = new Date('2000-01-01T00:00:00')
       console.error(err)
