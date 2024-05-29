@@ -1,8 +1,6 @@
 <template>
   <div class="flex items-center justify-center">
-    <div v-if="loadingMyStatus" class="block
-        backdrop-blur-xl dark:bg-zinc-700/30 bg-gray-50 hover:bg-gray-100 dark:text-slate-400
-        z-50 px-3 py-2 rounded-2xl online-card">
+    <div v-if="loadingMyStatus" class="block z-50 px-3 py-2 rounded-2xl">
         <LazyMyLoading />
     </div>
     <div v-if="showCard && !loadingMyStatus" class="block
@@ -81,7 +79,13 @@ onUnmounted(() => {
 async function getData() {
   loadingMyStatus.value = true
   try {
-    const response = await fetch(statusUrl)
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+    const response = await fetch(statusUrl, options)
     statusData.value = await response.json()
     showCard.value = // cond
       ('personastate' in statusData.value && statusData.value?.personastate && statusData.value?.personastate == 1) ||

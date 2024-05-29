@@ -8,5 +8,7 @@ export default defineAppConfig({
     domain: 'https://lyp.ink',
     cloudimg: 'https://cvgmcqzqpa.cloudimg.io',
     statusFetchInterval: 89999,
-    statusAPI: 'https://havegooday.top/api/status'
+    statusAPI: 'https://lyp.ink/api/status',
+    steamToken: '5DAD723252C842E593C878C79EFE179F',
+    steamId: '76561199109983986'
 })

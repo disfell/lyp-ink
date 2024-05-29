@@ -1,7 +1,5 @@
 <template>
-  <div v-if="loadingMyStatus" class="block
-    backdrop-blur-xl dark:bg-zinc-700/30 bg-gray-50 hover:bg-gray-100 dark:text-slate-400
-    z-50 px-3 py-2 rounded-2xl mt-6">
+  <div v-if="loadingMyStatus" class="block z-50 px-3 py-2 rounded-2xl">
     <LazyMyLoading />
   </div>
   <table v-if="!loadingMyStatus" class="text-sm">
@@ -54,7 +52,13 @@ const recentlyGames = ref([])
 async function getData() {
   loadingMyStatus.value = true
   try {
-    const response = await fetch(statusUrl)
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+    const response = await fetch(statusUrl, options)
     let data = await response.json()
     recentlyGames.value = data?.games
   } catch (error) { 
@@ -67,8 +71,11 @@ async function getData() {
 function minutesToHoursAndMinutes(minutes) {
   const hours = Math.floor(minutes / 60);
   const remainingMinutes = minutes % 60;
-  if (hours <= 0) {
-    return remainingMinutes + " 分钟"
+  if (hours <= 0 && remainingMinutes > 0) {
+    return remainingMinutes + "分钟"
+  }
+  if (hours > 0 && remainingMinutes <=0) {
+    return hours + "小时"
   }
   return hours + "小时" + remainingMinutes + "分钟"
 }

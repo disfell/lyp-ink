@@ -116,7 +116,7 @@ code {
 
 @font-face {
   font-family: 'BandFont';
-  src: url('/ttf/MouldyCheeseRegular-WyMWG.ttf') format('truetype');
+  src: url('~/assets/ttf/MouldyCheeseRegular-WyMWG.ttf') format('truetype');
 }
 
 .band-font {
