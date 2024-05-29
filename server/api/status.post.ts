@@ -25,7 +25,6 @@ export default defineEventHandler(async (event) => {
       if (players['gameid'] in steamGameDictCN) {
         localCache.gameextrainfo_cn = steamGameDictCN[players['gameid']]
       }
-      console.log(`current = ${current}, steamPlayingLastQry = ${localCache.steamPlayingLastQry}, steamPlayingLastQryDiff = ${steamPlayingLastQryDiff}`)
       localCache.steamPlayingLastQry = current.getTime()
     } catch (err) {
       localCache.steamPlayingLastQry = 0
@@ -52,7 +51,6 @@ export default defineEventHandler(async (event) => {
         return simplifiedGame;
       })
       localCache.games = playerList
-      console.log(`current = ${current}, steamRecentlyLastQry = ${localCache.steamRecentlyLastQry}, steamRecentlyLastQryDiff = ${steamRecentlyLastQryDiff}`)
       localCache.steamRecentlyLastQry = current.getTime()
     } catch (err) {
       localCache.steamRecentlyLastQry = 0
@@ -67,8 +65,8 @@ export default defineEventHandler(async (event) => {
   } else {
     localCache.working = true
   }
-  setResponseStatus(event, 200)
-  return localCache
+  const clone = Object.assign({}, localCache)
+  return clone
 })
 
 interface LocalCache {
