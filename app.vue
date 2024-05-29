@@ -65,13 +65,13 @@ function lod() {
   }
 }
 
-console.log(
-  `%c Build by %c Nuxt${config.devDependencies.nuxt} %c Tailwindcss${config.devDependencies.tailwindcss}`,
-  'background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff',
-  'background:#41b883 ; padding: 1px; color: #fff',
-  'background-color: rgb(96 165 250); padding: 1px; border-radius: 0 3px 3px 0;  color: #fff',
-  // 'background:transparent'
-)
+// console.log(
+//   `%c Build by %c Nuxt${config.devDependencies.nuxt} %c Tailwindcss${config.devDependencies.tailwindcss}`,
+//   'background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff',
+//   'background:#41b883 ; padding: 1px; color: #fff',
+//   'background-color: rgb(96 165 250); padding: 1px; border-radius: 0 3px 3px 0;  color: #fff',
+//   // 'background:transparent'
+// )
 
 const nuxtApp = useNuxtApp()
 const loading = ref(false)
