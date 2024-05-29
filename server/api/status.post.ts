@@ -29,6 +29,7 @@ export default defineEventHandler(async (event) => {
       if (players['gameid'] in steamGameDictCN) {
         localCache.gameextrainfo_cn = steamGameDictCN[players['gameid']]
       }
+      console.log('qry steamPlayingURL' + current)
     } catch (err) {
       localCache.steamPlayingLastQry = new Date('2000-01-01T00:00:00')
       console.error(err)
@@ -55,6 +56,7 @@ export default defineEventHandler(async (event) => {
         return simplifiedGame;
       })
       localCache.games = playerList
+      console.log('qry steamRecentlyURL' + current)
     } catch (err) {
       localCache.steamRecentlyLastQry = new Date('2000-01-01T00:00:00')
       console.error(err)
