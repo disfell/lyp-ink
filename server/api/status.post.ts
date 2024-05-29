@@ -13,7 +13,7 @@ export default defineEventHandler(async (event) => {
   const steamPlayingURL = `https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${steamToken}&steamids=${steamId}`
   const steamRecentlyURL = `http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v1?key=${steamToken}&steamid=${steamId}`
 
-  const steamPlayingLastQryDiff = (current.getTime() - localCache.steamPlayingLastQry.getTime()) / (1000 * 60)
+  const steamPlayingLastQryDiff = (current.getTime() - localCache.steamPlayingLastQry) / (1000 * 60)
   if (steamPlayingLastQryDiff > 1) {
     try {
       const result = await fetch(steamPlayingURL)
@@ -26,14 +26,14 @@ export default defineEventHandler(async (event) => {
         localCache.gameextrainfo_cn = steamGameDictCN[players['gameid']]
       }
       console.log(`current = ${current}, steamPlayingLastQry = ${localCache.steamPlayingLastQry}, steamPlayingLastQryDiff = ${steamPlayingLastQryDiff}`)
-      localCache.steamPlayingLastQry = current
+      localCache.steamPlayingLastQry = current.getTime()
     } catch (err) {
-      localCache.steamPlayingLastQry = new Date('2000-01-01T00:00:00')
+      localCache.steamPlayingLastQry = 0
       console.error(err)
     }
   }
 
-  const steamRecentlyLastQryDiff = (current.getTime() - localCache.steamRecentlyLastQry.getTime()) / (1000 * 60)
+  const steamRecentlyLastQryDiff = (current.getTime() - localCache.steamRecentlyLastQry) / (1000 * 60)
   if (steamRecentlyLastQryDiff > 60) {
     try {
       const result = await fetch(steamRecentlyURL)
@@ -53,9 +53,9 @@ export default defineEventHandler(async (event) => {
       })
       localCache.games = playerList
       console.log(`current = ${current}, steamRecentlyLastQry = ${localCache.steamRecentlyLastQry}, steamRecentlyLastQryDiff = ${steamRecentlyLastQryDiff}`)
-      localCache.steamRecentlyLastQry = current
+      localCache.steamRecentlyLastQry = current.getTime()
     } catch (err) {
-      localCache.steamRecentlyLastQry = new Date('2000-01-01T00:00:00')
+      localCache.steamRecentlyLastQry = 0
       console.error(err)
     }
   }
@@ -79,8 +79,8 @@ interface LocalCache {
   games: any;
   working: boolean,
   lastWorkingTime: number,
-  steamPlayingLastQry: Date,
-  steamRecentlyLastQry: Date,
+  steamPlayingLastQry: number,
+  steamRecentlyLastQry: number,
 }
 
 const localCache: LocalCache = {
@@ -91,8 +91,8 @@ const localCache: LocalCache = {
   games: [],
   working: false,
   lastWorkingTime: 0,
-  steamPlayingLastQry: new Date('2000-01-01T00:00:00'),
-  steamRecentlyLastQry: new Date('2000-01-01T00:00:00'),
+  steamPlayingLastQry: 0,
+  steamRecentlyLastQry: 0,
 }
 
 interface SteamGame {
