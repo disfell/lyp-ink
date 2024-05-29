@@ -6,9 +6,9 @@ export default defineEventHandler(async (event) => {
     localCache.lastWorkingTime = current.getTime()
     return
   }
-  const config = useAppConfig()
-  const steamToken = config.steamToken
-  const steamId = config.steamId
+  const runtimeConfig = useRuntimeConfig()
+  const steamToken = runtimeConfig.steamToken
+  const steamId = runtimeConfig.steamId
 
   const steamPlayingURL = `https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${steamToken}&steamids=${steamId}`
   const steamRecentlyURL = `http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v1?key=${steamToken}&steamid=${steamId}`

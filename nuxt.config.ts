@@ -1,5 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  runtimeConfig: {
+    steamToken: '5DAD723252C842E593C878C79EFE179F',
+    steamId: '76561199109983986'
+  },
   app: {
     rootId: "lyp-ink",
     head: {
