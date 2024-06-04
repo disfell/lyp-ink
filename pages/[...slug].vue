@@ -1,10 +1,10 @@
 <template>
   <NuxtLayout>
-    <main v-if="data" class="md:flex md:justify-center">
+    <main v-if="data" class="mx-auto max-w-3xl min-w-0">
       <Title>{{data.title}} - {{config.title}}</Title>
-      <div class="flex flex-col md:backdrop-blur-sm md:bg-zinc-50/30 md:dark:bg-zinc-700/30 md:shadow-inner py-10">
+      <div class="md:backdrop-blur-sm md:bg-zinc-50/30 md:dark:bg-zinc-700/30 md:shadow-inner py-10">
         
-        <div class="justify-center flex">
+        <div class="flex justify-center">
           <LazyMyBanner />
         </div>
 
@@ -26,7 +26,7 @@
             prose-pre:text-inherit dark:prose-pre:bg-zinc-600/30"/>
         </ContentRenderer>
 
-        <div class="justify-center flex mt-10">
+        <div class="flex justify-center mt-10">
           <MyClubLink2 />
         </div>
       </div>
