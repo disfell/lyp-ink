@@ -22,8 +22,8 @@
 
         <ContentRenderer :value="data">
           <ContentRendererMarkdown :value="data"
-            class="p-3 md:px-14 md:py-10 break-words prose 2xl:prose-lg dark:prose-invert prose-pre:bg-gray-100
-            dark:prose-pre:bg-black"/>
+            class="p-3 md:px-10 py-10 break-words prose 2xl:prose-lg dark:prose-invert prose-pre:bg-gray-100
+            prose-pre:text-inherit dark:prose-pre:bg-zinc-600/30 article-item"/>
         </ContentRenderer>
         
         <!-- <div class="my-10"></div> -->

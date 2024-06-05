@@ -41,7 +41,7 @@
 
 .ball-scale-multiple > div {
   position: absolute;
-  left: -30px;
+  left: -19px;
   top: 0;
   opacity: 0;
   margin: 0;
