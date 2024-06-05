@@ -45,7 +45,9 @@ onMounted(() => {
 })
 
 const config = useAppConfig()
-const statusUrl = config.statusAPI
+const domain = config.domain
+const localDomain = config.localDomain
+const statusURL = config.statusURL
 const loadingMyStatus = ref(false)
 const recentlyGames = ref([])
 
@@ -58,7 +60,8 @@ async function getData() {
         'Content-Type': 'application/json'
       }
     }
-    const response = await fetch(statusUrl, options)
+    const url = process.env.NODE_ENV === 'production' ? domain + statusURL : localDomain + statusURL
+    const response = await fetch(url, options)
     let data = await response.json()
     recentlyGames.value = data?.games
   } catch (error) { 
