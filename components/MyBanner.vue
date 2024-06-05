@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center">
-    <div class="flex items-stretch justify-center w-48 animate-pulse py-3 rounded-b-lg z-50 rounded-lg">
+    <div class="flex items-stretch justify-center w-48 py-3 rounded-b-lg z-50 rounded-lg">
       <!-- <svg t="1683531120204" class="icon h-12" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
         p-id="2662">
         <path

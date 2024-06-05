@@ -1,32 +1,27 @@
 <template>
   <NuxtLayout>
-		<div class="container mx-auto py-5">
+		<div class="mx-auto max-w-2xl min-w-0">
 			<Title>记录 - {{ appConfig.title }}</Title>
-			<div class="justify-center flex">
-				<LazyMyBanner />
+			<div class="md:backdrop-blur-sm md:bg-zinc-50/30 md:dark:bg-zinc-700/30 md:shadow-inner py-10">
+				<div class="justify-center flex">
+					<LazyMyBanner />
+				</div>
+
+				<div class="mt-16"></div>
+
+				<div v-for="(yearGroup, index) in groupedData" :key="index" class="px-6">
+					<h2 class="text-2xl font-bold my-2 dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-r dark:from-stone-100 dark:to-stone-500">{{ yearGroup.year }}</h2>
+					<ul class="list-none p-0 m-0">
+						<li v-for="item in yearGroup.items" :key="item.id" class="flex justify-between items-center border-dashed border-b dark:border-gray-500 py-2">
+							<span class="text-left">
+								<NuxtLink :to="item._path" noPrefetch class="flex-none w-fit dark:text-slate-300 2xl:text-xl hover-a">{{ item.title }}</NuxtLink>
+							</span>
+							<span class="text-right dark:text-slate-300">{{ formatDate(item.date) }}</span>
+						</li>
+					</ul>
+				</div>
 			</div>
 
-			<div class="mt-16"></div>
-			
-			<main class="flex justify-center px-10 md:px-0 ml-8">
-				<div class="flex flex-col w-full md:w-6/12 lg:w-4/12">
-					<div v-for="yearGroup in groupedData" :key="yearGroup.year" class="mb-3 article-item">
-						<span class="font-medium text-xl 2xl:text-4xl text-slate-500
-							dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-r dark:from-stone-100 dark:to-stone-500">{{ yearGroup.year }}</span>
-						<ul class="list-none list-inside text-slate-900">
-							<li v-for="item of yearGroup.items" :key="item.title" class="flex article-item">
-								<NuxtLink :to="item._path" noPrefetch class="flex-none w-fit dark:text-slate-300 2xl:text-xl hover-a">{{ item.title }}</NuxtLink>
-								<div class="grow px-4">
-									<div class="w-full h-1 border-t border-dashed border-slate-300 dark:border-slate-600 inline-block align-middle"></div>
-								</div>
-								<div class="flex-none w-20">
-									<div class="pb-1 text-xs 2xl:text-base text-slate-500 dark:text-slate-400 inline-block align-middle">{{ formatDate(item.date) }}日</div>
-								</div>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</main>
 			<div class="fixed right-3 bottom-3">
 				<div class="bg-slate-50 dark:bg-gray-400 grid place-content-center rounded-md">
 					<NuxtLink to="/">
