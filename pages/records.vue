@@ -10,11 +10,11 @@
 			
 			<main class="flex justify-center px-10 md:px-0 ml-8">
 				<div class="flex flex-col w-full md:w-6/12 lg:w-4/12">
-					<div v-for="yearGroup in groupedData" :key="yearGroup.year" class="mb-3">
+					<div v-for="yearGroup in groupedData" :key="yearGroup.year" class="mb-3 article-item">
 						<span class="font-medium text-xl 2xl:text-4xl text-slate-500
 							dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-r dark:from-stone-100 dark:to-stone-500">{{ yearGroup.year }}</span>
 						<ul class="list-none list-inside text-slate-900">
-							<li v-for="item of yearGroup.items" :key="item.title" class="flex">
+							<li v-for="item of yearGroup.items" :key="item.title" class="flex article-item">
 								<NuxtLink :to="item._path" noPrefetch class="flex-none w-fit dark:text-slate-300 2xl:text-xl hover-a">{{ item.title }}</NuxtLink>
 								<div class="grow px-4">
 									<div class="w-full h-1 border-t border-dashed border-slate-300 dark:border-slate-600 inline-block align-middle"></div>
@@ -48,7 +48,6 @@ useHead({
 })
 const appConfig = useAppConfig()
 const articles = await queryContent('record').only(['date', 'last', 'description', 'title', '_path']).find()
-console.log(articles)
 
 // 剔除 _path 为 '/records' 的项
 const data = articles.filter(item => item._path !== '/records');

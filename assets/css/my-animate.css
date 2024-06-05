@@ -6,3 +6,22 @@
 .my-spin {
   animation: my-spin 3s linear infinite;
 }
+
+/* assets/css/animations.css */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.article-item {
+  animation-name: slideDown;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  opacity: 0;
+}

@@ -45,8 +45,8 @@
   top: 0;
   opacity: 0;
   margin: 0;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   -webkit-animation: ball-scale-multiple 1s 0s linear infinite;
   animation: ball-scale-multiple 1s 0s linear infinite;
 }
