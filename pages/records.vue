@@ -12,7 +12,7 @@
 				<div v-for="(yearGroup, index) in groupedData" :key="index" class="px-6">
 					<h2 class="text-2xl font-bold my-2 dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-r dark:from-stone-100 dark:to-stone-500">{{ yearGroup.year }}</h2>
 					<ul class="list-none p-0 m-0">
-						<li v-for="item in yearGroup.items" :key="item.id" class="flex justify-between items-center border-dashed border-b dark:border-gray-500 py-2">
+						<li v-for="item in yearGroup.items" :key="item.id" class="flex justify-between items-center border-dashed border-b dark:border-gray-600/50 py-2">
 							<span class="text-left">
 								<NuxtLink :to="item._path" noPrefetch class="flex-none w-fit dark:text-slate-300 2xl:text-xl hover-a">{{ item.title }}</NuxtLink>
 							</span>
