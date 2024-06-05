@@ -3,49 +3,51 @@
     <div v-if="loadingMyStatus" class="block z-50 px-3 py-2 rounded-2xl">
         <LazyMyLoading />
     </div>
-    <div v-if="showCard && !loadingMyStatus" class="block
-        backdrop-blur-xl dark:bg-zinc-700/30 bg-gray-50 hover:bg-gray-100 dark:text-slate-400
-        z-50 px-3 py-2 rounded-2xl online-card">
-      <div v-if="showSteamOnline" id="steam-card" class="mt-3">
-        <div class="grid justify-items-center">
-          <button class="inline-flex items-baseline justify-center tooltip relative">
-            <LazyColorStatus class="mr-2" />
-            <img :src="showSteamOnline ? '/icon/steam/steam.svg' : '/favicon.png'" class="self-center w-6 h-6 rounded-full mx-1" />
-            <div class="ml-1">{{ showSteamOnline ? steamOnline1Text : '' }} {{ statusData.gameid ? steamOnline2Text : '' }}</div>
-            <div v-if="showSteamGaming" class="tooltiptext">
-              <button class="inline-flex items-baseline">
-                <img :src="showSteamGaming ? `/icon/steam/${statusData?.gameid}.jpg` : '/favicon.png'" class="self-center w-6 h-6 rounded-full mx-1"/>
-                <div class="ml-1">{{ typeof statusData.gameextrainfo_cn 
-                  !== 'undefined' && statusData.gameextrainfo_cn !== null && statusData.gameextrainfo_cn !== '' ? 
-                  statusData.gameextrainfo_cn : statusData.gameextrainfo }}</div>
-              </button>
-            </div>
-          </button>
-        </div>
-      </div>
-      <div v-if="showMyStatus" id="working-card" class="mt-3">
-        <div class="grid justify-items-center">
-          <button class="inline-flex items-baseline justify-center">
-            <div class="self-center w-6 h-6 rounded-sm mx-1 ">🧑🏻‍💻</div>
-            <div class="self-center ml-1">{{ showMyStatus ? workingText : '' }}</div>
-          </button>
-        </div>
-      </div>
-      <div v-if="showListening" id="music-card" class="mt-3">
-        <div class="grid justify-items-center">
-          <button class="inline-flex items-baseline justify-center tooltip relative">
-            <div class="tooltiptext">
-              <div>
-                <p class="self-center">{{ showListening ? '《' + statusData?.listening_music + '》': '' }}</p>
-                <p class="self-center">{{ showListening ? statusData?.listening_artist : '' }}</p>
+    <transition name="bounce">
+      <div v-if="showCard && !loadingMyStatus" class="block
+          backdrop-blur-xl dark:bg-zinc-700/30 bg-gray-50 hover:bg-gray-100 dark:text-slate-400
+          z-50 px-3 py-2 rounded-2xl online-card">
+        <div v-if="showSteamOnline" id="steam-card" class="mt-3">
+          <div class="grid justify-items-center">
+            <button class="inline-flex items-baseline justify-center tooltip relative">
+              <LazyColorStatus class="mr-2" />
+              <img :src="showSteamOnline ? '/icon/steam/steam.svg' : '/favicon.png'" class="self-center w-6 h-6 rounded-full mx-1" />
+              <div class="ml-1">{{ showSteamOnline ? steamOnline1Text : '' }} {{ statusData.gameid ? steamOnline2Text : '' }}</div>
+              <div v-if="showSteamGaming" class="tooltiptext">
+                <button class="inline-flex items-baseline">
+                  <img :src="showSteamGaming ? `/icon/steam/${statusData?.gameid}.jpg` : '/favicon.png'" class="self-center w-6 h-6 rounded-full mx-1"/>
+                  <div class="ml-1">{{ typeof statusData.gameextrainfo_cn 
+                    !== 'undefined' && statusData.gameextrainfo_cn !== null && statusData.gameextrainfo_cn !== '' ? 
+                    statusData.gameextrainfo_cn : statusData.gameextrainfo }}</div>
+                </button>
               </div>
-            </div>
-            <img :src="showListening ? `/icon/apple/AppleMusic.svg` : '/favicon.png'" class="self-center w-6 h-6 rounded-sm mx-1 my-spin"/>
-            <div class="self-center ml-1">{{ showListening ? listeningText : '' }}</div>
-          </button>
+            </button>
+          </div>
+        </div>
+        <div v-if="showMyStatus" id="working-card" class="mt-3">
+          <div class="grid justify-items-center">
+            <button class="inline-flex items-baseline justify-center">
+              <div class="self-center w-6 h-6 rounded-sm mx-1 ">🧑🏻‍💻</div>
+              <div class="self-center ml-1">{{ showMyStatus ? workingText : '' }}</div>
+            </button>
+          </div>
+        </div>
+        <div v-if="showListening" id="music-card" class="mt-3">
+          <div class="grid justify-items-center">
+            <button class="inline-flex items-baseline justify-center tooltip relative">
+              <div class="tooltiptext">
+                <div>
+                  <p class="self-center">{{ showListening ? '《' + statusData?.listening_music + '》': '' }}</p>
+                  <p class="self-center">{{ showListening ? statusData?.listening_artist : '' }}</p>
+                </div>
+              </div>
+              <img :src="showListening ? `/icon/apple/AppleMusic.svg` : '/favicon.png'" class="self-center w-6 h-6 rounded-sm mx-1 my-spin"/>
+              <div class="self-center ml-1">{{ showListening ? listeningText : '' }}</div>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </transition>
   </div>
 </template>
 <script setup>
@@ -55,7 +57,9 @@ onMounted(() => {
 })
 
 const config = useAppConfig()
-const statusUrl = config.statusAPI
+const domain = config.domain
+const localDomain = config.localDomain
+const statusURL = config.statusURL
 const interval = config.statusFetchInterval
 const showCard = ref(false)
 const showSteamOnline = ref(false)
@@ -85,7 +89,8 @@ async function getData() {
         'Content-Type': 'application/json'
       }
     }
-    const response = await fetch(statusUrl, options)
+    const url = process.env.NODE_ENV === 'production' ? domain + statusURL : localDomain + statusURL
+    const response = await fetch(url, options)
     statusData.value = await response.json()
     showCard.value = // cond
       ('personastate' in statusData.value && statusData.value?.personastate && statusData.value?.personastate == 1) ||
@@ -105,14 +110,22 @@ async function getData() {
 }
 </script>
 <style>
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.8s ease;
+.bounce-enter-active {
+  animation: bounce-in 0.5s;
 }
-
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
+.bounce-leave-active {
+  animation: bounce-in 0.5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .online-card *:first-child {

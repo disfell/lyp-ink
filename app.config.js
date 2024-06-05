@@ -6,7 +6,8 @@ export default defineAppConfig({
     websiteOwner: "梁某某",
     address: "广州",
     domain: 'https://lyp.ink',
+    localDomain: 'http://localhost:3000',
     cloudimg: 'https://cvgmcqzqpa.cloudimg.io',
     statusFetchInterval: 89999,
-    statusAPI: 'https://lyp.ink/api/status'
+    statusURL: '/api/status'
 })
