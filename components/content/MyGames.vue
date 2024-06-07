@@ -20,7 +20,7 @@
       <tr v-for="(i, idx) in recentlyGames" :id="idx" :key="idx">
         <td class="border-b border-slate-100 dark:border-zinc-800 pl-3 py-4 text-slate-500 dark:text-inherit">
           <div class="flex items-center">
-            <img v-if="i.appid" :src="`/icon/steam/${i.appid}.jpg`" class="rounded-sm mr-1 w-6" />
+            <img v-if="i.game_id" :src="`/icon/steam/${i.game_id}.jpg`" class="rounded-sm mr-1 w-6" alt=""/>
             
             <span v-if="idx == 0"> 🥇 </span>
             <span v-if="idx == 1"> 🥈 </span>
@@ -30,10 +30,10 @@
           </div>
         </td>
         <td class="border-b border-slate-100 dark:border-zinc-800 py-4 text-slate-500 dark:text-inherit text-right">
-          {{ minutesToHoursAndMinutes(i.playtime_2weeks) }}
+          {{ minutesToHoursAndMinutes(i.play_time_2weeks) }}
         </td>
         <td class="border-b border-slate-100 dark:border-zinc-800 pr-3 py-4 text-slate-500 dark:text-inherit text-right">
-          {{ minutesToHoursAndMinutes(i.playtime_forever) }}
+          {{ minutesToHoursAndMinutes(i.play_time) }}
         </td>
       </tr>
     </tbody>
@@ -47,25 +47,17 @@ onMounted(() => {
 const config = useAppConfig()
 const domain = config.domain
 const localDomain = config.localDomain
-const statusURL = config.statusURL
+const gamesURL = config.gamesURL
 const loadingMyStatus = ref(false)
 const recentlyGames = ref([])
 
 async function getData() {
   loadingMyStatus.value = true
   try {
-    const options = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
-    const url = process.env.NODE_ENV === 'production' ? domain + statusURL : localDomain + statusURL
-    const response = await fetch(url, options)
+    const response = await fetch(process.env.NODE_ENV === 'production' ? domain + gamesURL : localDomain + gamesURL)
     let data = await response.json()
-    recentlyGames.value = data?.games
+    recentlyGames.value = data?.data
   } catch (error) { 
-    // 捕获并处理请求或响应过程中的错误
     console.error('There was a problem with the fetch operation:', error);
   }
   loadingMyStatus.value = false

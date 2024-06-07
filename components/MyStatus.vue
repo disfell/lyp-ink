@@ -11,41 +11,25 @@
           <div class="grid justify-items-center">
             <button class="inline-flex items-baseline justify-center tooltip relative">
               <LazyColorStatus class="mr-2" />
-              <img :src="showSteamOnline ? '/icon/steam/steam.svg' : '/favicon.png'" class="self-center w-6 h-6 rounded-full mx-1" />
-              <div class="ml-1">{{ showSteamOnline ? steamOnline1Text : '' }} {{ statusData.gameid ? steamOnline2Text : '' }}</div>
+              <img src="/icon/steam/steam.svg" class="self-center w-6 h-6 rounded-full mx-1" alt=""/>
+              <div class="ml-1">{{ showSteamOnline ? steamOnline1Text : '' }} {{ showSteamGaming ? steamOnline2Text : '' }}</div>
               <div v-if="showSteamGaming" class="tooltiptext">
                 <button class="inline-flex items-baseline">
-                  <img :src="showSteamGaming ? `/icon/steam/${statusData?.gameid}.jpg` : '/favicon.png'" class="self-center w-6 h-6 rounded-full mx-1"/>
-                  <div class="ml-1">{{ typeof statusData.gameextrainfo_cn 
-                    !== 'undefined' && statusData.gameextrainfo_cn !== null && statusData.gameextrainfo_cn !== '' ? 
-                    statusData.gameextrainfo_cn : statusData.gameextrainfo }}</div>
+                  <img :src="showSteamGaming ? `/icon/steam/${statusData.game_id}.jpg` : '/favicon.png'" class="self-center w-6 h-6 rounded-full mx-1" alt=""/>
+                  <div class="ml-1">{{ statusData.game_cn ? statusData.game_cn : statusData.game }}</div>
                 </button>
               </div>
             </button>
           </div>
         </div>
-        <div v-if="showMyStatus" id="working-card" class="mt-3">
+        <!-- <div v-if="showMyStatus" id="working-card" class="mt-3">
           <div class="grid justify-items-center">
             <button class="inline-flex items-baseline justify-center">
               <div class="self-center w-6 h-6 rounded-sm mx-1 ">🧑🏻‍💻</div>
               <div class="self-center ml-1">{{ showMyStatus ? workingText : '' }}</div>
             </button>
           </div>
-        </div>
-        <div v-if="showListening" id="music-card" class="mt-3">
-          <div class="grid justify-items-center">
-            <button class="inline-flex items-baseline justify-center tooltip relative">
-              <div class="tooltiptext">
-                <div>
-                  <p class="self-center">{{ showListening ? '《' + statusData?.listening_music + '》': '' }}</p>
-                  <p class="self-center">{{ showListening ? statusData?.listening_artist : '' }}</p>
-                </div>
-              </div>
-              <img :src="showListening ? `/icon/apple/AppleMusic.svg` : '/favicon.png'" class="self-center w-6 h-6 rounded-sm mx-1 my-spin"/>
-              <div class="self-center ml-1">{{ showListening ? listeningText : '' }}</div>
-            </button>
-          </div>
-        </div>
+        </div> -->
       </div>
     </transition>
   </div>
@@ -59,12 +43,11 @@ onMounted(() => {
 const config = useAppConfig()
 const domain = config.domain
 const localDomain = config.localDomain
-const statusURL = config.statusURL
+const steamStatusURL = config.steamStatusURL
 const interval = config.statusFetchInterval
 const showCard = ref(false)
 const showSteamOnline = ref(false)
 const showSteamGaming = ref(false)
-const showListening = ref(false)
 const showMyStatus = ref(false)
 const loadingMyStatus = ref(false)
 const timer = ref(null)
@@ -73,7 +56,6 @@ const statusData = ref({})
 const steamOnline1Text = 'Steam 在线'
 const steamOnline2Text = ', TA 正在游戏中'
 const workingText = 'TA 正在上班'
-const listeningText = 'TA 正在听歌'
 
 onUnmounted(() => {
   clearInterval(timer.value)
@@ -83,27 +65,21 @@ onUnmounted(() => {
 async function getData() {
   loadingMyStatus.value = true
   try {
-    const options = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
-    const url = process.env.NODE_ENV === 'production' ? domain + statusURL : localDomain + statusURL
-    const response = await fetch(url, options)
-    statusData.value = await response.json()
-    showCard.value = // cond
-      ('personastate' in statusData.value && statusData.value?.personastate && statusData.value?.personastate == 1) ||
-      ('working' in statusData.value && statusData.value?.working) ||
-      ('listening_music' in statusData.value && statusData.value?.listening_music)
+    const steamStatusResp = await fetch(process.env.NODE_ENV === 'production' ? domain + steamStatusURL : localDomain + steamStatusURL)
+    const steamStatus = await steamStatusResp.json()
+
+    const steamOnline = 'status' in steamStatus && steamStatus.status && steamStatus.status == 1
+    const steamGaming = 'game_id' in steamStatus
+
+    showCard.value = steamOnline
     if (showCard) {
-      showSteamOnline.value = statusData.value?.personastate && statusData.value?.personastate == 1
-      showSteamGaming.value = 'gameid' in statusData.value && statusData.value?.gameid
-      showListening.value = 'listening_music' in statusData.value && statusData.value?.listening_music
-      showMyStatus.value = 'working' in statusData.value && statusData.value?.working
+      showSteamOnline.value = steamOnline
+      showSteamGaming.value = steamGaming
+      statusData.value['game_id'] = steamStatus.game_id
+      statusData.value['game'] = steamStatus.game
+      statusData.value['game_cn'] = steamStatus?.game_cn
     }
   } catch (error) { 
-    // 捕获并处理请求或响应过程中的错误
     console.error('There was a problem with the fetch operation:', error);
   }
   loadingMyStatus.value = false
