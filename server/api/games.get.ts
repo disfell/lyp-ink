@@ -30,6 +30,7 @@ export default defineEventHandler(async (event) => {
   if (supabaseList != null && supabaseList.length > 0) {
     const pastDate = dayjs(supabaseList[0]['updated_time'])
     const over1day = dayjs().diff(pastDate, 'day') >= 1
+    console.log(over1day)
     if (!over1day) {
       return {data: supabaseList, from: 'database'}
     }
@@ -45,7 +46,6 @@ export default defineEventHandler(async (event) => {
     const playerList = playerListTmp.map((game, idx) => {
       // 检查字典B中是否有对应的appid，并更新name字段
       return {
-        id: idx + 1,
         game_id: String(game.appid),
         name: game.name,
         name_cn: steamGameDictCN[game.appid] || game.name,
