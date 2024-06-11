@@ -40,6 +40,9 @@
   </table>
 </template>
 <script setup>
+import { inject } from 'vue'
+const state = inject('state')
+
 onMounted(() => {
   getData()
 })
@@ -53,12 +56,17 @@ const recentlyGames = ref([])
 
 async function getData() {
   loadingMyStatus.value = true
-  try {
-    const response = await fetch(process.env.NODE_ENV === 'production' ? domain + gamesURL : localDomain + gamesURL)
-    let data = await response.json()
-    recentlyGames.value = data?.data
-  } catch (error) { 
-    console.error('There was a problem with the fetch operation:', error);
+  if (state.steamGames.length <= 0) {
+    try {
+      const response = await fetch(process.env.NODE_ENV === 'production' ? domain + gamesURL : localDomain + gamesURL)
+      let data = await response.json()
+      recentlyGames.value = data?.data
+      state.steamGames = data?.data
+    } catch (error) { 
+      console.error('There was a problem with the fetch operation:', error);
+    }
+  } else {
+    recentlyGames.value = state.steamGames
   }
   loadingMyStatus.value = false
 }

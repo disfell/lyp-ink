@@ -17,7 +17,13 @@
   </div>
 </template>
 <script setup>
-import config from './package.json'
+import { reactive, provide } from 'vue';
+
+const state = reactive({
+  steamGames: []
+})
+// 提供 state 以便在其他组件中使用
+provide('state', state);
 
 onUnmounted(()=>{
   Fancybox.close()
