@@ -3,6 +3,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     steamToken: '5DAD723252C842E593C878C79EFE179F',
     steamId: '76561199109983986',
+    supabaseAnnoKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndieXhsdGN3c3N1c2RheXdpc3BlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTc3MjU0NzcsImV4cCI6MjAzMzMwMTQ3N30.k3wZYezUISBhadwguP978NCqfSMFmKhscrTYQ_nFcDE',
     supabaseKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndieXhsdGN3c3N1c2RheXdpc3BlIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcxNzcyNTQ3NywiZXhwIjoyMDMzMzAxNDc3fQ.-eMYgsyomyralCftLprDOzV89B-pRaqNGY595opqq1Y'
   },
   app: {

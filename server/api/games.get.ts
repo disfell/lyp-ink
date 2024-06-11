@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
   const steamToken = runtimeConfig.steamToken
   const steamId = runtimeConfig.steamId
   const steamGameDictCN: { [key: string]: string } = appConfig.steamGameDictCN
-  const supabase = createClient(appConfig.supabaseUrl, runtimeConfig.supabaseKey)
+  const supabase = createClient(appConfig.supabaseUrl, runtimeConfig.supabaseAnnoKey)
   const steamRecentlyURL = `http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v1?key=${steamToken}&steamid=${steamId}`
 
   // 先从数据库获取
