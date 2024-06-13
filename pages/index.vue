@@ -1,27 +1,31 @@
 <template>
   <NuxtLayout>
-    <div class="min-h-screen grid place-content-center">
+    <div class="min-h-screen grid place-content-center article-item">
       <Title>{{ appConfig.title }}</Title>
-      <LazyMyBanner />
-      <blockquote class="text-center text-xl leading-8 text-gray-900 dark:text-zinc-400 sm:text-2xl sm:leading-9">
-        <p id="slogan_hidden" class="hidden">{{ appConfig.sloganHidden }}</p>
-        <p id="slogan" class="font-black"></p>
-      </blockquote>
-      <img :data-src="refinedSrc"
-        src="/loading/OIP-C.jpg"
-        data-sizes="auto"
-        class="lazyload mt-8 mx-auto h-20 w-20 border border-zinc-300 hover:border-zinc-400
-        dark:border-slate-400 dark:hover:border-slate-300 rounded-lg hover:shadow-inner"/>
-      <div class="py-3 divide-y divide-gray-300 dark:divide-gray-600 mt-4">
-        <div></div>
-        <div></div>
+      <div class="md:shadow md:hover:shadow-lg md:backdrop-blur-xl md:bg-zinc-50/30 md:px-24 md:py-12
+        dark:shadow-none dark:hover:shadow-none dark:backdrop-blur-0 dark:bg-transparent 
+        rounded-lg transition ease-in-out delay-150">
+        <LazyMyBanner />
+        <blockquote class="text-center text-xl leading-8 text-gray-900 dark:text-zinc-400 sm:text-2xl sm:leading-9">
+          <p id="slogan_hidden" class="hidden">{{ appConfig.sloganHidden }}</p>
+          <p id="slogan" class="font-black"></p>
+        </blockquote>
+      
+        <img :data-src="refinedSrc"
+          src="/loading/OIP-C.jpg"
+          data-sizes="auto"
+          class="lazyload mt-8 mx-auto h-20 w-20 rounded-full"/>
+        <div class="py-3 divide-y divide-gray-300 dark:divide-gray-600 mt-4">
+          <div></div>
+          <div></div>
+        </div>
+        <MyNav />
+        <div class="py-3 divide-y divide-gray-300 dark:divide-gray-600">
+          <div></div>
+          <div></div>
+        </div>
+        <MyStatus class="mt-5"/>
       </div>
-      <MyNav />
-      <div class="py-3 divide-y divide-gray-300 dark:divide-gray-600">
-        <div></div>
-        <div></div>
-      </div>
-      <MyStatus class="mt-5"/>
       <LazyMyClubLink />
     </div>
   </NuxtLayout>
