@@ -19,7 +19,7 @@
                 </button> -->
               <!-- </div> -->
             </button>
-            <button class="inline-flex items-baseline justify-center relative mt-4 jelly-effect">
+            <button v-if="showSteamGaming" class="inline-flex items-baseline justify-center relative mt-4 jelly-effect">
               <img :src="showSteamGaming ? `/icon/steam/${statusData.game_id}.jpg` : '/favicon.png'" class="self-center w-6 h-6 rounded-full mx-1" alt=""/>
               <div class="ml-1">{{ statusData.game_cn ? statusData.game_cn : statusData.game }}</div>
             </button>
