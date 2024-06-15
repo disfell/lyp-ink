@@ -2,9 +2,10 @@
   <NuxtLayout>
     <div class="min-h-screen grid place-content-center article-item">
       <Title>{{ appConfig.title }}</Title>
-      <div class="md:shadow md:hover:shadow-lg md:backdrop-blur-xl md:bg-zinc-50/30 md:px-24 md:py-12
-        dark:shadow-none dark:hover:shadow-none dark:backdrop-blur-0 dark:bg-transparent 
-        rounded-lg transition ease-in-out delay-150">
+      <div class="md:px-24 md:py-12 md:shadow
+        md:bg-stone-50 md:dark:bg-zinc-700/30
+        border-slate-300 dark:border-slate-600
+        rounded-2xl transition ease-in-out delay-150">
         <LazyMyBanner />
         <blockquote class="text-center text-xl leading-8 text-gray-900 dark:text-zinc-400 sm:text-2xl sm:leading-9">
           <p id="slogan_hidden" class="hidden">{{ appConfig.sloganHidden }}</p>
@@ -13,8 +14,8 @@
       
         <img :data-src="refinedSrc"
           src="/loading/OIP-C.jpg"
-          data-sizes="auto"
-          class="lazyload mt-8 mx-auto h-20 w-20 rounded-full"/>
+          data-sizes="auto" alt=""
+          class="lazyload mt-8 mx-auto h-24 w-24 rounded-full shadow-inner"/>
         <div class="py-3 divide-y divide-gray-300 dark:divide-gray-600 mt-4">
           <div></div>
           <div></div>

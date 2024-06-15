@@ -29,7 +29,7 @@ export default defineEventHandler(async (event) => {
 
   if (supabaseList != null && supabaseList.length > 0) {
     const pastDate = dayjs(supabaseList[0]['updated_time'])
-    const over1day = dayjs().diff(pastDate, 'day') >= 1
+    const over1day = dayjs().diff(pastDate, 'day') >= 0.5
     if (!over1day) {
       return {data: supabaseList, from: 'database'}
     }

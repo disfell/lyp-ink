@@ -25,10 +25,6 @@
             class="p-3 md:px-10 py-10 break-words prose 2xl:prose-lg dark:prose-invert prose-pre:bg-gray-100
             prose-pre:text-inherit dark:prose-pre:bg-zinc-600/30 article-item"/>
         </ContentRenderer>
-        
-        <!-- <div class="my-10"></div> -->
-        <!-- <Waline :serverURL="havegooday" path="/about" :locale="locale" class="waline md:px-20"/> -->
-        <!-- <p class="text-center text-sm dark:text-slate-400">评论已关闭</p> -->
 
         <div class="flex justify-center mt-10">
           <MyClubLink2 />
@@ -51,61 +47,6 @@
 const { path } = useRoute()
 const config = useAppConfig()
 const { data } = await useAsyncData(path, () => queryContent().where({ _path: path }).findOne())
-// https://waline.js.org/cookbook/import/project.html
-// import { Waline } from '@waline/client/component'
-// import '@waline/client/dist/waline.css'
-// const havegooday = 'https://www.havegooday.top/'
-// const locale = {
-//   nick: '昵称',
-//   nickError: '昵称不能少于3个字符',
-//   mail: '邮箱',
-//   mailError: '请填写正确的邮件地址',
-//   link: '网址',
-//   optional: '可选',
-//   placeholder: '欢迎评论',
-//   sofa: '来发评论吧~',
-//   submit: '提交',
-//   like: '喜欢',
-//   cancelLike: '取消喜欢',
-//   reply: '回复',
-//   cancelReply: '取消回复',
-//   comment: '评论',
-//   refresh: '刷新',
-//   more: '加载更多...',
-//   preview: '预览',
-//   emoji: '表情',
-//   uploadImage: '上传图片',
-//   seconds: '秒前',
-//   minutes: '分钟前',
-//   hours: '小时前',
-//   days: '天前',
-//   now: '刚刚',
-//   uploading: '正在上传',
-//   login: '登录',
-//   logout: '退出',
-//   admin: '博主',
-//   sticky: '置顶',
-//   word: '字',
-//   wordHint: '评论字数应在 $0 到 $1 字之间！\n当前字数：$2',
-//   anonymous: '匿名',
-//   level0: '潜水',
-//   level1: '冒泡',
-//   level2: '吐槽',
-//   level3: '活跃',
-//   level4: '话痨',
-//   level5: '传说',
-//   gif: '表情包',
-//   gifSearchPlaceholder: '搜索表情包',
-//   profile: '个人资料',
-//   approved: '通过',
-//   waiting: '待审核',
-//   spam: '垃圾',
-//   unsticky: '取消置顶',
-//   oldest: '按倒序',
-//   latest: '按正序',
-//   hottest: '按热度',
-//   reactionTitle: '你认为这篇文章怎么样？',
-// };
 </script>
 <style>
 .max-w-xs-5 {
