@@ -12,15 +12,17 @@ last: 2023/09/05
 
 这是 AppleScript 代码，其功能：获取 MacOS 里 Apple Music 播放中的音乐信息。于是我就想到了模仿 QQ ，做个在线听歌状态的功能，效果如下。
 
-![Playing Music Info](/imgs/2023/my-online-status/1.jpg)
+::MyImg{src="/imgs/2023/my-online-status/1.jpg" alt="Playing Music Info"}
+::
 
-另外 [Travelers' encore](https://www.bilibili.com/video/BV1Eh411J7Us?vd_source=0e62add6e473b5930bb615aa8cf1d2ba) 真好听🎗
+另外 [Travelers' encore](https://www.bilibili.com/video/BV1Eh411J7Us?vd_source=0e62add6e473b5930bb615aa8cf1d2ba) 真好听![](/emoji/kx.webp){class="inline-flex items-baseline h-8 w-8"}
 
 # AppleScript
 
 MacOS 自带一个叫 **脚本编辑器** 的软件，可用于运行 AppleScript。关于 AppleScript，苹果官方还有详细文档，但是全英文，淦！
 
-![Playing Music Info](/imgs/2023/my-online-status/2.jpg)
+::MyImg{src="/imgs/2023/my-online-status/2.jpg" alt="Playing Music Info"}
+::
 
 # 思路
 
@@ -79,11 +81,13 @@ end idle
 
 如下图所示。
 
-![Export as an App](/imgs/2023/my-online-status/3.jpg)
+::MyImg{src="/imgs/2023/my-online-status/3.jpg" alt="Export as an App"}
+::
 
 接着执行导出的 App，最后设置为开机自启动，这样只要电脑还在运作中，代码就会一直监控并且推送数据到服务器。
 
-![Export as an App](/imgs/2023/my-online-status/4.jpg)
+::MyImg{src="/imgs/2023/my-online-status/4.jpg" alt="Export as an App"}
+::
 
 
 # 缺点&疑惑

@@ -66,7 +66,7 @@ export default defineNuxtConfig({
     markdown: {
       mdc: true,
       tags: {
-        img: 'ProseImg',
+        // img: 'ProseImg',
         a: 'ProseA',
         h1: 'ProseH1',
         h2: 'ProseH2',

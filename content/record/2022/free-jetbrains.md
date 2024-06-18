@@ -44,18 +44,22 @@ last: 2023/04/19
 
 申请成功的话，官方会下发附带 License 的 PDF 邮件
 
-![邮件](/imgs/2022/free-jetbrains/free-jetbrains-1.png)
+::MyImg{src="/imgs/2022/free-jetbrains/free-jetbrains-1.png" alt="邮件"}
+::
 
 # 激活
 
 进入授权页面，找到以下内容。这一步骤是为了关联账号，操作完成之后就可以正常使用了。
 
-![激活](/imgs/2022/free-jetbrains/free-jetbrains-2.png)
+::MyImg{src="/imgs/2022/free-jetbrains/free-jetbrains-2.png" alt="激活"}
+::
 
-![激活](/imgs/2022/free-jetbrains/free-jetbrains-3.png)
+::MyImg{src="/imgs/2022/free-jetbrains/free-jetbrains-3.png" alt="激活"}
+::
 
 # 使用
 
-![许可](/imgs/2022/free-jetbrains/free-jetbrains-4.png) 
+::MyImg{src="/imgs/2022/free-jetbrains/free-jetbrains-4.png" alt="许可"}
+::
 
 挺感谢的，可以免费使用 Jetbrains 的全家桶，但是买的话真的好贵啊。

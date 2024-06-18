@@ -250,7 +250,8 @@ final Node<K,V>[] resize()
 
 大致意思就是说，当超过限制的时候会 resize，然而又因为我们使用的是2次幂的扩展(指长度扩为原来2倍)，所以，元素的位置要么是在原位置，要么是在原位置再移动2次幂的位置。
 
-![java-hashmap](/imgs/2019/java-hashmap/java-hashmap.png)
+::MyImg{src="/imgs/2019/java-hashmap/java-hashmap.png" alt="java-hashmap"}
+::
 
 观察上图扩容后(8 -> 16)的数据分布，要么是改变了索引，要么是不变，改变的就是移动2次幂的位置(+8)。
 

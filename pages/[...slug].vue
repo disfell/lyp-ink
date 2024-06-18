@@ -31,6 +31,18 @@
         </div>
       </div>
 
+      <div v-show="isTopBtnVisible" class="fixed right-3 bottom-12">
+        <div class="bg-slate-50 dark:bg-gray-400 grid place-content-center rounded-md">
+          <button
+            @click="scrollToTop"
+          >
+            <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75 12 3m0 0 3.75 3.75M12 3v18" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
       <div class="fixed right-3 bottom-3">
         <div class="bg-slate-50 dark:bg-gray-400 grid place-content-center rounded-md">
           <NuxtLink to="/records" noPrefetch>
@@ -47,4 +59,34 @@
 const { path } = useRoute()
 const config = useAppConfig()
 const { data } = await useAsyncData(path, () => queryContent().where({ _path: path }).findOne())
+const isTopBtnVisible = ref(false)
+let animationFrameId = null // 用于存储requestAnimationFrame的ID
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  })
+  // 滚动时隐藏按钮
+  isTopBtnVisible.value = false
+}
+
+function handleScroll() {
+  if (animationFrameId) {
+    // 如果已经有一个动画帧在队列中，取消它
+    cancelAnimationFrame(animationFrameId);
+  }
+  animationFrameId = requestAnimationFrame(() => {
+    // 这里放置实际的滚动逻辑
+    isTopBtnVisible.value = window.scrollY > 100; // 根据需要调整触发显示的阈值
+  })
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+})
 </script>

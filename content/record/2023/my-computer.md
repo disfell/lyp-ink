@@ -28,11 +28,14 @@ last: 2023/10/18 20:33:00
 4.28 凌晨1点装机完成并且顺利点亮
 
 # 成果
-
-![1](/imgs/2023/my-computer/1.jpeg)
-![1](/imgs/2023/my-computer/2.png)
-![1](/imgs/2023/my-computer/3.png)
-![1](/imgs/2023/my-computer/4.png)
+::MyImg{src="/imgs/2023/my-computer/1.jpeg" alt="PC"}
+::
+::MyImg{src="/imgs/2023/my-computer/2.png" alt="PC"}
+::
+::MyImg{src="/imgs/2023/my-computer/3.png" alt="PC"}
+::
+::MyImg{src="/imgs/2023/my-computer/4.png" alt="PC"}
+::
 
 凌乱在一地板上的零件、纸盒，终于一点点的处理完了......
 

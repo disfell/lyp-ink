@@ -3,8 +3,8 @@ title: 我的人格测试
 date: 2023/07/25
 ---
 
-::MyWarning
-人格测试相关，仅供参考
+::MyAlert{type="warning"}
+**人格测试** 相关，仅供参考
 ::
 
 　　被人安利测了下[16人格](https://www.16personalities.com/ch/%E4%BA%BA%E6%A0%BC%E6%B5%8B%E8%AF%95)，结果是：INFP-A，[调停者](https://www.16personalities.com/ch/infp-%E4%BA%BA%E6%A0%BC)，不出意料。她说这种人被称为“小蝴蝶”。调停者，我还以为是调停别人矛盾的那种人，仔细了解才知道是指调停自己。
@@ -16,7 +16,8 @@ date: 2023/07/25
 
 　　后来我听说还有个叫做[荣格斯](https://www.jungus.cn/)的测试，也去测了一下[荣格认知功能测试（72题版）](https://www.jungus.cn/zh-hans/test/)，结果还是一样。
 
-![八维结果](/imgs/2023/personality-test/7.jpg)
+::MyImg{src="/imgs/2023/personality-test/7.jpg" alt="八维结果"}
+::
 
 ***
 

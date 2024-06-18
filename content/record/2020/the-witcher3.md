@@ -8,7 +8,8 @@ last: 2023/08/13
 
 　　《巫师3》应该算是我在 Steam 上第一个花钱买的游戏，也是从此之后都开始支持正版游戏了，目前为止，最喜欢的RPG🏅️。
 
-![The Witcher 3: Wild Hunt](/imgs/2020/the-witcher3/1.jpg)
+::MyImg{src="/imgs/2020/the-witcher3/1.jpg" alt="The Witcher 3: Wild Hunt"}
+::
 
 # 截图
 
@@ -19,13 +20,15 @@ last: 2023/08/13
 
 短小精悍的剧情，泪目，我会一直保留“爱丽丝”这把刀
 
-![The Witcher 3: Wild Hunt – Hearts of Stone](/imgs/2020/the-witcher3/5.jpg)
+::MyImg{src="/imgs/2020/the-witcher3/5.jpg" alt="The Witcher 3: Wild Hunt – Hearts of Stone"}
+::
 
 # 血与酒
 
 世外桃源的感觉啊！
 
-![The Witcher 3: Wild Hunt – Blood and Wine](/imgs/2020/the-witcher3/6.jpg)
+::MyImg{src="/imgs/2020/the-witcher3/6.jpg" alt="The Witcher 3: Wild Hunt – Hearts of Stone"}
+::
 
 # 通关 🎉
 

@@ -71,7 +71,8 @@ Content Delivery Network， CDN加速可以改善静态文件的响应速度，�
 
 它的具体用处如下图
 
-![Cloudimage](/imgs/2019/web-optimize/1.webp)
+::MyImg{src="/imgs/2019/web-optimize/1.webp" alt="Cloudimage plan"}
+::
 
 使用方式：
 - 图片源地址 URL=https://xx.cn/xx.png
@@ -81,7 +82,8 @@ Content Delivery Network， CDN加速可以改善静态文件的响应速度，�
 - 提供 WebP 格式压缩与响应
 - 提供图片缓存，减小源服务器流量
 
-![Cloudimage plan](/imgs/2019/web-optimize/2.webp)
+::MyImg{src="/imgs/2019/web-optimize/2.webp" alt="Cloudimage plan"}
+::
 
 每个注册用户免费享有25G/Mon的流量和25G的缓存空间，对于个人网站的图片流量而言应该够的。
 
@@ -89,7 +91,8 @@ Content Delivery Network， CDN加速可以改善静态文件的响应速度，�
 
 知名的云服务平台，对于小网站来说挺良心的。主要是支持流量攻击的防护，还免费。
 
-![cloudflare](/imgs/2019/web-optimize/3.webp)
+::MyImg{src="/imgs/2019/web-optimize/3.webp" alt="cloudflare"}
+::
 
 ***
 
