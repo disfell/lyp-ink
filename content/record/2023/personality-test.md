@@ -4,7 +4,7 @@ date: 2023/07/25
 ---
 
 ::MyAlert{type="warning"}
-**人格测试** 相关，仅供参考
+**人格测试**相关，仅供参考
 ::
 
 　　被人安利测了下[16人格](https://www.16personalities.com/ch/%E4%BA%BA%E6%A0%BC%E6%B5%8B%E8%AF%95)，结果是：INFP-A，[调停者](https://www.16personalities.com/ch/infp-%E4%BA%BA%E6%A0%BC)，不出意料。她说这种人被称为“小蝴蝶”。调停者，我还以为是调停别人矛盾的那种人，仔细了解才知道是指调停自己。

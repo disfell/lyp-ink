@@ -15,7 +15,7 @@
         <img :data-src="refinedSrc"
           src="/loading/OIP-C.jpg"
           data-sizes="auto" alt=""
-          class="lazyload mt-8 mx-auto h-24 w-24 rounded-full shadow-inner outline outline-offset-2 outline-cyan-500 jelly-effect"/>
+          class="lazyload mt-8 mx-auto h-24 w-24 rounded-full outline outline-offset-2 outline-amber-400"/>
         <div class="py-3 divide-y divide-gray-300 dark:divide-gray-600 mt-4">
           <div></div>
           <div></div>

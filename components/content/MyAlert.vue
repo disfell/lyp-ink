@@ -1,37 +1,22 @@
-<script setup>
-defineProps(['type'])
-</script>
-
 <template>
-  <div :class="[type]">
-    <ContentSlot :use="$slots.default" unwrap="p" />
+  <div :class="chooseClass">
+    <slot />
   </div>
 </template>
-
-<style>
-.warning {
-  border-radius: 10px;
-  padding: 20px;
-  background-color: #ff9800;
-  color: white;
-  margin-bottom: 15px;
-}
-
-.warning strong {
-  color: white;
-}
-
-@media (prefers-color-scheme: dark) {
-  .warning {
-    border-radius: 10px;
-    padding: 20px;
-    background-color: #ae6800;
-    color: white;
-    margin-bottom: 15px;
+<script setup>
+const props = defineProps({
+  type: {
+    default: 'info'
   }
-
-  .warning strong {
-    color: white;
-  }
+})
+const map = {
+  'info': 'bg-blue-100 border-2 border-blue-400 px-2 dark:bg-transparent dark:border-blue-300',
+  'warning': 'bg-amber-100 border-2 border-amber-400 px-2 dark:bg-transparent dark:border-amber-300',
+  'danger': 'bg-red-100 border-2 border-red-400 px-2 dark:bg-transparent dark:border-red-500',
+  'success': 'bg-green-100 border-2 border-green-400 px-2 dark:bg-transparent dark:border-green-300',
 }
-</style>
+
+const chooseClass = computed(() => {
+  return map[props.type]
+})
+</script>

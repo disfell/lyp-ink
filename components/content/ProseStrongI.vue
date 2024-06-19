@@ -1,17 +1,20 @@
 <template>
-  <component 
-    :is="isComponent" 
-    :class="[props.class, 'inline-flex items-baseline font-bold rounded-md jelly-effect px-1']">
+  <strong :class="chooseClass">
     <slot />
-  </component>
+  </strong>
 </template>
 <script setup>
-const isComponent = 'div'
-
 const props = defineProps({
-  class: {
-    type: [String, Number],
-    default: undefined
+  type: {
+    default: ''
   }
+})
+const map = {
+  '': 'font-bold rounded px-1 cursor-pointer',
+  'greenBg': 'font-bold rounded px-1 cursor-pointer bg-green-300 dark:bg-green-500'
+}
+
+const chooseClass = computed(() => {
+  return map[props.type]
 })
 </script>
