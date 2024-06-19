@@ -66,7 +66,6 @@ export default defineNuxtConfig({
     markdown: {
       mdc: true,
       tags: {
-        // img: 'ProseImg',
         a: 'ProseA',
         h1: 'ProseH1',
         h2: 'ProseH2',
@@ -74,7 +73,9 @@ export default defineNuxtConfig({
         h4: 'ProseH4',
         h5: 'ProseH5',
         h6: 'ProseH6',
-        code: 'ProseCode'
+        img: 'ProseImgI',
+        code: 'ProseCode',
+        strong: 'ProseStrongI'
       }
     }
   },

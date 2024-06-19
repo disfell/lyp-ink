@@ -108,10 +108,10 @@ date: 2024/01/20
 
 # 还有
 
-![](/emoji/xl.webp){class="inline-flex items-baseline h-8 w-8"} 宫崎老贼内急上厕所，“门不能从这一侧打开”
+![](/emoji/xl.webp) 宫崎老贼内急上厕所，“门不能从这一侧打开”
 
-![](/emoji/xl.webp){class="inline-flex items-baseline h-8 w-8"} 老贼喝药的时候有人读指令试图打断他喝药
+![](/emoji/xl.webp) 老贼喝药的时候有人读指令试图打断他喝药
 
-![](/emoji/xl.webp){class="inline-flex items-baseline h-8 w-8"} 老贼家门口箴言，“前有排泄物”
+![](/emoji/xl.webp) 老贼家门口箴言，“前有排泄物”
 
 啊啊啊啊啊老贼！！！！

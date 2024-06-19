@@ -15,7 +15,7 @@ last: 2023/09/05
 ::MyImg{src="/imgs/2023/my-online-status/1.jpg" alt="Playing Music Info"}
 ::
 
-另外 [Travelers' encore](https://www.bilibili.com/video/BV1Eh411J7Us?vd_source=0e62add6e473b5930bb615aa8cf1d2ba) 真好听![](/emoji/kx.webp){class="inline-flex items-baseline h-8 w-8"}
+另外 [Travelers' encore](https://www.bilibili.com/video/BV1Eh411J7Us?vd_source=0e62add6e473b5930bb615aa8cf1d2ba) 真好听![](/emoji/kx.webp)
 
 # AppleScript
 

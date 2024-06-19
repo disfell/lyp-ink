@@ -13,7 +13,7 @@ date: 2023/09/19
 
 # 游戏截图
 
-很多瞬间都可以当壁纸，后悔没用 4K 屏幕玩这个游戏![](/emoji/ymd.webp){class="inline-flex items-baseline h-8 w-8"}。
+很多瞬间都可以当壁纸，后悔没用 4K 屏幕玩这个游戏![](/emoji/ymd.webp)。
 
 ::MyImg{src="/imgs/2023/death-stranded/1-1.jpg" alt="游戏截图"}
 ::

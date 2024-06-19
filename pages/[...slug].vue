@@ -13,7 +13,7 @@
             <div class="w-full h-1 border-t border-dashed border-slate-300 dark:border-slate-600 inline-block align-middle"></div>
           </div>
           <div class="flex-none w-fit text-slate-400 text-sm dark:border-gray-700">
-            编辑于{{ formatTime(data?.last ? data?.last : data.date) }}
+            创建于{{ formatTime(data.date) }}
           </div>
           <div class="grow px-4 md:pr-10">
             <div class="w-full h-1 border-t border-dashed border-slate-300 dark:border-slate-600 inline-block align-middle"></div>
@@ -25,6 +25,18 @@
             class="p-3 md:px-10 py-10 break-words prose 2xl:prose-lg dark:prose-invert prose-pre:bg-gray-100
             prose-pre:text-inherit dark:prose-pre:bg-zinc-600/30 article-item"/>
         </ContentRenderer>
+
+        <div v-if="data.date != data?.last && data?.last" class="flex mt-10">
+          <div class="grow px-4 md:pl-10">
+            <div class="w-full h-1 border-t border-dashed border-slate-300 dark:border-slate-600 inline-block align-middle"></div>
+          </div>
+          <div class="flex-none w-fit text-slate-400 text-sm dark:border-gray-700">
+            编辑于{{ formatTime(data?.last ? data?.last : data.date) }}
+          </div>
+          <div class="grow px-4 md:pr-10">
+            <div class="w-full h-1 border-t border-dashed border-slate-300 dark:border-slate-600 inline-block align-middle"></div>
+          </div>
+        </div>
 
         <div class="flex justify-center mt-10">
           <MyClubLink2 />
