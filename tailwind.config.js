@@ -14,7 +14,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Noto Sans', '微软雅黑', ...defaultTheme.fontFamily.sans],
+        'sans': ['LXGW WenKai TC', '微软雅黑', ...defaultTheme.fontFamily.sans],
       },
       // https://github.com/tailwindlabs/tailwindcss-typography/blob/master/src/styles.js
       typography: (theme) => ({
@@ -31,6 +31,86 @@ module.exports = {
             pre: {
               marginTop: '0',
               borderRadius: '0'
+            },
+            h1: {
+              marginTop: '1.75rem',
+              marginBottom: '1.75rem',
+            },
+            h2: {
+              marginTop: '1.75rem',
+              marginBottom: '1.75rem',
+            },
+            h3: {
+              marginTop: '1.75rem',
+              marginBottom: '1.75rem',
+            },
+            h4: {
+              marginTop: '1.75rem',
+              marginBottom: '1.75rem',
+            },
+            h5: {
+              marginTop: '1.75rem',
+              marginBottom: '1.75rem',
+            },
+            h6: {
+              marginTop: '1.75rem',
+              marginBottom: '1.75rem',
+            },
+          }
+        },
+        xl: {
+          css: {
+            h1: {
+              marginTop: '1.75rem',
+              marginBottom: '1.75rem',
+            },
+            h2: {
+              marginTop: '1.75rem',
+              marginBottom: '1.75rem',
+            },
+            h3: {
+              marginTop: '1.75rem',
+              marginBottom: '1.75rem',
+            },
+            h4: {
+              marginTop: '1.75rem',
+              marginBottom: '1.75rem',
+            },
+            h5: {
+              marginTop: '1.75rem',
+              marginBottom: '1.75rem',
+            },
+            h6: {
+              marginTop: '1.75rem',
+              marginBottom: '1.75rem',
+            },
+          }
+        },
+        '2xl': {
+          css: {
+            h1: {
+              marginTop: '1.75rem',
+              marginBottom: '1.75rem',
+            },
+            h2: {
+              marginTop: '1.75rem',
+              marginBottom: '1.75rem',
+            },
+            h3: {
+              marginTop: '1.75rem',
+              marginBottom: '1.75rem',
+            },
+            h4: {
+              marginTop: '1.75rem',
+              marginBottom: '1.75rem',
+            },
+            h5: {
+              marginTop: '1.75rem',
+              marginBottom: '1.75rem',
+            },
+            h6: {
+              marginTop: '1.75rem',
+              marginBottom: '1.75rem',
             },
           }
         },

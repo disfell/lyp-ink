@@ -81,11 +81,8 @@ code {
 	transition: opacity 500ms;
 }
 
-@font-face {
-  font-family: 'BandFont';
-  src: url('~/assets/ttf/MouldyCheeseRegular-WyMWG.ttf') format('truetype');
-}
-
 .band-font {
-  font-family: 'BandFont', sans-serif;
+  font-family: "Playwrite US Trad", cursive;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
