@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center b-height">
+  <div class="flex justify-center b-height my-8">
     <div class="flex items-stretch justify-center z-50 rounded-lg">
       <!-- <svg t="1683531120204" class="icon h-12" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
         p-id="2662">

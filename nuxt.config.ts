@@ -30,7 +30,7 @@ export default defineNuxtConfig({
         { "rel": 'apple-touch-icon', "href": "/favicon.png"},
         { "rel": 'bookmark', "href": "/favicon.png"},
         { "rel": 'apple-touch-icon-precomposed', "href": "/favicon.png"},
-        { "rel": "stylesheet", "href": "https://fonts.loli.net/css2?family=LXGW+WenKai+TC&family=Noto+Sans+SC:wght@100..900&family=Playwrite+US+Trad:wght@100..400&display=swap"},
+        { "rel": "stylesheet", "href": "https://fonts.loli.net/css2?family=Noto+Sans:wght@200;300;400;500;600;700;800;900&display=swap"},
         { "rel": "stylesheet", "href": "https://fonts.loli.net/css2?family=Playwrite+US+Trad:wght@100..400&display=swap"},
         { "rel": "stylesheet", "href": "https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.16/fancybox/fancybox.min.css"},
       ]

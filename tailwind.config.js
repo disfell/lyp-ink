@@ -14,7 +14,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['LXGW WenKai TC', '微软雅黑', ...defaultTheme.fontFamily.sans],
+        'sans': ['Noto Sans', '微软雅黑', ...defaultTheme.fontFamily.sans],
       },
       // https://github.com/tailwindlabs/tailwindcss-typography/blob/master/src/styles.js
       typography: (theme) => ({
