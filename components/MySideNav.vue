@@ -1,8 +1,11 @@
 <template>
   <div>
     <Transition name="slide">
-      <div v-if="scrolling" class="my-sidenav fixed right-3 bottom-2/4">
-        <div v-if="isTopBtnVisible">
+      <div v-if="showNav"
+        @mouseenter="mouseentering = true"
+        @mouseleave="mouseentering = false"
+        class="my-sidenav fixed right-3 bottom-1/4">
+        <div>
           <div class="bg-slate-50 dark:bg-gray-400 grid place-content-center rounded-md cursor-pointer shadow-md">
             <button  @click="scrollToTop">
               <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -28,7 +31,8 @@
 const showTime = ref(5000)
 const lastScrollY = ref(0)
 const scrollTimeout = ref()
-const scrolling = ref(false)
+const mouseentering = ref(false)
+const showNav = ref(false)
 const isTopBtnVisible = ref(false)
 const animationFrameId = ref() // 用于存储requestAnimationFrame的ID
 
@@ -42,7 +46,28 @@ function scrollToTop() {
 }
 
 function handleScroll() {
-  scrolling.value = true
+  if (mouseentering.value) {
+    window.clearTimeout(scrollTimeout.value)
+    showNav.value = true
+  } else {
+    watchScrolling()
+  }
+  watchScrollToTop()
+}
+
+function watchScrollToTop() {
+  if (animationFrameId.value) {
+    // 如果已经有一个动画帧在队列中，取消它
+    cancelAnimationFrame(animationFrameId.value)
+  }
+  animationFrameId.value = requestAnimationFrame(() => {
+    // 这里放置实际的滚动逻辑
+    isTopBtnVisible.value = window.scrollY > 100 // 根据需要调整触发显示的阈值
+  })
+}
+
+function watchScrolling() {
+  showNav.value = true
   const currentScrollY = window.scrollY;
   const isScrollingUp = currentScrollY < lastScrollY.value
   const isScrollingDown = currentScrollY > lastScrollY.value
@@ -55,25 +80,15 @@ function handleScroll() {
   } else if (isScrollingDown) {
   }
 
-  if (animationFrameId.value) {
-    // 如果已经有一个动画帧在队列中，取消它
-    cancelAnimationFrame(animationFrameId.value)
-  }
-  animationFrameId.value = requestAnimationFrame(() => {
-    // 这里放置实际的滚动逻辑
-    isTopBtnVisible.value = window.scrollY > 100 // 根据需要调整触发显示的阈值
-  })
-
-  window.clearTimeout(scrollTimeout.value); // 重置定时器
+  window.clearTimeout(scrollTimeout.value) // 重置定时器
   scrollTimeout.value = window.setTimeout(() => {
     // 检查滚动是否停止
     if (window.scrollY === lastScrollY.value) {
       // 执行停止滚动时的逻辑
-      scrolling.value = false
+      showNav.value = false
     }
   }, showTime.value)
 }
-
 onMounted(() => {
   window.addEventListener("scroll", handleScroll)
 })
