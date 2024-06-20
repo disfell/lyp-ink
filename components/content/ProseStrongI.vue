@@ -11,7 +11,7 @@ const props = defineProps({
 })
 const map = {
   '': 'font-bold rounded cursor-pointer',
-  'greenBg': 'font-bold rounded cursor-pointer bg-green-300 dark:bg-green-500'
+  'green': 'font-bold rounded cursor-pointer bg-green-300 dark:bg-green-700 dark:text-slate-300 p-1 mx-1 text-sm'
 }
 
 const chooseClass = computed(() => {

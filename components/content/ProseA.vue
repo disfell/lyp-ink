@@ -4,7 +4,7 @@
     target="_blank"
     @mouseenter="showTooltip = true"
     @mouseleave="showTooltip = false"
-    class="inline relative font-bold cursor-pointer hover:underline">
+    class="inline relative font-bold cursor-pointer hover:underline dark:text-yellow-600">
     <slot />
     <MyTooltip :txt="href" :show="showTooltip" />
 </a>

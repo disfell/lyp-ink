@@ -15,7 +15,5 @@ date: 2023/08/17
 >
 >That is why it’s called the **[present](https://www.bing.com/dict/search?q=present&cc=cn)**
 
-![功夫熊猫](/imgs/2023/kung-fu-panda/1.jpg)
-
 ::MyImg{src="/imgs/2023/kung-fu-panda/1.jpg" alt="功夫熊猫"}
 ::
