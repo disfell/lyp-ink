@@ -10,17 +10,17 @@
       </Transition>
     </div>
     <div v-show="!loading">
-      <Transition>
-        <LazyNuxtPage />
-      </Transition>
+      <LazyNuxtPage />
     </div>
+    <MySideNav />
   </div>
 </template>
 <script setup>
 import { reactive, provide } from 'vue';
 
 const state = reactive({
-  steamGames: []
+  steamGames: [],
+  linkfrom: '/'
 })
 // 提供 state 以便在其他组件中使用
 provide('state', state);
@@ -79,7 +79,6 @@ nuxtApp.hook("page:start", () => {
 nuxtApp.hook("page:finish", () => {
   loading.value = false;
 })
-
 </script>
 <!-- <style>
 .blur-up {

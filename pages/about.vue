@@ -30,16 +30,6 @@
           <MyClubLink2 />
         </div>
       </div>
-
-      <div class="fixed right-3 bottom-3">
-        <div class="bg-slate-50 dark:bg-gray-400 grid place-content-center rounded-md">
-          <NuxtLink to="/">
-            <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75" />
-            </svg>
-          </NuxtLink>
-        </div>
-      </div>
     </main>
   </NuxtLayout>
 </template>

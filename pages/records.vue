@@ -14,21 +14,11 @@
 					<ul class="list-none p-0 m-0">
 						<li v-for="item in yearGroup.items" :key="item.id" class="flex justify-between items-center border-dashed border-b dark:border-gray-600/50 py-2">
 							<span class="text-left">
-								<NuxtLink :to="item._path" noPrefetch class="flex-none w-fit dark:text-slate-300 2xl:text-xl hover-a">{{ item.title }}</NuxtLink>
+								<NuxtLink :to="item._path" noPrefetch class="flex-none w-fit dark:text-slate-300 2xl:text-xl my-hover-a">{{ item.title }}</NuxtLink>
 							</span>
 							<span class="text-right dark:text-slate-300">{{ formatDate(item.date) }}</span>
 						</li>
 					</ul>
-				</div>
-			</div>
-
-			<div class="fixed right-3 bottom-3">
-				<div class="bg-slate-50 dark:bg-gray-400 grid place-content-center rounded-md">
-					<NuxtLink to="/">
-						<svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75" />
-						</svg>
-					</NuxtLink>
 				</div>
 			</div>
 		</div>

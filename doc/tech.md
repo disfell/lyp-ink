@@ -4,6 +4,7 @@
 - [Nuxt 3](https://nuxt.com/docs/getting-started/installation)
 - [tailwindcss](https://tailwindcss.com/)
 - [vueuse](https://vueuse.org/)
+- [瀑布流](https://raphamorim.io/waterfall.js/)
 - 图标
   - [iconfont](https://www.iconfont.cn/)
   - [heroicons](https://heroicons.com/)

@@ -74,7 +74,6 @@ export default defineNuxtConfig({
         h5: 'ProseH5',
         h6: 'ProseH6',
         img: 'ProseImgI',
-        code: 'ProseCode',
         strong: 'ProseStrongI'
       }
     }

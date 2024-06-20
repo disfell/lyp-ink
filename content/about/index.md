@@ -18,7 +18,7 @@ last: 2024/01/20 13:33:00
 
 ## 📬 联系
 
-**email**: <a href= "mailto:gooday.alan@foxmail.com">gooday.alan@foxmail.com</a>
+**email**: [gooday.alan@foxmail.com](mailto:gooday.alan@foxmail.com)
 
 ***
 

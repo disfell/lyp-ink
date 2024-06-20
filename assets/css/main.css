@@ -12,11 +12,11 @@
   color: rgb(255, 255, 255);
 }
 
-a.hover-a {
+.my-hover-a {
   position: relative;
 }
 
-a.hover-a::before {
+.my-hover-a::before {
   content: '';
   position: absolute;
   bottom: 0;
@@ -29,11 +29,11 @@ a.hover-a::before {
   transition: transform 0.5s ease-in-out;
 }
 
-a.hover-a:hover::before {
+.my-hover-a:hover::before {
   transform: scaleX(1);
 }
 
-a.hover-a::before {
+.my-hover-a::before {
   transform-origin: center;
 }
 
@@ -61,7 +61,7 @@ code {
     background-color: rgb(243 244 246 / var(--tw-bg-opacity));
   }
 
-  a.hover-a::before {
+  .my-hover-a::before {
     background: linear-gradient(to right, #000000,#ffe343);
   }
 }
@@ -78,7 +78,7 @@ code {
     background-color:rgba(85, 85, 85, 0.594)
   }
 
-  a.hover-a::before {
+  .my-hover-a::before {
     background: linear-gradient(to right, #ffffff,#747474);
   }
 }
