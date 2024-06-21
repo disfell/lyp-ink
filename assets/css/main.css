@@ -57,6 +57,21 @@ code {
   .my-hover-a::before {
     background: linear-gradient(to right, #000000,#ffe343);
   }
+
+  ::-webkit-scrollbar {
+    background-color: #ffffff;
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #ffffff;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #6666667e;
+    border-radius: 0.5rem;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -80,11 +95,8 @@ code {
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: #adadad;
+    background-color: #757575;
     border-radius: 0.5rem;
-  }
-  ::-webkit-scrollbar-corner {
-    background-color: #adadad;
   }
 }
 

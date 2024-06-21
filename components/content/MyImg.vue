@@ -1,9 +1,11 @@
 <template>
-  <MyImage :src="refinedSrc" :alt="alt" />
+  <div class="grid justify-items-center">
+    <a :src="checkImg(src, true)" data-fancybox="gallery" data-caption="lyp.ink" class="cursor-pointer">
+      <MyRootImg :src="checkImg(src, true)" class="content.MyImg" :alt="alt"/>
+    </a>
+  </div>
 </template>
 <script setup>
-import { withBase } from 'ufo'
-import { useRuntimeConfig, computed } from '#imports'
 const props = defineProps({
   src: {
     type: String,
@@ -13,11 +15,5 @@ const props = defineProps({
     type: String,
     default: ''
   }
-})
-const refinedSrc = computed(() => {
-  if (props.src?.startsWith('/') && !props.src.startsWith('//')) {
-    return withBase(props.src, useRuntimeConfig().app.baseURL)
-  }
-  return props.src
 })
 </script>
