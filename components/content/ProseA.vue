@@ -1,10 +1,9 @@
 <template>
-  <a
-    :href="href"
+  <a :href="href"
     target="_blank"
     @mouseenter="showTooltip = true"
     @mouseleave="showTooltip = false"
-    class="inline relative font-bold cursor-pointer hover:underline dark:text-yellow-600">
+    class="inline relative font-bold cursor-pointer underline decoration-pink-500 dark:decoration-indigo-500">
     <slot />
     <MyTooltip :txt="href" :show="showTooltip" />
 </a>

@@ -11,12 +11,9 @@ last: 2023/08/13
 ::MyImg{src="/imgs/2020/the-witcher3/1.jpg" alt="The Witcher 3: Wild Hunt"}
 ::
 
-::MyImgList
-::
-
 # 截图
 
-::MyImgs{:srcs="/imgs/2020/the-witcher3/2.jpg|*|/imgs/2020/the-witcher3/3.jpg|*|/imgs/2020/the-witcher3/4.jpg"}
+::MyImgList{:items='["/imgs/2020/the-witcher3/2.jpg", "/imgs/2020/the-witcher3/3.jpg", "/imgs/2020/the-witcher3/4.jpg"]'}
 ::
 
 # 石之心
@@ -35,7 +32,7 @@ last: 2023/08/13
 
 # 通关 🎉
 
-::MyImgs{:srcs="/imgs/2020/the-witcher3/7.jpg|*|/imgs/2020/the-witcher3/8.jpg|*|/imgs/2020/the-witcher3/9.jpg"}
+::MyImgList{:items='["/imgs/2020/the-witcher3/7.jpg", "/imgs/2020/the-witcher3/8.jpg", "/imgs/2020/the-witcher3/9.jpg"]'}
 ::
 
 **farewell～😊**

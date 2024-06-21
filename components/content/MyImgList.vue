@@ -1,41 +1,16 @@
 <template>
-  <div
-    class="w-full flex gap-6 snap-x snap-mandatory overflow-x-auto"
-  >
-    <div class="snap-center shrink-0">
-      <img
-        src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
-      />
-    </div>
-    <div class="snap-center shrink-0">
-      <img
-        src="https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
-      />
-    </div>
-    <div class="snap-center shrink-0">
-      <img
-        src="https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
-      />
-    </div>
-    <div class="snap-center shrink-0">
-      <img
-        src="https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
-      />
-    </div>
-    <div class="snap-center shrink-0">
-      <img
-        src="https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
-      />
-    </div>
-    <div class="snap-center shrink-0">
-      <img
-        src="https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
-      />
-    </div>
-    <div class="snap-center shrink-0">
-      <img
-        src="https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
-      />
+  <div class="p-10 w-full flex gap-6 snap-x snap-mandatory overflow-x-auto bg-stone-50 dark:bg-stone-600 rounded-md border dark:border-stone-400">
+    <div v-for="(i, idx) in items" :key="idx" class="snap-center shrink-0 shadow-lg rounded-full cursor-pointer">
+      <a :src="checkImg(i, true)" data-fancybox="gallery" data-caption="lyp.ink">
+        <MyRootImg :src="i" class="content.MyImgList"/>
+      </a>
     </div>
   </div>
 </template>
+<script setup>
+const props = defineProps({
+  items: {
+    default: []
+  }
+})
+</script>

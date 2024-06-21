@@ -1,6 +1,6 @@
 <template>
   <h5 :id="id">
-    <a :href="`#${id}`" class="my-hover-a font-black font-serif">
+    <a :href="`#${id}`" class="my-hover-a font-black font-serif no-underline">
       <slot />
     </a>
   </h5>

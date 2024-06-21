@@ -21,9 +21,6 @@ module.exports = {
         lg: {
           css: {
             maxWidth: '85ch',
-            a: {
-              textDecoration: 'none'
-            },
             img: {
               marginTop: '1px',
               marginBottom: '1px',
@@ -119,9 +116,6 @@ module.exports = {
             // fontSize: '1rem',
             // fontWeight: '550',
             maxWidth: '80ch',
-            a: {
-              textDecoration: 'none'
-            },
             img: {
               marginTop: '1px',
               marginBottom: '1px',
