@@ -16,7 +16,7 @@ const props = defineProps({
 
 const classList = {
   '': '',
-  'content.MyImgList': 'max-h-36 shadow-lg rounded-lg'
+  'content.MyImgList': 'max-h-40 shadow-lg rounded-lg dark:brightness-50'
 }
 
 const finalClass = computed(() => {
