@@ -18,11 +18,8 @@ export default defineNuxtConfig({
         { "name": "msvalidate.01", "content": "EF8C5B0B645D4CF400002BD3C4ADA832" }
       ],
       script: [
-        { src: 'https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.16/fancybox/fancybox.umd.js' },
-        { src: 'https://cdn.bootcdn.net/ajax/libs/typeit/8.7.1/index.umd.min.js' },
-        // { src: 'https://unpkg.com/@popperjs/core@2' },
-        { src: 'https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/lazysizes.min.js' },
-        { src: 'https://cdn.bootcdn.net/ajax/libs/lazysizes/5.3.2/plugins/parent-fit/ls.parent-fit.min.js' },
+        { src: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js' },
+        { src: 'https://cdnjs.cloudflare.com/ajax/libs/typeit/8.8.3/index.umd.min.js' },
         { src: process.env.NODE_ENV === 'production' ? '/js/baidu_tongji_lyp_ink.js' : ''}
       ],
       link: [
@@ -30,9 +27,7 @@ export default defineNuxtConfig({
         { "rel": 'apple-touch-icon', "href": "/favicon.png"},
         { "rel": 'bookmark', "href": "/favicon.png"},
         { "rel": 'apple-touch-icon-precomposed', "href": "/favicon.png"},
-        { "rel": "stylesheet", "href": "https://fonts.loli.net/css2?family=Noto+Sans:wght@200;300;400;500;600;700;800;900&display=swap"},
-        { "rel": "stylesheet", "href": "https://fonts.loli.net/css2?family=Playwrite+US+Trad:wght@100..400&display=swap"},
-        { "rel": "stylesheet", "href": "https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.16/fancybox/fancybox.min.css"},
+        { "rel": "stylesheet", "href": "https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"},
       ]
     }
   },
@@ -84,5 +79,13 @@ export default defineNuxtConfig({
       routes: ['/sitemap.xml','/feed'],
       crawlLinks: true
     }
+  },
+  vite: {
+    server: {
+      hmr: {
+            clientPort: 3000,
+            port: 3000
+      }
+    }  
   }
 })

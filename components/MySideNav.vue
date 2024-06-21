@@ -2,9 +2,7 @@
   <div>
     <Transition name="slide">
       <div v-if="showNav"
-        @mouseenter="mouseentering = true"
-        @mouseleave="mouseentering = false"
-        class="my-sidenav fixed right-3 bottom-1/4">
+        class="my-sidenav fixed right-3 bottom-24">
         <div>
           <div class="bg-slate-50 dark:bg-gray-400 grid place-content-center rounded-md cursor-pointer shadow-md">
             <button  @click="scrollToTop">
@@ -28,7 +26,7 @@
   </div>
 </template>
 <script setup>
-const showTime = ref(5000)
+const showTime = ref(2500)
 const lastScrollY = ref(0)
 const scrollTimeout = ref()
 const mouseentering = ref(false)
@@ -46,12 +44,7 @@ function scrollToTop() {
 }
 
 function handleScroll() {
-  if (mouseentering.value) {
-    window.clearTimeout(scrollTimeout.value)
-    showNav.value = true
-  } else {
-    watchScrolling()
-  }
+  watchScrolling()
   watchScrollToTop()
 }
 
@@ -101,7 +94,7 @@ onUnmounted(() => {
 <style scoped>
 .my-sidenav {
   transform: translateX(-30%);
-  transition: transform 1s ease-in-out;
+  transition: transform 0.5s ease-in-out;
 }
 @keyframes slideLeft {
   from {
@@ -114,9 +107,9 @@ onUnmounted(() => {
   }
 }
 .slide-enter-active {
-  animation: slideLeft 1s;
+  animation: slideLeft 0.5s;
 }
 .slide-leave-active {
-  animation: slideLeft 1s reverse;
+  animation: slideLeft 0.5s reverse;
 }
 </style>

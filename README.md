@@ -40,3 +40,5 @@ npm run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+rm -rf node_modules package-lock.json .output .nuxt && npm install && npm run build && npm run dev

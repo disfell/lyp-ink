@@ -16,7 +16,11 @@
   </div>
 </template>
 <script setup>
-import { reactive, provide } from 'vue';
+import { reactive, provide } from 'vue'
+import 'lazysizes'
+import 'lazysizes/plugins/parent-fit/ls.parent-fit'
+import "@fontsource/noto-sans"
+import "@fontsource/playwrite-us-trad"
 
 const state = reactive({
   steamGames: [],
@@ -80,14 +84,6 @@ nuxtApp.hook("page:finish", () => {
   loading.value = false;
 })
 </script>
-<!-- <style>
-.blur-up {
-  -webkit-filter: blur(5px);
-  filter: blur(5px);
-  transition: filter 400ms, -webkit-filter 400ms;
-}
-</style> -->
-
 <style>
 .loading{
   z-index: 9999;
