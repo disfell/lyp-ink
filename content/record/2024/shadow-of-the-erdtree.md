@@ -4,7 +4,7 @@ date: 2024/06/17
 last: 2024/06/19
 ---
 
-这**周五(2024.06.21)**{type="green"}，艾尔登法环 DLC 黄金树之影正式上线 ![](/emoji/hh.webp)
+这**周五(2024.06.21)**{type="green"}，艾尔登法环 DLC 黄金树幽影正式上线 ![](/emoji/hh.webp)
 
 [MC](https://www.metacritic.com/game/elden-ring-shadow-of-the-erdtree/) 均分，宫崎英高再次跌上神坛：
 

@@ -26,7 +26,7 @@
             prose-pre:text-inherit dark:prose-pre:bg-zinc-600/30 article-item"/>
         </ContentRenderer>
 
-        <div v-if="data.date != data?.last && data?.last" class="flex mt-10">
+        <div class="flex mt-10">
           <div class="grow px-4 md:pl-10">
             <div class="w-full h-1 border-t border-dashed border-slate-300 dark:border-slate-600 inline-block align-middle"></div>
           </div>
@@ -39,7 +39,10 @@
         </div>
 
         <div class="flex justify-center mt-10">
-          <MyClubLink2 />
+          <MyClubLink />
+        </div>
+        <div class="flex justify-center mt-5">
+          <MySiteMap />
         </div>
       </div>
     </main>
@@ -49,4 +52,7 @@
 const { path } = useRoute()
 const config = useAppConfig()
 const { data } = await useAsyncData(path, () => queryContent().where({ _path: path }).findOne())
+onMounted(() => {
+  countView(path)
+})
 </script>

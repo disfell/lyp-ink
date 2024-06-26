@@ -27,15 +27,17 @@
         </div>
         <MyStatus class="mt-5"/>
       </div>
-      <LazyMyClubLink />
+      <LazyMyClubLink class="rb"/>
     </div>
   </NuxtLayout>
 </template>
 <script setup>
 const appConfig = useAppConfig()
+const { path } = useRoute()
 
 let typeIt = ref()
 onMounted(() => {
+  countView(path)
   typeIt = new TypeIt("#slogan", {
     strings: appConfig.sloganShow,
     waitUntilVisible: true,

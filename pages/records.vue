@@ -32,16 +32,24 @@ useHead({
   ]
 })
 const appConfig = useAppConfig()
-const articles = await queryContent('record').only(['date', 'last', 'description', 'title', '_path']).find()
-
+const articles = await queryContent('record').only(['date', 'last', 'description', 'title', '_path', 'show']).find()
+const { path } = useRoute()
+onMounted(() => {
+  countView(path)
+})
+const data = ref()
 // 剔除 _path 为 '/records' 的项
-const data = articles.filter(item => item._path !== '/records');
+if (isProd()) {
+	data.value = articles.filter(item => item._path !== '/records' && item?.show != false)
+} else {
+	data.value = articles.filter(item => item._path !== '/records')
+}
 // 时间倒序排列
-data.sort((a, b) => new Date(b.date) - new Date(a.date))
+data.value.sort((a, b) => new Date(b.date) - new Date(a.date))
 // 按照年份分组
-const groupedByYear = {};
+const groupedByYear = {}
 
-for (const item of data) {
+for (const item of data.value) {
   const year = new Date(item.date).getFullYear();
   if (!groupedByYear[year]) {
     groupedByYear[year] = [];
