@@ -17,7 +17,7 @@ const props = defineProps({
 </script>
 <style scoped>
 .bg {
-  background-image: url("/bg/1.png");
+  background-image: url("~/assets/bg/1.png");
 }
 @media (prefers-color-scheme: light) {
   .bg {

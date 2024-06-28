@@ -1,4 +1,9 @@
-export default async function(path) {
+<template>
+  <div></div>
+</template>
+<script setup>
+const { path } = useRoute()
+onMounted(async () => {
   try {
     const resp = await fetch('/api/view', {
       method: "POST",
@@ -11,4 +16,5 @@ export default async function(path) {
   catch(error) {
     console.log(error)
   }
-}
+})
+</script>

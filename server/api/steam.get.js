@@ -1,12 +1,12 @@
 export default defineEventHandler(async (event) => {
   const runtimeConfig = useRuntimeConfig()
   const appConfig = useAppConfig()
-  const steamGameDictCN: { [key: string]: string } = appConfig.steamGameDictCN
+  const steamGameDictCN = appConfig.steamGameDictCN
   const steamToken = runtimeConfig.steamToken
   const steamId = runtimeConfig.steamId
   const steamPlayingURL = `https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${steamToken}&steamids=${steamId}`
 
-  const ret: { [key: string]: string } = {}
+  const ret = {}
   try {
     const result = await fetch(steamPlayingURL)
     const data = await result.json()

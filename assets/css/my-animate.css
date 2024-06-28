@@ -9,7 +9,7 @@
   }
 }
 
-.article-item {
+.slideDown {
   animation-name: slideDown;
   animation-duration: 1s;
   animation-fill-mode: both;
@@ -39,6 +39,10 @@
   transition: transform 0.3s ease; /* 平滑过渡 */
 }
 
-.jelly-effect:hover {
+.jelly-effect-auto {
+  animation: jelly 0.8s infinite;
+}
+
+.jelly-effect-hover:hover {
   animation: jelly 0.8s infinite;
 }

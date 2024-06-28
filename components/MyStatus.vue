@@ -8,7 +8,7 @@
           z-50 px-3 py-2 rounded-2xl online-card transition ease-in-out delay-150">
         <div v-if="showSteamOnline" id="steam-card" class="mt-3">
           <div class="grid justify-items-center">
-            <button class="inline-flex items-baseline justify-center relative jelly-effect">
+            <button class="inline-flex items-baseline justify-center relative jelly-effect-hover">
               <LazyColorStatus class="mr-2" />
               <img src="/icon/steam/steam.svg" class="self-center w-6 h-6 rounded-full mx-1" alt=""/>
               <div class="ml-1">{{ showSteamOnline ? steamOnline1Text : '' }} {{ showSteamGaming ? steamOnline2Text : '' }}</div>
@@ -19,7 +19,7 @@
                 </button> -->
               <!-- </div> -->
             </button>
-            <button v-if="showSteamGaming" class="inline-flex items-baseline justify-center relative mt-4 jelly-effect">
+            <button v-if="showSteamGaming" class="inline-flex items-baseline justify-center relative mt-4 jelly-effect-hover">
               <img :src="showSteamGaming ? `/icon/steam/${statusData.game_id}.jpg` : '/favicon.png'" class="self-center w-6 h-6 rounded-full mx-1" alt=""/>
               <div class="ml-1">{{ statusData.game_cn ? statusData.game_cn : statusData.game }}</div>
             </button>

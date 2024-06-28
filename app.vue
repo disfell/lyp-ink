@@ -13,6 +13,7 @@
       <LazyNuxtPage />
     </div>
     <MySideNav />
+    <MyChannel />
   </div>
 </template>
 <script setup>

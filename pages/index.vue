@@ -1,6 +1,6 @@
 <template>
   <NuxtLayout>
-    <div class="min-h-screen grid place-content-center article-item">
+    <div class="min-h-screen grid place-content-center slideDown">
       <Title>{{ appConfig.title }}</Title>
       <div class="md:px-24 md:py-12 md:shadow
         md:bg-stone-50 md:dark:bg-zinc-700/30
@@ -28,16 +28,14 @@
         <MyStatus class="mt-5"/>
       </div>
       <LazyMyClubLink class="rb"/>
+      <MyViewer />
     </div>
   </NuxtLayout>
 </template>
 <script setup>
 const appConfig = useAppConfig()
-const { path } = useRoute()
-
 let typeIt = ref()
 onMounted(() => {
-  countView(path)
   typeIt = new TypeIt("#slogan", {
     strings: appConfig.sloganShow,
     waitUntilVisible: true,

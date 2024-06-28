@@ -2,7 +2,7 @@
   <NuxtLayout>
 		<div class="mx-auto max-w-2xl min-w-0">
 			<Title>记录 - {{ appConfig.title }}</Title>
-			<div class="md:backdrop-blur-sm md:bg-zinc-50/30 md:dark:bg-zinc-700/30 md:shadow-inner py-10 article-item">
+			<div class="md:backdrop-blur-sm md:bg-zinc-50/30 md:dark:bg-zinc-700/30 md:shadow-inner py-10 slideDown">
 				<div class="justify-center flex">
 					<LazyMyBanner />
 				</div>
@@ -21,6 +21,7 @@
 					</ul>
 				</div>
 			</div>
+			<MyViewer />
 		</div>
 	</NuxtLayout>
 </template>
@@ -31,12 +32,10 @@ useHead({
     { "name": "description", "content": "A developer, blogger" },
   ]
 })
+
 const appConfig = useAppConfig()
 const articles = await queryContent('record').only(['date', 'last', 'description', 'title', '_path', 'show']).find()
-const { path } = useRoute()
-onMounted(() => {
-  countView(path)
-})
+
 const data = ref()
 // 剔除 _path 为 '/records' 的项
 if (isProd()) {
