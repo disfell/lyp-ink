@@ -2,8 +2,8 @@
   <Transition name="slide-fade">
     <div v-if="platform && currentApp" class="fixed top-4 right-0">
       <div ref="slidePanel" class="relative cursor-pointer">
-        <div class="backdrop-blur-md border border-slate-300 dark:border-slate-500 rounded-l-lg 
-          bg-zinc-50 dark:text-slate-100 dark:bg-zinc-800 p-4 shadow
+        <div class="backdrop-blur-md border border-zinc-300 dark:border-zinc-700 rounded-l-lg 
+          bg-zinc-50 dark:text-zinc-100 dark:bg-zinc-800 p-4 shadow
           transition-transform duration-500 ease-in-out"
           :style="panelStyle"
           @click="togglePanel">
@@ -13,7 +13,7 @@
           <div class="h-12 w-12 mt-4 jelly-effect-hover">
             <Transition mode="out-in">
               <img v-if="currentApp" :key="currentApp" :src="`/icon/app/${currentApp}.png`" :alt="currentApp"
-                class="shadow border dark:border-slate-500 p-1 rounded-lg"/>
+                class="shadow border dark:border-zinc-700 p-1 rounded-lg"/>
             </Transition>
           </div>
         </div>

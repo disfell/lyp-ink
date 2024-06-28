@@ -3,7 +3,7 @@
     <div class="min-h-screen grid place-content-center slideDown">
       <Title>{{ appConfig.title }}</Title>
       <div class="md:px-24 md:py-12 md:shadow
-        md:bg-stone-50 md:dark:bg-zinc-700/30
+        md:bg-zinc-50/30 md:dark:bg-zinc-700/30
         border-slate-300 dark:border-slate-600
         rounded-2xl transition ease-in-out delay-150">
         <LazyMyBanner />
