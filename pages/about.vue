@@ -2,7 +2,7 @@
   <NuxtLayout>
     <main v-if="data" class="mx-auto max-w-3xl min-w-0">
       <Title>{{data.title}} - {{config.title}}</Title>
-      <div class="flex flex-col md:backdrop-blur-sm md:bg-zinc-50/30 md:dark:bg-zinc-700/30 md:shadow-inner py-10 slideDown">
+      <div class="flex flex-col md:backdrop-blur-sm md:bg-zinc-50/30 md:dark:bg-zinc-700/30 md:shadow-inner slideDown">
         
         <div class="flex justify-center">
           <LazyMyBanner />

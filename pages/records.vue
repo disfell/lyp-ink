@@ -2,12 +2,12 @@
   <NuxtLayout>
 		<div class="mx-auto max-w-2xl min-w-0">
 			<Title>记录 - {{ appConfig.title }}</Title>
-			<div class="md:backdrop-blur-sm md:bg-zinc-50/30 md:dark:bg-zinc-700/30 md:shadow-inner py-10 slideDown">
+			<div class="md:backdrop-blur-sm md:bg-zinc-50/30 md:dark:bg-zinc-700/30 md:shadow-inner slideDown">
 				<div class="justify-center flex">
 					<LazyMyBanner />
 				</div>
 
-				<div class="mt-16"></div>
+				<div class="mt-8"></div>
 
 				<div v-for="(yearGroup, index) in groupedData" :key="index" class="px-6">
 					<h2 class="text-2xl font-bold my-2 dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-r dark:from-stone-100 dark:to-stone-500">{{ yearGroup.year }}</h2>

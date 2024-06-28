@@ -1,8 +1,7 @@
 <template>
   <div>
     <span class="flex flex-wrap">
-      <span class="self-center font-bold min-w-24">Powered By</span>
-      <a v-if="!isDark" href="https://zeabur.com/zh-CN" target="_blank" class="pl-4 self-center">
+      <a v-if="!isDark" href="https://zeabur.com/zh-CN" target="_blank" class="self-center">
         <img src="/icon/other/zeaber-light.svg" class="max-h-6"/>
       </a>
       <a v-if="isDark" href="https://zeabur.com/zh-CN" target="_blank" class="pl-4 self-center">
