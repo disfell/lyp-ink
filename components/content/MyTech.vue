@@ -44,5 +44,5 @@
   </div>
 </template>
 <script setup>
-const isDark = useDark()
+const isDark = usePreferredDark()
 </script>

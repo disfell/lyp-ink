@@ -1,12 +1,11 @@
 export default defineAppConfig({
     title: "LYP.INK",
-    sloganShow: "❝ 向下扎根，野蛮生长 ❞",
-    sloganHidden: "❝ 昨天已经是历史，明天依然是谜团，而今天是天赐的礼物，像珍惜礼物一样珍惜今天 ❞",
-    avatar: "/avatar/jerry.jpg",
-    websiteOwner: "梁某某",
-    address: "广州",
-    domain: 'https://lyp.ink',
-    localDomain: 'http://localhost:3000',
+    mourn: false, // 哀悼，网站置为灰色的色调
+    sloganShow: "❝ 向下扎根，野蛮生长 ❞", // 主页的标语
+    avatar: "/avatar/jerry.jpg", // 主页的头像，取自 public 文件夹的图片
+    domain: 'https://lyp.ink', // 部署上线的域名
+    localDomain: 'http://localhost:3000', // 本地调试的地址
+    useImgCDN: true,
     cloudimg: 'https://cvgmcqzqpa.cloudimg.io',
     statusFetchInterval: 30000,
     steamStatusURL: '/api/steam',

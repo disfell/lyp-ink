@@ -8,7 +8,6 @@
         rounded-2xl transition ease-in-out delay-150">
         <LazyMyBanner />
         <blockquote class="text-center text-xl leading-8 text-gray-900 dark:text-zinc-400 sm:text-2xl sm:leading-9">
-          <p id="slogan_hidden" class="hidden">{{ appConfig.sloganHidden }}</p>
           <p id="slogan" class="font-black"></p>
         </blockquote>
       

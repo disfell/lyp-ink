@@ -1,7 +1,8 @@
 <template>
-  <img :alt="alt" :data-src="src" src="/loading/OIP-C.jpg" data-sizes="auto" :class="finalClass"/>
+  <img :alt="alt" :data-src="src" src="/loading/Search.gif" data-sizes="auto" :class="finalClass"/>
 </template>
 <script setup>
+const isDark = useDark()
 const props = defineProps({
   src: {
     default: "",

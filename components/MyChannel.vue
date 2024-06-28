@@ -3,16 +3,17 @@
     <div v-if="platform && currentApp" class="fixed top-4 right-0">
       <div ref="slidePanel" class="relative cursor-pointer">
         <div class="backdrop-blur-md border border-slate-300 dark:border-slate-500 rounded-l-lg 
-          bg-slate-100 dark:text-slate-100 dark:bg-slate-800 p-4 shadow-sm shadow-slate-500/40
+          bg-zinc-50 dark:text-slate-100 dark:bg-zinc-800 p-4 shadow
           transition-transform duration-500 ease-in-out"
           :style="panelStyle"
           @click="togglePanel">
           <div v-if="platform" class="text-sm">
-            TA 正在使用 {{ platform }}
+            <strong>TA</strong> 正在使用 {{ platform }}
           </div>
-          <div class="h-8 w-8 mt-4 jelly-effect-auto">
+          <div class="h-12 w-12 mt-4 jelly-effect-hover">
             <Transition mode="out-in">
-              <img v-if="currentApp" :key="currentApp" :src="`/icon/app/${currentApp}.png`" alt="" />
+              <img v-if="currentApp" :key="currentApp" :src="`/icon/app/${currentApp}.png`" :alt="currentApp"
+                class="shadow border dark:border-slate-500 p-1 rounded-lg"/>
             </Transition>
           </div>
         </div>

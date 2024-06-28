@@ -1,6 +1,5 @@
 <template>
-  <!-- class="grayscale" 哀悼灰 -->
-  <div @contextmenu.prevent>
+  <div @contextmenu.prevent :class="`${appConfig.mourn ? 'grayscale' : ''}`">
     <Body class="antialiased dark:bg-neutral-800" />
     <div v-show="loading">
       <Transition>
@@ -22,6 +21,8 @@ import 'lazysizes'
 import 'lazysizes/plugins/parent-fit/ls.parent-fit'
 import "@fontsource/noto-sans"
 import "@fontsource/playwrite-us-trad"
+
+const appConfig = useAppConfig()
 
 const state = reactive({
   steamGames: [],
