@@ -19,6 +19,8 @@
 - [图库-fancybox](https://fancyapps.com/fancybox/)
 - [鼠标提示-Tippy.js](https://atomiks.github.io/tippyjs/)
 - [huaweicloud](https://mirrors.huaweicloud.com/home)
+- 字体
+  - [fontsource](https://fontsource.org/)
 
 
 git：本地代理设置

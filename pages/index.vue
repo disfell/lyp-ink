@@ -14,7 +14,9 @@
         <img :data-src="refinedSrc"
           src="/loading/OIP-C.jpg"
           data-sizes="auto" alt=""
-          class="lazyload mt-8 mx-auto h-24 w-24 rounded-full shadow-md"/>
+          class="lazyload my-8 mx-auto h-24 w-24 rounded-full
+            outline outline-2 outline-offset-4 outline-zinc-800/80 dark:outline-zinc-500/50"/>
+
         <div class="py-3 divide-y divide-gray-300 dark:divide-gray-600 mt-4">
           <div></div>
           <div></div>

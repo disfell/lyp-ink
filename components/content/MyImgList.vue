@@ -22,7 +22,7 @@ const props = defineProps({
 }
 @media (prefers-color-scheme: light) {
   .bg {
-    background-color: #ffffff;
+    background-color: #f5f5f5;
   }
 }
 

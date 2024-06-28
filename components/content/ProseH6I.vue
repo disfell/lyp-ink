@@ -1,9 +1,9 @@
 <template>
-  <h2 :id="id">
-    <a :href="`#${id}`" class="my-hover-a font-black font-serif no-underline">
+  <h6 :id="id">
+    <a :href="`#${id}`" class="font-black no-underline">
       <slot />
     </a>
-  </h2>
+  </h6>
 </template>
 <script setup>
 defineProps({

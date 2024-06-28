@@ -62,14 +62,15 @@ export default defineNuxtConfig({
     markdown: {
       mdc: true,
       tags: {
-        a: 'ProseA',
-        h1: 'ProseH1',
-        h2: 'ProseH2',
-        h3: 'ProseH3',
-        h4: 'ProseH4',
-        h5: 'ProseH5',
-        h6: 'ProseH6',
+        a: 'ProseAI',
+        h1: 'ProseH1I',
+        h2: 'ProseH2I',
+        h3: 'ProseH3I',
+        h4: 'ProseH4I',
+        h5: 'ProseH5I',
+        h6: 'ProseH6I',
         img: 'ProseImgI',
+        code: 'ProseCodeInlineI',
         strong: 'ProseStrongI'
       }
     }

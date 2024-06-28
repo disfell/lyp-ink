@@ -4,7 +4,7 @@
       <div v-if="showNav"
         class="my-sidenav fixed right-3 bottom-24">
         <div>
-          <div class="bg-slate-50 dark:bg-gray-400 grid place-content-center rounded-md cursor-pointer shadow-md">
+          <div class="p-1 bg-slate-50 dark:bg-zinc-700 dark:text-zinc-400 grid place-content-center rounded-md cursor-pointer shadow-md">
             <button  @click="scrollToTop">
               <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75 12 3m0 0 3.75 3.75M12 3v18" />
@@ -13,7 +13,7 @@
           </div>
         </div>
         <div class="mt-3">
-          <div class="bg-slate-50 dark:bg-gray-400 grid place-content-center rounded-md cursor-pointer shadow-md">
+          <div class="p-1 bg-slate-50 dark:bg-zinc-700 dark:text-zinc-400 grid place-content-center rounded-md cursor-pointer shadow-md">
             <NuxtLink @click="$router.back()" noPrefetch>
               <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75" />
