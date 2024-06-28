@@ -11,7 +11,9 @@
             TA 正在使用 {{ platform }}
           </div>
           <div class="h-8 w-8 mt-4 jelly-effect-auto">
-            <img v-if="currentApp" :key="currentApp" :src="`/icon/app/${currentApp}.png`" alt="" />
+            <Transition mode="out-in">
+              <img v-if="currentApp" :key="currentApp" :src="`/icon/app/${currentApp}.png`" alt="" />
+            </Transition>
           </div>
         </div>
       </div>
