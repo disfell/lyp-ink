@@ -5,13 +5,13 @@
   <table v-if="!loadingMyStatus" class="text-sm">
     <thead>
       <tr>
-        <th class="rounded-tl-lg dark:bg-inherit border-b dark:border-zinc-800 font-medium pl-3 pt-5 pb-3 text-slate-400 dark:text-slate-200 text-left">
+        <th class="rounded-tl-lg dark:bg-inherit border-b dark:border-zinc-800 font-medium pl-3 pt-5 pb-3 text-slate-400 dark:text-slate-200 text-left dark:text-zinc-400">
           游戏名称
         </th>
-        <th class="dark:bg-inherit border-b dark:border-zinc-800 font-medium pt-5 pb-3 text-slate-400 dark:text-slate-200 text-left">
+        <th class="dark:bg-inherit border-b dark:border-zinc-800 font-medium pt-5 pb-3 text-slate-400 dark:text-slate-200 text-left dark:text-zinc-400">
           近 2 周游戏时长
         </th>
-        <th class="rounded-tr-lg dark:bg-inherit border-b dark:border-zinc-800 font-medium pr-3 pt-5 pb-3 text-slate-400 dark:text-slate-200 text-right">
+        <th class="rounded-tr-lg dark:bg-inherit border-b dark:border-zinc-800 font-medium pr-3 pt-5 pb-3 text-slate-400 dark:text-slate-200 text-right dark:text-zinc-400">
           总游戏时长
         </th>
       </tr>

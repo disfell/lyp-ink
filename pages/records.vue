@@ -1,8 +1,8 @@
 <template>
   <NuxtLayout>
-		<div class="mx-auto max-w-2xl min-w-0">
+		<main class="mx-auto max-w-4xl min-w-0">
 			<Title>记录 - {{ appConfig.title }}</Title>
-			<div class="md:backdrop-blur-sm md:bg-zinc-50/30 md:dark:bg-zinc-700/30 md:shadow-inner slideDown pt-8">
+			<div class="md:bg-zinc-50/40 md:dark:bg-zinc-700/30 md:shadow-inner slideDown pt-8">
 
 				<div class="justify-center flex">
 					<LazyMyBanner />
@@ -10,12 +10,12 @@
 
 				<div class="mt-8"></div>
 
-				<div v-for="(yearGroup, index) in groupedData" :key="index" class="px-6 mt-10">
-					<h2 class="text-2xl font-bold my-2 dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-r dark:from-stone-100 dark:to-stone-500">{{ yearGroup.year }}</h2>
+				<div v-for="(yearGroup, index) in groupedData" :key="index" class="px-6">
+					<div class="text-4xl md:text-5xl font-bold mt-10 mb-4 dark:text-zinc-300">{{ yearGroup.year }}</div>
 					<ul class="list-none p-0 m-0">
-						<li v-for="item in yearGroup.items" :key="item.id" class="flex justify-between items-center border-dashed border-b dark:border-gray-600/50 py-2">
+						<li v-for="item in yearGroup.items" :key="item.id" class="flex justify-between items-center border-b dark:border-zinc-700 py-2 space-y-4">
 							<span class="text-left">
-								<NuxtLink :to="item._path" noPrefetch class="flex-none w-fit dark:text-slate-300 2xl:text-xl">{{ item.title }}</NuxtLink>
+								<NuxtLink :to="item._path" noPrefetch class="flex-none w-fit dark:text-slate-300 md:text-2xl dark:text-zinc-400">{{ item.title }}</NuxtLink>
 							</span>
 							<span class="text-right dark:text-slate-300">{{ formatDate(item.date) }}</span>
 						</li>
@@ -23,7 +23,7 @@
 				</div>
 			</div>
 			<MyViewer />
-		</div>
+		</main>
 	</NuxtLayout>
 </template>
 <script setup>
@@ -69,3 +69,8 @@ function formatDate(strDate) {
   return `${month}/${day}`;
 }
 </script>
+<style scoped>
+.min-w {
+	min-width: 64rem;
+}
+</style>

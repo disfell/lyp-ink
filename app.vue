@@ -20,7 +20,6 @@ import { reactive, provide } from 'vue'
 import 'lazysizes'
 import 'lazysizes/plugins/parent-fit/ls.parent-fit'
 import "@fontsource/noto-sans"
-import "@fontsource/playwrite-us-trad"
 
 const appConfig = useAppConfig()
 
