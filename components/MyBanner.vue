@@ -11,10 +11,17 @@
   </div>
 </template>
 <script setup>
+import "@fontsource/luckiest-guy/400.css"
 const appConfig = useAppConfig()
 </script>
-<style>
+<style scoped>
 .b-height {
   height: 5.2rem;
+}
+.band-font {
+  font-family: "Luckiest Guy", cursive;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-display: swap;
 }
 </style>

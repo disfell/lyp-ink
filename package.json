@@ -9,6 +9,7 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@fontsource/luckiest-guy": "^5.0.19",
     "@fontsource/noto-sans": "5.0.22",
     "@nuxt/content": "2.12.1",
     "@nuxt/image": "1.7.0",
