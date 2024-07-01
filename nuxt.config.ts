@@ -18,6 +18,7 @@ export default defineNuxtConfig({
         { "name": "msvalidate.01", "content": "EF8C5B0B645D4CF400002BD3C4ADA832" }
       ],
       script: [
+        { src: '/js/verifyTheme.js'},
         { src: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js' },
         { src: 'https://cdnjs.cloudflare.com/ajax/libs/typeit/8.8.3/index.umd.min.js' },
         { src: process.env.NODE_ENV === 'production' ? '/js/baidu_tongji_lyp_ink.js' : ''}
