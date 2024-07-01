@@ -23,7 +23,7 @@
         <ContentRenderer :value="data">
           <ContentRendererMarkdown :value="data"
             class="p-3 md:px-10 py-10 break-words prose 2xl:prose-lg dark:prose-invert dark:text-zinc-400 prose-pre:bg-gray-100
-            prose-pre:text-inherit dark:prose-pre:bg-zinc-600/30 slideDown"/>
+            prose-pre:text-inherit dark:prose-pre:bg-zinc-600/30 max-w-full slideDown"/>
         </ContentRenderer>
 
         <div class="grow px-4 md:pl-10">

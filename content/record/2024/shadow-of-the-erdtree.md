@@ -11,19 +11,12 @@ last: 2024/06/19
 ::MyImg{src="/imgs/2024/shadow-of-the-erdtree/MCPF.png" alt="metacritic"}
 ::
 
-我的情绪：
-
-- ![](/emoji/hh.webp)
-- ![](/emoji/hh.webp)![](/emoji/hh.webp)
-- ![](/emoji/hh.webp)![](/emoji/hh.webp)![](/emoji/hh.webp)
+1. 依旧是宏伟壮阔的地图，总体观感震撼
+2. 艾尔登之王在幽影之地，竟被小兵两🔪干倒，不愧是你，老贼
+3. 地图空，跑图实在无聊
+4. 不过对我来说还是佳作，暂时没有替代品
 
 # 截图
-
-地图的观感，还是那么的宏伟壮阔，老贼的风格独一档啊![](/emoji/kx.webp)
-
-就是说，艾尔登之王，在幽影之地，居然被小兵两🔪作死，不愧是你啊老贼
-
-还有，地图空空的，跑图有点无聊
 
 
 ::MyImg{src="/imgs/2024/shadow-of-the-erdtree/1.jpg" alt="游戏截图"}

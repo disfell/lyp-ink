@@ -1,5 +1,5 @@
 <template>
-  <MyRootImg :src="checkImg(src, appConfig.useImgCDN)" :alt="alt" />
+  <MyRootImg :src="checkImg(src, false)" :alt="alt" />
 </template>
 <script setup>
 const appConfig = useAppConfig()
