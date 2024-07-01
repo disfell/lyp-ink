@@ -1,21 +1,15 @@
 <template>
   <NuxtLayout>
-		<main class="mx-auto max-w-4xl min-w-0">
+		<main class="mx-auto max-w-3xl min-w-0 border-x border-zinc-200 dark:border-zinc-800 md:shadow">
       <Title>{{data.title}} - {{config.title}}</Title>
-      <div class="md:bg-zinc-50/40 md:dark:bg-zinc-700/30 md:shadow-inner slideDown pt-8">
+      <div class="bg-inherit md:bg-white md:dark:bg-zinc-900 slideDown">
         
-        <div class="flex justify-center">
-          <LazyMyBanner />
-        </div>
-
-        <div class="grow px-4 md:pl-10">
-          <div class="w-full h-1 border-t border-zinc-200 dark:border-zinc-600 inline-block align-middle"></div>
-        </div>
+        <MyArtcleTitle :title="data.title" :date="data?.last ? data.last : data.date" />
 
         <ContentRenderer :value="data">
           <ContentRendererMarkdown :value="data"
             class="p-3 md:px-10 py-10 break-words prose 2xl:prose-lg dark:prose-invert dark:text-zinc-400 prose-pre:bg-gray-100
-            prose-pre:text-inherit dark:prose-pre:bg-zinc-600/30 slideDown"/>
+            prose-pre:text-inherit dark:prose-pre:bg-zinc-600/30 max-w-full slideDown"/>
         </ContentRenderer>
 
         <div class="grow px-4 md:pl-10">

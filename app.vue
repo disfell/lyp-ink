@@ -1,6 +1,5 @@
 <template>
   <div @contextmenu.prevent :class="`${appConfig.mourn ? 'grayscale' : ''}`">
-    <Body class="antialiased dark:bg-neutral-800" />
     <div v-show="loading">
       <Transition>
         <div class="grid place-items-center h-screen">

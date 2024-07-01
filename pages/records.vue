@@ -1,8 +1,8 @@
 <template>
   <NuxtLayout>
-		<main class="mx-auto max-w-4xl min-w-0">
+		<main class="mx-auto max-w-3xl min-w-0 border-x border-zinc-200 dark:border-zinc-800 md:shadow">
 			<Title>记录 - {{ appConfig.title }}</Title>
-			<div class="md:bg-zinc-50/40 md:dark:bg-zinc-700/30 md:shadow-inner slideDown pt-8">
+      <div class="bg-inherit md:bg-white md:dark:bg-zinc-900 slideDown pt-8">
 
 				<div class="justify-center flex">
 					<LazyMyBanner />
@@ -10,14 +10,14 @@
 
 				<div class="mt-8"></div>
 
-				<div v-for="(yearGroup, index) in groupedData" :key="index" class="px-6">
+				<div v-for="(yearGroup, index) in groupedData" :key="index" class="px-6 md:px-12">
 					<div class="text-4xl md:text-5xl font-bold mt-10 mb-4 dark:text-zinc-300">{{ yearGroup.year }}</div>
 					<ul class="list-none p-0 m-0">
-						<li v-for="item in yearGroup.items" :key="item.id" class="flex justify-between items-center border-b dark:border-zinc-700 py-2 space-y-4">
+						<li v-for="item in yearGroup.items" :key="item.id" class="flex justify-between items-center hover:border-b dark:border-zinc-700 py-2 space-y-4">
 							<span class="text-left">
-								<NuxtLink :to="item._path" noPrefetch class="flex-none w-fit dark:text-slate-300 md:text-2xl dark:text-zinc-400">{{ item.title }}</NuxtLink>
+								<NuxtLink :to="item._path" noPrefetch class="flex-none w-fit font-semibold md:text-xl dark:text-zinc-400 hover:text-zinc-500 dark:hover:text-zinc-300">{{ item.title }}</NuxtLink>
 							</span>
-							<span class="text-right dark:text-slate-300">{{ formatDate(item.date) }}</span>
+							<span class="text-right dark:text-zinc-400">{{ formatDate(item.date) }}</span>
 						</li>
 					</ul>
 				</div>

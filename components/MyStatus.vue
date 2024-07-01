@@ -38,11 +38,6 @@
   </div>
 </template>
 <script setup>
-onMounted(() => {
-  getData()
-  timer.value = window.setInterval(() => getData(), interval)
-})
-
 const config = useAppConfig()
 const domain = config.domain
 const localDomain = config.localDomain
@@ -51,19 +46,26 @@ const interval = config.statusFetchInterval
 const showCard = ref(false)
 const showSteamOnline = ref(false)
 const showSteamGaming = ref(false)
-const showMyStatus = ref(false)
 const loadingMyStatus = ref(false)
-const timer = ref(null)
+const timer = ref()
 const statusData = ref({})
 const firstLoad = ref(true)
 
 const steamOnline1Text = 'Steam 在线'
 const steamOnline2Text = ', TA 正在游戏中'
-const workingText = 'TA 正在上班'
+
+onMounted(() => {
+  if (isProd()){
+    getData()
+    timer.value = window.setInterval(() => getData(), interval)
+  }
+})
 
 onUnmounted(() => {
-  clearInterval(timer.value)
-  timer.value = null
+  if (isProd()) {
+    clearInterval(timer.value)
+    timer.value = null
+  }
 })
 
 async function getData() {

@@ -3,9 +3,8 @@
     <div class="min-h-screen grid place-content-center slideDown">
       <Title>{{ appConfig.title }}</Title>
       <div class="md:px-36 md:py-12 md:shadow
-        md:bg-zinc-50/30 md:dark:bg-zinc-700/30
-        border-slate-300 dark:border-slate-600
-        rounded-2xl transition ease-in-out delay-150">
+        bg-inherit md:bg-white md:dark:bg-zinc-900 border-zinc-300 dark:border-zinc-600
+        md:rounded-2xl transition ease-in-out delay-150">
         <LazyMyBanner />
         <blockquote class="text-center text-xl leading-8 text-gray-900 dark:text-zinc-400 sm:text-2xl sm:leading-9">
           <p id="slogan" class="font-black"></p>
@@ -63,3 +62,5 @@ useHead({
   ]
 })
 </script>
+<style scope>
+</style>

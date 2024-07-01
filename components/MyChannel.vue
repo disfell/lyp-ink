@@ -35,14 +35,16 @@ const togglePanel = () => {
 }
 
 onMounted(() => {
-  const supabaseUrl = appConfig.supabaseUrl
-  const supabaseAnnoKey = appConfig.supabaseAnnoKey
-  const supaClient = createClient(supabaseUrl, supabaseAnnoKey)
-  const supaChannel = supaClient.channel('lyp-ink')
-  supaChannel
-    .on('broadcast', { event: 'mystatus' },
-      (payload) => messageReceived(payload)
-    ).subscribe()
+  if (isProd()) {
+    const supabaseUrl = appConfig.supabaseUrl
+    const supabaseAnnoKey = appConfig.supabaseAnnoKey
+    const supaClient = createClient(supabaseUrl, supabaseAnnoKey)
+    const supaChannel = supaClient.channel('lyp-ink')
+    supaChannel
+      .on('broadcast', { event: 'mystatus' },
+        (payload) => messageReceived(payload)
+      ).subscribe()
+  }
 })
 
 watch(isPanelVisible, (newValue, oldValue) => {
