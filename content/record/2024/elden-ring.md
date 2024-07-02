@@ -80,8 +80,6 @@ color: amber
 ::
 ::MyImg{src="/imgs/2024/elden-ring/31.png" alt="游戏截图"}
 ::
-::MyImg{src="/imgs/2024/elden-ring/32.png" alt="游戏截图"}
-::
 ::MyImg{src="/imgs/2024/elden-ring/33.png" alt="游戏截图"}
 ::
 ::MyImg{src="/imgs/2024/elden-ring/41.png" alt="游戏截图"}
@@ -107,12 +105,12 @@ color: amber
 ::MyImg{src="/imgs/2024/elden-ring/44.png" alt="游戏截图"}
 ::
 
-# 还有
-
 ![](/emoji/xl.webp) 宫崎老贼内急上厕所，“门不能从这一侧打开”
+
+![](/emoji/xl.webp) 老贼做手术被医生快慢刀
 
 ![](/emoji/xl.webp) 老贼喝药的时候有人读指令试图打断他喝药
 
 ![](/emoji/xl.webp) 老贼家门口箴言，“前有排泄物”
 
-啊啊啊啊啊老贼！！！！
+老贼！！！！
