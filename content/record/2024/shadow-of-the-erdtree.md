@@ -2,6 +2,7 @@
 title: Shadow of the Erdtree
 date: 2024/06/17
 last: 2024/06/19
+color: amber
 ---
 
 这**周五(2024.06.21)**{type="green"}，艾尔登法环 DLC 黄金树幽影正式上线 ![](/emoji/hh.webp)

@@ -4,7 +4,7 @@
       <Title>{{data.title}} - {{config.title}}</Title>
       <div class="bg-inherit md:bg-white md:dark:bg-zinc-900 slideDown">
         
-        <MyArtcleTitle :title="data.title" :date="data?.last ? data.last : data.date" />
+        <MyArtcleTitle :title="data.title" :date="data?.last ? data.last : data.date" :color="data?.color" />
 
         <ContentRenderer :value="data">
           <ContentRendererMarkdown :value="data"
