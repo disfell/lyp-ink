@@ -16,12 +16,18 @@
           <div class="w-full h-1 border-t border-zinc-200 dark:border-zinc-600 inline-block align-middle"></div>
         </div>
 
-        <div class="flex justify-center mt-10">
+        <div class="py-10"></div>
+        <div class="flex justify-center mt-5">
+          <MyTimeDiff />
+        </div>
+        <div class="flex justify-center mt-5">
           <MyClubLink />
         </div>
         <div class="flex justify-center mt-5">
           <MySiteMap />
         </div>
+        <div class="py-10"></div>
+        
       </div>
       <MyViewer />
     </main>

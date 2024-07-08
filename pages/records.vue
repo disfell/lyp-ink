@@ -15,7 +15,7 @@
 					<ul class="list-none p-0 m-0">
 						<li v-for="item in yearGroup.items" :key="item.id" class="flex justify-between items-center hover:border-b dark:border-zinc-700 py-2 space-y-4">
 							<span class="text-left">
-								<NuxtLink :to="item._path" noPrefetch class="flex-none w-fit font-semibold md:text-xl dark:text-zinc-400 hover:text-zinc-500 dark:hover:text-zinc-300">{{ item.title }}</NuxtLink>
+								<NuxtLink :to="item._path" noPrefetch class="flex-none w-fit md:text-xl dark:text-zinc-400 hover:text-zinc-500 dark:hover:text-zinc-300">{{ item.title }}</NuxtLink>
 							</span>
 							<span class="text-right dark:text-zinc-400">{{ formatDate(item.date) }}</span>
 						</li>
