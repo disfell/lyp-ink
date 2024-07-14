@@ -2,19 +2,14 @@
 title: Shadow of the Erdtree
 date: 2024/06/17
 last: 2024/06/19
-color: orange
 ---
 
-这**周五(2024.06.21)**{type="green"}，艾尔登法环 DLC 黄金树幽影正式上线，等很久啦
+这**周五(2024.06.21)**{type="emerald"}，艾尔登法环 DLC 黄金树幽影正式上线，等很久啦
 
 ::MyImg{src="/imgs/2024/shadow-of-the-erdtree/MCPF.png" alt="metacritic"}
 ::
 
-- 依旧是宏伟壮阔的地图
-- 艾尔登之王在幽影之地，竟被小兵两🔪干倒，不愧是你，老贼
-- 地图空，跑图实在无聊
-- 不过对我来说还是佳作，暂时没有替代品 ![](/emoji/hh.webp)
-
+![](/emoji/hh.webp)![](/emoji/hh.webp)![](/emoji/hh.webp)
 # 截图
 
 
@@ -48,4 +43,4 @@ color: orange
 ::
 
 👆👆👆
-安帕赫这一身衣装真帅啊 ![](/emoji/jy.webp)![](/emoji/jy.webp)![](/emoji/jy.webp)![](/emoji/ts.webp)
+好帅 ![](/emoji/jy.webp)![](/emoji/jy.webp)![](/emoji/jy.webp)

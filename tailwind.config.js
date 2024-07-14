@@ -14,7 +14,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Roboto Slab Variable', 'Noto Sans', 'Noto Color Emoji', ...defaultTheme.fontFamily.sans],
+        'sans': ['Roboto Slab', 'Noto Sans', ...defaultTheme.fontFamily.sans],
       },
       // https://github.com/tailwindlabs/tailwindcss-typography/blob/master/src/styles.js
       typography: (theme) => ({

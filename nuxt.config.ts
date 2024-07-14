@@ -19,8 +19,8 @@ export default defineNuxtConfig({
       ],
       script: [
         { src: '/js/verifyTheme.js'},
-        { src: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js' },
-        { src: 'https://cdnjs.cloudflare.com/ajax/libs/typeit/8.8.3/index.umd.min.js' },
+        { src: '/js/fancybox/index.js' },
+        { src: '/js/typeit/index.js' },
         { src: process.env.NODE_ENV === 'production' ? '/js/baidu_tongji_lyp_ink.js' : ''}
       ],
       link: [
@@ -28,7 +28,7 @@ export default defineNuxtConfig({
         { "rel": 'apple-touch-icon', "href": "/favicon.png"},
         { "rel": 'bookmark', "href": "/favicon.png"},
         { "rel": 'apple-touch-icon-precomposed', "href": "/favicon.png"},
-        { "rel": "stylesheet", "href": "https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"},
+        { "rel": "stylesheet", "href": "/js/fancybox/index.css"},
       ]
     }
   },

@@ -20,13 +20,19 @@ import { reactive, provide } from 'vue'
 import 'lazysizes'
 import 'lazysizes/plugins/parent-fit/ls.parent-fit'
 import "@fontsource/noto-sans"
+import "@fontsource/roboto-slab"
 
 const appConfig = useAppConfig()
 
+const colorsArr = ["sky", "green", "red", "lime", "emerald", "teal", "cyan", "indigo", "violet", "purple"]
+const colorIndex = Math.floor(Math.random() * colorsArr.length)
+const color = colorsArr[colorIndex]
+
 const state = reactive({
   steamGames: [],
-  linkfrom: '/'
+  color: color
 })
+
 // 提供 state 以便在其他组件中使用
 provide('state', state)
 
