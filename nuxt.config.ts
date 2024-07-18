@@ -7,7 +7,8 @@ export default defineNuxtConfig({
     public: {
       useRealtime: process.env.USE_SUPA_REALTIME,
       useImgCDN: process.env.USE_IMG_CDM,
-      usePageRecord: process.env.USE_PAGE_RECORD
+      usePageRecord: process.env.USE_PAGE_RECORD,
+      useSteamStatus: process.env.USE_STEAM_STATUS,
     }
   },
   app: {

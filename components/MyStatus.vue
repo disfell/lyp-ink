@@ -39,6 +39,7 @@
 </template>
 <script setup>
 const config = useAppConfig()
+const conf = useRuntimeConfig()
 const domain = config.domain
 const localDomain = config.localDomain
 const steamStatusURL = config.steamStatusURL
@@ -55,14 +56,14 @@ const steamOnline1Text = 'Steam 在线'
 const steamOnline2Text = ', TA 正在游戏中'
 
 onMounted(() => {
-  if (isProd()){
+  if (conf.public.useSteamStatus === 'true') {
     getData()
     timer.value = window.setInterval(() => getData(), interval)
   }
 })
 
 onUnmounted(() => {
-  if (isProd()) {
+  if (conf.public.useSteamStatus === 'true') {
     clearInterval(timer.value)
     timer.value = null
   }
