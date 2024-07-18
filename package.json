@@ -2,10 +2,10 @@
   "name": "lyp-ink",
   "private": true,
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
+    "build": "nuxt build --dotenv .env.prod",
+    "dev": "nuxt dev --dotenv .env.local",
+    "generate": "nuxt generate --dotenv .env.prod",
+    "preview": "nuxt preview --dotenv .env.prod",
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {

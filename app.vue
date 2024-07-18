@@ -1,5 +1,5 @@
 <template>
-  <div @contextmenu.prevent :class="`${appConfig.mourn ? 'grayscale' : ''}`">
+  <div @contextmenu.prevent :class="`${appConfig.useMourn ? 'grayscale' : ''}`">
     <Body class="antialiased dark:bg-black" />
     <div v-show="loading">
       <Transition>

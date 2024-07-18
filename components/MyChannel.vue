@@ -23,6 +23,7 @@
 </template>
 <script setup>
 import { createClient } from '@supabase/supabase-js'
+const conf = useRuntimeConfig()
 const appConfig = useAppConfig()
 const currentApp = ref('')
 const platform = ref('')
@@ -35,7 +36,7 @@ const togglePanel = () => {
 }
 
 onMounted(() => {
-  if (isProd()) {
+  if (conf.public.useRealtime === 'true') {
     const supabaseUrl = appConfig.supabaseUrl
     const supabaseAnnoKey = appConfig.supabaseAnnoKey
     const supaClient = createClient(supabaseUrl, supabaseAnnoKey)

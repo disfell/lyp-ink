@@ -2,9 +2,10 @@
   <div></div>
 </template>
 <script setup>
+const conf = useRuntimeConfig()
 const { path } = useRoute()
 onMounted(async () => {
-  if (isProd()) {
+  if (conf.public.usePageRecord == 'true') {
     try {
       const resp = await fetch('/api/view', {
         method: "POST",

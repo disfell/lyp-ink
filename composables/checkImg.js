@@ -7,7 +7,7 @@ export default function (src, bycdn) {
   if (url?.startsWith('/') && !url.startsWith('//')) {
     url = withBase(url, useRuntimeConfig().app.baseURL)
   }
-  if (process.env.NODE_ENV === 'production' && bycdn) {
+  if (bycdn) {
     // 除了 webp，其余图片均转为 WebP
     let tmp = url.toLowerCase()
     if (tmp.indexOf(".webp") > 0 || tmp.indexOf(".gif") > 0) {

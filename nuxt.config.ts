@@ -3,7 +3,12 @@ export default defineNuxtConfig({
   runtimeConfig: {
     steamToken: '5DAD723252C842E593C878C79EFE179F',
     steamId: '76561199109983986',
-    supabaseKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndieXhsdGN3c3N1c2RheXdpc3BlIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcxNzcyNTQ3NywiZXhwIjoyMDMzMzAxNDc3fQ.-eMYgsyomyralCftLprDOzV89B-pRaqNGY595opqq1Y'
+    supabaseKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndieXhsdGN3c3N1c2RheXdpc3BlIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcxNzcyNTQ3NywiZXhwIjoyMDMzMzAxNDc3fQ.-eMYgsyomyralCftLprDOzV89B-pRaqNGY595opqq1Y',
+    public: {
+      useRealtime: process.env.USE_SUPA_REALTIME,
+      useImgCDN: process.env.USE_IMG_CDM,
+      usePageRecord: process.env.USE_PAGE_RECORD
+    }
   },
   app: {
     rootId: "lyp-ink",
