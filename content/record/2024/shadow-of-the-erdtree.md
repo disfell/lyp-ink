@@ -9,9 +9,9 @@ last: 2024/06/19
 ::MyImg{src="/imgs/2024/shadow-of-the-erdtree/MCPF.png" alt="metacritic"}
 ::
 
-![](/emoji/hh.webp)![](/emoji/hh.webp)![](/emoji/hh.webp)
-# 截图
+![](/emoji/xl.webp) 来了啊，冲
 
+***
 
 ::MyImg{src="/imgs/2024/shadow-of-the-erdtree/1.jpg" alt="游戏截图"}
 ::
