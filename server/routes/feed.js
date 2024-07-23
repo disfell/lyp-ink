@@ -2,9 +2,9 @@ import { Feed } from "feed"
 import { serverQueryContent } from '#content/server'
 
 export default defineEventHandler(async (event) => {
-  const hostname = 'https://lyp.ink'
+  const hostname = useAppConfig().domain
   var feed = new Feed({
-    title: 'LYP.INK',
+    title: useAppConfig().title,
     description: "This is my personal feed!",
     id: hostname,
     link: hostname,
@@ -14,10 +14,10 @@ export default defineEventHandler(async (event) => {
     updated: new Date()
   })
   const records = await serverQueryContent(event)
-	.only(['_path', 'date', 'title'])
+	.only(['_path', 'date', 'title', 'show'])
 	.sort({ date: -1 , $numeric: true})
 	.find()
-  const records_ = records.filter((doc) => doc?._path?.includes('/record') && doc?._path != '/records')
+  const records_ = records.filter((doc) => doc?._path?.includes('/record') && '/records' != doc?._path && false != doc.show)
   
   for (const doc of records_) {
     feed.addItem({

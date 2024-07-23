@@ -1,9 +1,7 @@
 <template>
-  <img :alt="alt" :data-src="src" :src="loadingSrc" data-sizes="auto" :class="finalClass"/>
+  <img :alt="alt" :data-src="src" src="/loading/loading3.gif" data-sizes="auto" :class="finalClass"/>
 </template>
 <script setup>
-const isDark = usePreferredDark()
-
 const props = defineProps({
   src: {
     default: "",
@@ -24,9 +22,5 @@ const classList = {
 
 const finalClass = computed(() => {
   return classList[props.class]
-})
-
-const loadingSrc = computed(()=>{
-  return isDark ? '/loading/loading-2.gif' : '/loading/loading.gif'
 })
 </script>

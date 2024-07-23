@@ -6,11 +6,13 @@
     "dev": "nuxt dev --dotenv .env.local",
     "generate": "nuxt generate --dotenv .env.prod",
     "preview": "nuxt preview --dotenv .env.prod",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "alz": "npx nuxi analyze"
   },
-  "devDependencies": {
-    "@fontsource/luckiest-guy": "^5.0.19",
+  "dependencies": {
+    "@fontsource/luckiest-guy": "5.0.19",
     "@fontsource/noto-sans": "5.0.22",
+    "@fontsource/roboto-slab": "5.0.20",
     "@nuxt/content": "2.12.1",
     "@nuxt/image": "1.7.0",
     "@supabase/supabase-js": "2.43.4",
@@ -27,8 +29,5 @@
     "sass": "1.77.6",
     "sitemap": "7.1.1",
     "tailwindcss": "3.4.1"
-  },
-  "dependencies": {
-    "@fontsource/roboto-slab": "^5.0.20"
   }
 }

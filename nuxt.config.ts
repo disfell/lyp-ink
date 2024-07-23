@@ -59,13 +59,6 @@ export default defineNuxtConfig({
       injectPage: false
     },
     navigation: false,
-    // highlight: {
-      // theme: {
-        // https://github.com/shikijs/shiki/blob/main/docs/themes.md
-        // default: 'github-light',
-        // dark: 'nord'
-      // }
-    // },
     markdown: {
       mdc: true,
       tags: {
@@ -94,6 +87,13 @@ export default defineNuxtConfig({
             clientPort: 3000,
             port: 3000
       }
+    }  
+  },
+  webpack: {
+    analyze: {
+      "template": "treemap",
+      "projectRoot": "/<rootDir>",
+      "filename": "/<rootDir>/.nuxt/analyze/{name}.html"
     }  
   }
 })

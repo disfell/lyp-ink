@@ -40,9 +40,9 @@ const articles = await queryContent('record').only(['date', 'last', 'description
 const data = ref()
 // 剔除 _path 为 '/records' 的项
 if (isProd()) {
-	data.value = articles.filter(item => item._path !== '/records' && item?.show != false)
+	data.value = articles.filter(item => '/records' !== item._path && false != item?.show)
 } else {
-	data.value = articles.filter(item => item._path !== '/records')
+	data.value = articles.filter(item => '/records' !== item._path)
 }
 // 时间倒序排列
 data.value.sort((a, b) => new Date(b.date) - new Date(a.date))

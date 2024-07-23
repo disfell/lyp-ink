@@ -5,7 +5,7 @@ export default defineEventHandler(async (event) => {
   // Fetch all documents
   const docs = await serverQueryContent(event).find()
   const sitemap = new SitemapStream({
-    hostname: 'https://www.lyp.ink/'
+    hostname: useAppConfig().domain
   })
 
   sitemap.write({
@@ -14,10 +14,12 @@ export default defineEventHandler(async (event) => {
   })
 
   for (const doc of docs) {
-    sitemap.write({
-      url: doc._path,
-      changefreq: 'monthly'
-    })
+    if (false != doc?.show) {
+      sitemap.write({
+        url: doc._path,
+        changefreq: 'monthly'
+      })
+    }
   }
   sitemap.end()
 
