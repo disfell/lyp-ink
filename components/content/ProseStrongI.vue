@@ -11,8 +11,10 @@ const props = defineProps({
     default: ''
   }
 })
+
+const chooseClass = ref('') 
 const map = {
-  '': 'font-bold rounded cursor-pointer dark:text-zinc-400',
+  'default': 'font-bold rounded cursor-pointer dark:text-zinc-400',
   'sky': 'font-bold rounded cursor-pointer bg-sky-100 dark:bg-sky-900 dark:text-zinc-400 p-1 mx-1 text-sm',
   'green': 'font-bold rounded cursor-pointer bg-green-100 dark:bg-green-900 dark:text-zinc-400 p-1 mx-1 text-sm',
   'red': 'font-bold rounded cursor-pointer bg-red-100 dark:bg-red-900 dark:text-zinc-400 p-1 mx-1 text-sm',
@@ -25,7 +27,11 @@ const map = {
   'purple': 'font-bold rounded cursor-pointer bg-purple-100 dark:bg-purple-900 dark:text-zinc-400 p-1 mx-1 text-sm',
 }
 
-const chooseClass = computed(() => {
-  return map[state.color]
+onMounted(()=>{
+  if (props.type) {
+    chooseClass.value = props.type
+  } else {
+    chooseClass.value = map[state.color]
+  }
 })
 </script>

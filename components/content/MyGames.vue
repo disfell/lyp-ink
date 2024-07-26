@@ -42,17 +42,19 @@
 <script setup>
 import { inject } from 'vue'
 const state = inject('state')
-
-onMounted(() => {
-  getData()
-})
-
 const config = useAppConfig()
+const conf = useRuntimeConfig()
 const domain = config.domain
 const localDomain = config.localDomain
 const gamesURL = config.gamesURL
 const loadingMyStatus = ref(false)
 const recentlyGames = ref([])
+
+onMounted(() => {
+  if (conf.public.useSteamStatus === 'true') {
+    getData()
+  }
+})
 
 async function getData() {
   loadingMyStatus.value = true
