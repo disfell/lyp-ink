@@ -43,7 +43,6 @@ const textElement = ref(null)
 const wordCount = ref(0)
 onMounted(()=>{
   const text = textElement.value.textContent
-  console.log(text)
   const {chineseChars, englishWords} = countCharactersAndWords(text)
   const words = chineseChars + englishWords
   wordCount.value = words
