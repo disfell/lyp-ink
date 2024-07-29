@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  compatibilityDate: '2024-07-29',
   runtimeConfig: {
     steamToken: '5DAD723252C842E593C878C79EFE179F',
     steamId: '76561199109983986',
@@ -46,10 +47,7 @@ export default defineNuxtConfig({
       ...(process.env.NODE_ENV === 'production' ? { cssnano: {} } : {})
     }
   },
-  modules: [
-    '@vueuse/nuxt',
-    '@nuxt/content'
-  ],
+  modules: ['@vueuse/nuxt', '@nuxt/content', "@nuxt/image"],
   content: {
     defaultLocale: "zh-cn",
     documentDriven: {
