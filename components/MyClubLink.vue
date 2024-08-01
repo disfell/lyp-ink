@@ -18,7 +18,7 @@ const props = defineProps({
 
 const classList = {
   '': 'text-zinc-400 text-xs md:text-sm',
-  'rb': 'fixed bottom-1 right-2 text-zinc-600 dark:text-zinc-400 text-xs md:text-sm'
+  'rb': 'fixed bottom-1 right-2 text-zinc-600 dark:text-zinc-400 text-xs md:text-sm md:bg-zinc-100 dark:md:bg-zinc-900 md:p-2 md:rounded-lg'
 }
 
 const finalClass = computed(() => {
