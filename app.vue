@@ -24,7 +24,7 @@ import "@fontsource/roboto-slab"
 
 const appConfig = useAppConfig()
 
-const colorsArr = ["sky", "green", "red", "lime", "emerald", "teal", "cyan", "indigo", "violet", "purple"]
+const colorsArr = ["sky", "green", "lime", "emerald", "teal", "cyan", "indigo", "violet", "purple"]
 const colorIndex = Math.floor(Math.random() * colorsArr.length)
 const color = colorsArr[colorIndex]
 

@@ -37,7 +37,6 @@ const props = defineProps({
 const colorsMap = {
   "sky": "bg-gradient-to-b from-sky-100 dark:from-sky-950/60 py-12",
   "green": "bg-gradient-to-b from-green-100 dark:from-green-950/60 py-12",
-  "red": "bg-gradient-to-b from-red-100 dark:from-red-950/60 py-12",
   "lime": "bg-gradient-to-b from-lime-100 dark:from-lime-950/60 py-12",
   "emerald": "bg-gradient-to-b from-emerald-100 dark:from-emerald-950/60 py-12",
   "teal": "bg-gradient-to-b from-teal-100 dark:from-teal-950/60 py-12",
@@ -45,8 +44,6 @@ const colorsMap = {
   "indigo": "bg-gradient-to-b from-indigo-100 dark:from-indigo-950/60 py-12",
   "violet": "bg-gradient-to-b from-violet-100 dark:from-violet-950/60 py-12",
   "purple": "bg-gradient-to-b from-purple-100 dark:from-purple-950/60 py-12",
-  "pink": "bg-gradient-to-b from-pink-100 dark:from-pink-950/60 py-12",
-  "rose": "bg-gradient-to-b from-rose-100 dark:from-rose-950/60 py-12"
 }
 
 if (props.color != '') {

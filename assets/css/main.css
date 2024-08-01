@@ -12,30 +12,6 @@
   color: rgb(255, 255, 255);
 }
 
-h1, h2, h3, h4, h5, h6 {
-  position: relative;
-  transition: all 0.3s ease; /* 平滑过渡效果 */
-}
-
-h1:hover {
-  padding-left: 35px; /* 为#符号提供空间 */
-}
-h2:hover {
-  padding-left: 25px; /* 为#符号提供空间 */
-}
-h3:hover {
-  padding-left: 20px; /* 为#符号提供空间 */
-}
-h4:hover {
-  padding-left: 15px; /* 为#符号提供空间 */
-}
-h5:hover {
-  padding-left: 14px; /* 为#符号提供空间 */
-}
-h6:hover {
-  padding-left: 14px; /* 为#符号提供空间 */
-}
-
 code {
   padding: 5px 5px 5px 5px;
   border-radius: 6px;
@@ -69,16 +45,6 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     background-color: #6666667e;
     border-radius: 0.5rem;
   }
-
-  h1:hover::after, h2:hover::after, h3:hover::after, h4:hover::after, h5:hover::after, h6:hover::after {
-    content: "#";
-    left: 0;
-    top: 0;
-    position: absolute;
-    font: inherit;
-    animation: slideInFromLeft 0.3s ease forwards;
-    color: #2c2c2c; /* 根据需要调整颜色 */
-  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -107,16 +73,6 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
   ::-webkit-scrollbar-thumb {
     background-color: #757575;
     border-radius: 0.5rem;
-  }
-
-  h1:hover::after, h2:hover::after, h3:hover::after, h4:hover::after, h5:hover::after, h6:hover::after {
-    content: "#";
-    left: 0;
-    top: 0;
-    position: absolute;
-    font: inherit;
-    animation: slideInFromLeft 0.3s ease forwards;
-    color: #bbbbbb; /* 根据需要调整颜色 */
   }
 }
 

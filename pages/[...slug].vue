@@ -1,6 +1,6 @@
 <template>
   <NuxtLayout>
-		<main v-if="data" class="mx-auto max-w-3xl min-w-0 border-x border-zinc-200 dark:border-zinc-800 md:shadow">
+		<main v-if="data" class="mx-auto md:max-w-3xl 2xl:max-w-4xl min-w-0 border-x border-zinc-200 dark:border-zinc-800 md:shadow">
       <Title>{{data.title}} - {{config.title}}</Title>
       <div class="bg-inherit md:bg-white md:dark:bg-zinc-900 slideDown">
         
