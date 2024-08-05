@@ -1,5 +1,11 @@
 <template>
-  <img :alt="alt" :data-src="src" src="/loading/loading3.gif" data-sizes="auto" :class="finalClass"/>
+  <img
+    :alt="alt"
+    :data-src="src"
+    src="/loading/loading3.gif"
+    data-sizes="auto"
+    :class="finalClass"
+  />
 </template>
 <script setup>
 const props = defineProps({
@@ -10,17 +16,18 @@ const props = defineProps({
     default: "lyp.ink",
   },
   class: {
-    default: ""
-  }
-})
+    default: "",
+  },
+});
 
 const classList = {
-  '': 'inline-flex items-baseline h-8 w-8 jelly-effect-hover lazyload',
-  'content.MyImgList': 'max-h-56 lg:max-h-64 rounded-md dark:brightness-50 lazyload',
-  'content.MyImg': 'rounded-md dark:brightness-50 lazyload'
-}
+  "": "inline-flex items-baseline h-8 w-8 jelly-effect-hover lazyload",
+  "content.MyImgList":
+    "max-h-56 lg:max-h-64 rounded-md dark:brightness-50 lazyload",
+  "content.MyImg": "rounded-md dark:brightness-50 lazyload",
+};
 
 const finalClass = computed(() => {
-  return classList[props.class]
-})
+  return classList[props.class];
+});
 </script>

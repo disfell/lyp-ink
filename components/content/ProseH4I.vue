@@ -9,7 +9,7 @@
 defineProps({
   id: {
     type: String,
-    default: ''
-  }
-})
+    default: "",
+  },
+});
 </script>

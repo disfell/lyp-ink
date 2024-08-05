@@ -9,7 +9,15 @@ export const formatTime = (stringTime) => {
   const weekday = date.getDay();
 
   // 星期的中文表示
-  const weekdays = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+  const weekdays = [
+    "星期日",
+    "星期一",
+    "星期二",
+    "星期三",
+    "星期四",
+    "星期五",
+    "星期六",
+  ];
 
   // 格式化月和日，确保是两位数字
   const monthStr = month < 10 ? `0${month}` : month.toString();
@@ -19,4 +27,4 @@ export const formatTime = (stringTime) => {
   const formattedDate = `${year}年${monthStr}月${dayStr}日 ${weekdays[weekday]}`;
 
   return formattedDate;
-}
+};

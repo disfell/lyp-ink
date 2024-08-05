@@ -3,8 +3,7 @@
     <Transition name="slide">
       <span
         v-if="show"
-        class="my-tooltip font-normal absolute bottom-0 left-0 text-zinc-500 bg-white dark:bg-zinc-500
-        dark:text-white p-2 border-2 rounded-md text-xs z-50"
+        class="my-tooltip font-normal absolute bottom-0 left-0 text-zinc-500 bg-white dark:bg-zinc-500 dark:text-white p-2 border-2 rounded-md text-xs z-50"
       >
         {{ decodeURIComponent(txt) }}
       </span>

@@ -2,13 +2,13 @@
   <MyRootImg :src="checkImg(src, false)" :alt="alt" />
 </template>
 <script setup>
-const appConfig = useAppConfig()
+const appConfig = useAppConfig();
 const props = defineProps({
   src: {
-    default: ''
+    default: "",
   },
   alt: {
     default: "lyp.ink",
-  }
-})
+  },
+});
 </script>

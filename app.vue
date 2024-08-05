@@ -16,30 +16,40 @@
   </div>
 </template>
 <script setup>
-import { reactive, provide } from 'vue'
-import 'lazysizes'
-import 'lazysizes/plugins/parent-fit/ls.parent-fit'
-import "@fontsource/noto-sans"
-import "@fontsource/roboto-slab"
+import { reactive, provide } from "vue";
+import "lazysizes";
+import "lazysizes/plugins/parent-fit/ls.parent-fit";
+import "@fontsource/noto-sans";
+import "@fontsource/roboto-slab";
 
-const appConfig = useAppConfig()
+const appConfig = useAppConfig();
 
-const colorsArr = ["sky", "green", "lime", "emerald", "teal", "cyan", "indigo", "violet", "purple"]
-const colorIndex = Math.floor(Math.random() * colorsArr.length)
-const color = colorsArr[colorIndex]
+const colorsArr = [
+  "sky",
+  "green",
+  "lime",
+  "emerald",
+  "teal",
+  "cyan",
+  "indigo",
+  "violet",
+  "purple",
+];
+const colorIndex = Math.floor(Math.random() * colorsArr.length);
+const color = colorsArr[colorIndex];
 
 const state = reactive({
   steamGames: [],
-  color: color
-})
+  color: color,
+});
 
 // 提供 state 以便在其他组件中使用
-provide('state', state)
+provide("state", state);
 
-onUnmounted(()=>{
-  Fancybox.close()
-  Fancybox.destroy()
-})
+onUnmounted(() => {
+  Fancybox.close();
+  Fancybox.destroy();
+});
 
 onMounted(() => {
   // Fancybox
@@ -51,48 +61,46 @@ onMounted(() => {
     Toolbar: {
       display: {
         left: ["infobar"],
-        middle: [
-          "zoomIn",
-          "zoomOut",
-          "rotateCCW",
-          "rotateCW",
-        ],
+        middle: ["zoomIn", "zoomOut", "rotateCCW", "rotateCW"],
         right: ["thumbs", "close"],
       },
     },
-  })
+  });
 
   // light & dark
-  lod()
-  let lightMedia = window.matchMedia('(prefers-color-scheme: light)')
-  let darkMedia = window.matchMedia('(prefers-color-scheme: dark)')
-  if (typeof darkMedia.addEventListener === 'function' || typeof lightMedia.addEventListener === 'function') {
-    lightMedia.addEventListener('change', (() => lod()))
-    darkMedia.addEventListener('change', (() => lod()))
+  lod();
+  let lightMedia = window.matchMedia("(prefers-color-scheme: light)");
+  let darkMedia = window.matchMedia("(prefers-color-scheme: dark)");
+  if (
+    typeof darkMedia.addEventListener === "function" ||
+    typeof lightMedia.addEventListener === "function"
+  ) {
+    lightMedia.addEventListener("change", () => lod());
+    darkMedia.addEventListener("change", () => lod());
   }
-})
+});
 
 function lod() {
-  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    document.documentElement.classList.remove('light')
-    document.documentElement.classList.add('dark')
+  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    document.documentElement.classList.remove("light");
+    document.documentElement.classList.add("dark");
   } else {
-    document.documentElement.classList.remove('dark')
-    document.documentElement.classList.add('light')
+    document.documentElement.classList.remove("dark");
+    document.documentElement.classList.add("light");
   }
 }
 
-const nuxtApp = useNuxtApp()
-const loading = ref(false)
+const nuxtApp = useNuxtApp();
+const loading = ref(false);
 nuxtApp.hook("page:start", () => {
   loading.value = true;
-})
+});
 nuxtApp.hook("page:finish", () => {
   loading.value = false;
-})
+});
 </script>
 <style>
-.loading{
+.loading {
   z-index: 9999;
 }
 .v-enter-active,
