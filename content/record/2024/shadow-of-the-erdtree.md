@@ -4,7 +4,7 @@ date: 2024/06/17
 last: 2024/06/19
 ---
 
-这**周五(2024.06.21)**{type="emerald"}，艾尔登法环 DLC 黄金树幽影正式上线，等很久啦
+这**周五(2024.06.21)**{type="default"}，艾尔登法环 DLC 黄金树幽影正式上线，等很久啦
 
 ::MyImg{src="/imgs/2024/shadow-of-the-erdtree/MCPF.png" alt="metacritic"}
 ::
