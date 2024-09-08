@@ -57,3 +57,5 @@ date: 2024/09/09 21:33:00
 ::
 ::MyImg{src="/imgs/2024/black-myth-wukong/19.jpg" alt="游戏截图"}
 ::
+::MyImg{src="/imgs/2024/black-myth-wukong/20.jpg" alt="游戏截图"}
+::
