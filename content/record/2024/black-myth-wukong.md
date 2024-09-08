@@ -12,10 +12,12 @@ date: 2024/09/09 21:33:00
 
 ***
 
-已经重复通关了好几次，货真价实，有明显缺点，但是能理解，能接受，也确实追赶了欧美、日本的大型游戏制作水准，作为游戏爱好者，真的好满足！
+已经重复通关了好几次，有明显缺点，但能接受，作为游戏爱好者，挺满足了。
 
-还是一样，附上游戏截图，记录过程。
+::MyImg{src="/imgs/2024/black-myth-wukong/0.png" alt="游戏截图"}
+::
 
+附上游戏截图，结算，以后等游科有更新了再玩。
 
 ::MyImg{src="/imgs/2024/black-myth-wukong/1.jpg" alt="游戏截图"}
 ::
@@ -34,4 +36,24 @@ date: 2024/09/09 21:33:00
 ::MyImg{src="/imgs/2024/black-myth-wukong/8.jpg" alt="游戏截图"}
 ::
 ::MyImg{src="/imgs/2024/black-myth-wukong/9.jpg" alt="游戏截图"}
+::
+::MyImg{src="/imgs/2024/black-myth-wukong/10.jpg" alt="游戏截图"}
+::
+::MyImg{src="/imgs/2024/black-myth-wukong/11.jpg" alt="游戏截图"}
+::
+::MyImg{src="/imgs/2024/black-myth-wukong/12.jpg" alt="游戏截图"}
+::
+::MyImg{src="/imgs/2024/black-myth-wukong/13.jpg" alt="游戏截图"}
+::
+::MyImg{src="/imgs/2024/black-myth-wukong/14.jpg" alt="游戏截图"}
+::
+::MyImg{src="/imgs/2024/black-myth-wukong/15.jpg" alt="游戏截图"}
+::
+::MyImg{src="/imgs/2024/black-myth-wukong/16.jpg" alt="游戏截图"}
+::
+::MyImg{src="/imgs/2024/black-myth-wukong/17.jpg" alt="游戏截图"}
+::
+::MyImg{src="/imgs/2024/black-myth-wukong/18.jpg" alt="游戏截图"}
+::
+::MyImg{src="/imgs/2024/black-myth-wukong/19.jpg" alt="游戏截图"}
 ::
