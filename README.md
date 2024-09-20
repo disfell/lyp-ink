@@ -57,3 +57,25 @@ npx npm-check-updates -u
 npm update <package-name>
 npm install
 ```
+
+## 一些自定义组件的使用
+
+### Alert 框
+
+```
+::MyAlert{type="warning"}
+这里是内容
+::
+```
+
+目前提供了四种颜色提示
+- info
+- warning
+- danger
+- success
+
+### 粗字体
+
+```
+**这里是内容**{type="default"}
+```

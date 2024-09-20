@@ -4,6 +4,10 @@ date: 2023/09/01
 last: 2023/09/05
 ---
 
+::MyAlert{type="warning"}
+功能已废弃，AppleScript也不再使用
+::
+
 # 起因
 
 上班摸鱼的时候刷到了这么一行[代码](https://apple.stackexchange.com/questions/406941/applescript-and-music)。
