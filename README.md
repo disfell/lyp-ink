@@ -44,7 +44,7 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 ## reinstall && run preview
 
 ```
-rm -rf node_modules package-lock.json .output .nuxt && npm install && npm run build && npm run preview
+rm -rf node_modules package-lock.json .output .nuxt && npm install && npm run build
 ```
 
 ## check version
