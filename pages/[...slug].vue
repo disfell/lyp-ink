@@ -55,8 +55,7 @@ const wordCount = ref(0);
 onMounted(() => {
   const text = textElement.value.textContent;
   const { chineseChars, englishWords } = countCharactersAndWords(text);
-  const words = chineseChars + englishWords;
-  wordCount.value = words;
+  wordCount.value = chineseChars + englishWords;
 });
 
 function countCharactersAndWords(text) {

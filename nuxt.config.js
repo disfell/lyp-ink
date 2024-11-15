@@ -89,14 +89,6 @@ export default defineNuxtConfig({
       crawlLinks: true,
     },
   },
-  vite: {
-    server: {
-      hmr: {
-        clientPort: 3000,
-        port: 3000,
-      },
-    },
-  },
   webpack: {
     analyze: {
       template: "treemap",
