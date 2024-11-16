@@ -1,11 +1,6 @@
-{ 
-"git.enabled": true,
-"editor.tabSize": 4,
-"editor.detectIndentation": false,
-"editor.codeActionsOnSave": {
-
-},
-"editor.fontSize": 14,
-"search.followSymlinks": false,
-"editor.fontFamily": "Sarasa-Mono-TC-Regular, 'Courier New', monospace"
+{
+    "editor.fontSize": 14,
+    "editor.fontFamily": "",
+    "debug.console.fontSize": 10,
+    "debug.console.fontFamily": ""
 }
