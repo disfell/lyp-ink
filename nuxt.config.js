@@ -6,10 +6,13 @@ export default defineNuxtConfig({
     steamId: process.env.STEAM_ID,
     supabaseKey: process.env.SUPABASE_KEY,
     public: {
+      thirdPartImgServer: process.env.THIRDPART_IMG_SERVER,
+      cloudimage: process.env.CLOUDIMAGE,
       useRealtime: process.env.USE_SUPA_REALTIME,
-      useImgCDN: process.env.USE_IMG_CDM,
+      useCloudimage: process.env.USE_CLOUDIMAGE,
       usePageRecord: process.env.USE_PAGE_RECORD,
       useSteamStatus: process.env.USE_STEAM_STATUS,
+      cloudimg: process.env.USE_STEAM_STATUS,
     },
   },
   app: {
@@ -29,7 +32,7 @@ export default defineNuxtConfig({
       ],
       script: [
         { src: "/js/verifyTheme.js" },
-        { src: "/js/fancybox/index.js" },
+        // { src: "/js/fancybox/index.js" },
         { src: "/js/typeit/index.js" },
         {
           src:
@@ -43,7 +46,7 @@ export default defineNuxtConfig({
         { rel: "apple-touch-icon", href: "/favicon.png" },
         { rel: "bookmark", href: "/favicon.png" },
         { rel: "apple-touch-icon-precomposed", href: "/favicon.png" },
-        { rel: "stylesheet", href: "/js/fancybox/index.css" },
+        // { rel: "stylesheet", href: "/js/fancybox/index.css" },
       ],
     },
   },

@@ -21,6 +21,8 @@ import "lazysizes";
 import "lazysizes/plugins/parent-fit/ls.parent-fit";
 import "@fontsource/noto-sans";
 import "@fontsource/roboto-slab";
+import { Fancybox } from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 const appConfig = useAppConfig();
 
