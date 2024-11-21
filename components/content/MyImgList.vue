@@ -8,12 +8,12 @@
       class="snap-center shrink-0 shadow-2xl cursor-pointer"
     >
       <a
-        :src="checkImg(i, conf.public.useCloudimage)"
+        :src="checkImg(i, conf.public.imgCDN)"
         data-fancybox="gallery"
         data-caption="lyp.ink"
       >
         <MyRootImg
-          :src="checkImg(i, conf.public.useCloudimage)"
+          :src="checkImg(i, conf.public.imgCDN)"
           class="content.MyImgList"
         />
       </a>

@@ -1,13 +1,13 @@
 <template>
   <div class="grid justify-items-center">
     <a
-      :src="checkImg(src, conf.public.useCloudimage)"
+      :src="checkImg(src, conf.public.imgCDN)"
       data-fancybox="gallery"
       data-caption="lyp.ink"
       class="cursor-pointer"
     >
       <MyRootImg
-        :src="checkImg(src, conf.public.useCloudimage)"
+        :src="checkImg(src, conf.public.imgCDN)"
         class="content.MyImg"
         :alt="alt"
       />
