@@ -52,11 +52,7 @@ onUnmounted(() => {
 });
 
 const refinedSrc = computed(() => {
-  if (process.env.NODE_ENV === "production") {
-    return `${appConfig.cloudimg}/${appConfig.domain}${appConfig.avatar}?force_format=webp,jpeg&org_if_sml=1`;
-  } else {
-    return `${appConfig.avatar}`;
-  }
+  return `${appConfig.avatar}`;
 });
 
 useHead({

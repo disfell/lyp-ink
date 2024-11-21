@@ -1,22 +1,6 @@
 <template>
   <div>
     <span class="flex flex-wrap">
-      <a
-        v-if="!isDark"
-        href="https://zeabur.com/zh-CN"
-        target="_blank"
-        class="self-center"
-      >
-        <img src="/icon/other/zeaber-light.svg" class="max-h-6" />
-      </a>
-      <a
-        v-if="isDark"
-        href="https://zeabur.com/zh-CN"
-        target="_blank"
-        class="pl-4 self-center"
-      >
-        <img src="/icon/other/zeaber-dark.svg" class="max-h-6" />
-      </a>
       <a href="https://supabase.com/" target="_blank" class="pl-4 self-center">
         <img src="/icon/other/supabase.svg" class="max-h-8" />
       </a>

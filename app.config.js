@@ -4,6 +4,8 @@ export default defineAppConfig({
   sloganShow: "❝ 向下扎根，野蛮生长 ❞", // 主页的标语
   avatar: "/avatar/jerry.jpg", // 主页的头像，取自 public 文件夹的图片
   domain: "https://lyp.ink", // 部署上线的域名
+  supabaseUrl: "https://wbyxltcwssusdaywispe.supabase.co",
+  supabaseAnnoKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndieXhsdGN3c3N1c2RheXdpc3BlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTc3MjU0NzcsImV4cCI6MjAzMzMwMTQ3N30.k3wZYezUISBhadwguP978NCqfSMFmKhscrTYQ_nFcDE",
   statusFetchInterval: 30000,
   localDomain: "http://localhost:3000", // 本地调试的地址
   steamStatusURL: "/api/steam",
