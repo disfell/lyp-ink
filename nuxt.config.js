@@ -87,6 +87,7 @@ export default defineNuxtConfig({
     prerender: {
       routes: ["/sitemap.xml", "/feed"],
       crawlLinks: true,
+      autoSubfolderIndex: false
     },
   },
   webpack: {
