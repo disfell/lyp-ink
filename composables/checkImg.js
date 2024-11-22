@@ -14,7 +14,7 @@ export default function (src, bycdn) {
     return url;
   }
 
-  if (bycdn !== null && bycdn.trim() !== "") {
+  if (bycdn === null || bycdn.trim() === "") {
     if (url?.startsWith("/") && !url.startsWith("//")) {
       url = withBase(url, thirdPartImgServ ? thirdPartImgServ : useRuntimeConfig().app.baseURL);
     }

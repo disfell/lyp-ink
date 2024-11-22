@@ -17,7 +17,7 @@ date: 2024/09/09 21:33:00
 ::MyImg{src="/imgs/2024/black-myth-wukong/0.png" alt="游戏截图"}
 ::
 
-附上游戏截图，结算，以后等游科有更新了再玩。
+附上游戏截图，以后等游科有更新了再玩。
 
 ::MyImg{src="/imgs/2024/black-myth-wukong/1.jpg" alt="游戏截图"}
 ::
