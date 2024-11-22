@@ -1,7 +1,14 @@
 {
-    "editor.fontSize": 14,
-    "editor.fontFamily": "等距更纱黑体 Slab SC",
-    "debug.console.fontSize": 10,
-    "debug.console.fontFamily": "",
-    "terminal.integrated.fontFamily": "等距更纱黑体 Slab SC"
+  "editor.fontSize": 12,
+  "editor.fontFamily": "等距更纱黑体 Slab SC",
+  "debug.console.fontSize": 12,
+  "debug.console.fontFamily": "等距更纱黑体 Slab SC",
+  "terminal.integrated.fontFamily": "等距更纱黑体 Slab SC",
+  "terminal.integrated.fontSize": 12,
+  "prettier.embeddedLanguageFormatting": "off",
+  "prettier.tabWidth": 2,
+  "prettier.useTabs": false,
+  "prettier.vueIndentScriptAndStyle": false,
+  "prettier.resolveGlobalModules": false,
+  "editor.tabSize": 2
 }
