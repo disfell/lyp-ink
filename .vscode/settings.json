@@ -1,6 +1,7 @@
 {
     "editor.fontSize": 14,
-    "editor.fontFamily": "",
+    "editor.fontFamily": "等距更纱黑体 Slab SC",
     "debug.console.fontSize": 10,
-    "debug.console.fontFamily": ""
+    "debug.console.fontFamily": "",
+    "terminal.integrated.fontFamily": "等距更纱黑体 Slab SC"
 }

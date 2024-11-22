@@ -11,8 +11,7 @@ export default defineNuxtConfig({
             useRealtime: process.env.USE_SUPA_REALTIME,
             useImgCDN: process.env.USE_IMG_CDN,
             usePageRecord: process.env.USE_PAGE_RECORD,
-            useSteamStatus: process.env.USE_STEAM_STATUS,
-            cloudimg: process.env.USE_STEAM_STATUS,
+            useSteamStatus: process.env.USE_STEAM_STATUS
         },
     },
     app: {
@@ -32,21 +31,18 @@ export default defineNuxtConfig({
             ],
             script: [
                 { src: "/js/verifyTheme.js" },
-                // { src: "/js/fancybox/index.js" },
-                { src: "/js/typeit/index.js" },
                 {
                     src:
                         process.env.NODE_ENV === "production"
                             ? "/js/baidu_tongji_lyp_ink.js"
                             : "",
-                },
+                }
             ],
             link: [
                 { rel: "shortcut icon", href: "/favicon.png" },
                 { rel: "apple-touch-icon", href: "/favicon.png" },
                 { rel: "bookmark", href: "/favicon.png" },
-                { rel: "apple-touch-icon-precomposed", href: "/favicon.png" },
-                // { rel: "stylesheet", href: "/js/fancybox/index.css" },
+                { rel: "apple-touch-icon-precomposed", href: "/favicon.png" }
             ],
         },
     },
@@ -58,7 +54,7 @@ export default defineNuxtConfig({
             ...(process.env.NODE_ENV === "production" ? { cssnano: {} } : {}),
         },
     },
-    modules: ["@vueuse/nuxt", "@nuxt/content", "@nuxt/image"],
+    modules: ["@vueuse/nuxt", "@nuxt/content"],
     content: {
         defaultLocale: "zh-cn",
         documentDriven: {

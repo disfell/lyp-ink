@@ -38,6 +38,8 @@
 </template>
 <script setup>
 const appConfig = useAppConfig();
+import TypeIt from "typeit";
+
 let typeIt = ref();
 onMounted(() => {
   typeIt = new TypeIt("#slogan", {
