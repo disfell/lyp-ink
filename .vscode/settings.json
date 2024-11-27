@@ -10,7 +10,7 @@
     ["ui:\\s*{([^)]*)\\s*}", "[\"'`]([^\"'`]*).*?[\"'`]"],
     ["/\\*ui\\*/\\s*{([^;]*)}", ":\\s*[\"'`]([^\"'`]*).*?[\"'`]"]
   ],
-  "tailwindCSS.classAttributes": ["class", "className", "ngClass", "ui"],
+  "tailwindCSS.classAttributes": ["class", "className", "ngClass", "ui", "active-class", "inactive-class"],
   "editor.fontSize": 12,
   "editor.fontFamily": "Source Han Sans",
   "debug.console.fontSize": 12,
