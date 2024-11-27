@@ -11,7 +11,7 @@
     ["/\\*ui\\*/\\s*{([^;]*)}", ":\\s*[\"'`]([^\"'`]*).*?[\"'`]"]
   ],
   "tailwindCSS.classAttributes": ["class", "className", "ngClass", "ui", "active-class", "inactive-class"],
-  "editor.fontSize": 12,
+  "editor.fontSize": 14,
   "editor.fontFamily": "Source Han Sans",
   "debug.console.fontSize": 12,
   "debug.console.fontFamily": "等距更纱黑体 Slab SC",

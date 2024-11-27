@@ -1,33 +1,42 @@
 <template>
   <NuxtLink
     class="flex items-end gap-4 group p-2 -m-2 rounded-lg"
-    :to="project.url"
+    :to="obj.url"
     target="_blank"
     external
   >
     <div class="max-w-sm">
       <h3 class="text-sm font-medium group-hover:text-primary-600">
-        {{ project.name }}
+        {{ obj.name }}
       </h3>
-      <p class="text-gray-400 text-sm">{{ project.description }}</p>
+      <p class="text-gray-400 text-sm">{{ obj.description }}</p>
     </div>
     <div
       class="flex-1 border-b border-dashed border-gray-300 dark:border-gray-800 group-hover:border-gray-700"
     ></div>
     <UAvatar
-      :src="project.thumbnail"
+      :src="isDark ? obj.iconD : obj.iconL"
       :ui="{ rounded: 'rounded z-10 relative' }"
       size="md"
-      :alt="project.name"
+      :alt="obj.name"
     />
   </NuxtLink>
 </template>
 
 <script setup>
 defineProps({
-  project: {
+  obj: {
     type: Object,
     required: true,
   },
 });
+const colorMode = useColorMode();
+const isDark = computed({
+  get () {
+    return colorMode.value === 'dark';
+  },
+  set () {
+    colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark';
+  }
+})
 </script>
