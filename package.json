@@ -1,40 +1,29 @@
 {
-  "name": "lyp-ink",
+  "name": "nuxt-app",
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev --dotenv .env.local",
+    "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "alz": "npx nuxi analyze"
-  },
-  "dependencies": {
-    "@fancyapps/ui": "5.0.36",
-    "@fontsource/luckiest-guy": "5.1.0",
-    "@fontsource/noto-sans": "5.1.0",
-    "@fontsource/roboto-slab": "5.1.0",
-    "@nuxt/content": "2.13.4",
-    "@supabase/supabase-js": "2.46.1",
-    "@tailwindcss/typography": "0.5.15",
-    "@types/node": "22",
-    "@vueuse/core": "11.3.0",
-    "@vueuse/nuxt": "11.3.0",
-    "autoprefixer": "10.4.20",
-    "dayjs": "1.11.13",
-    "feed": "4.2.2",
-    "lazysizes": "5.3.2",
-    "nuxt": "3.14.1592",
-    "postcss": "8.4.49",
-    "sass": "1.81.0",
-    "sitemap": "8.0.0",
-    "tailwindcss": "3.4.15",
-    "typeit": "8.8.7"
+    "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@eslint/js": "9.15.0",
-    "eslint": "9.15.0",
-    "eslint-plugin-vue": "9.31.0",
-    "globals": "15.12.0"
+    "@nuxt/content": "^2.10.0",
+    "@nuxt/devtools": "1.0.5",
+    "@nuxthq/studio": "1.0.6",
+    "@nuxtjs/fontaine": "^0.4.1",
+    "@nuxtjs/google-fonts": "3.1.1",
+    "nuxt": "3.9.1",
+    "nuxt-icon": "0.6.7",
+    "prettier": "3.1.1",
+    "prettier-plugin-tailwindcss": "0.5.9",
+    "yarn-upgrade-all": "^0.7.2"
+  },
+  "dependencies": {
+    "@iconify-json/lucide": "1.1.145",
+    "@nuxt/image": "1.1.0",
+    "@nuxt/ui": "2.11.1",
+    "vue-use-fixed-header": "^2.0.0"
   }
 }

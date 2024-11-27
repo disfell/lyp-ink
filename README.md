@@ -1,81 +1,53 @@
-# Nuxt 3 Minimal Starter
+[<img src="https://github.com/user-attachments/assets/60e89805-26fd-4074-8ced-447fb148c7e6">](http://supersaas.dev?ref=github)
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-## Setup
+# Zooper
 
-Make sure to install the dependencies:
+Zooper is a beautiful personal portfolio template for developers, programmers, freelancers and designers.
 
-```bash
-# yarn
-yarn install
+![Zooper template home preview](https://zooper.pages.dev/preview.jpg)
 
-# npm
-npm install
 
-# pnpm
-pnpm install
-```
+## Features
 
-## Development Server
+Full features blog 📝.
+CMS ready 🚀.
+Super fast ⚡.
+SEO friendly 📈.
+Fully responsive 📱.
+Dark mode 🌗.
+Syntax highlighting 🌈.
+Social media links 🔗.
+Code preview playground 🎮.
+Uses page 🧑‍💻
+Bookmarks 📑.
 
-Start the development server on `http://localhost:3000`
+## Roadmap
 
-```bash
-npm run dev
-```
+Comments
+Tags
+Categories
+Pagination
+Sitemap
+RSS feeds
+Search
+Likes
 
-## Production
+## Tech Stack
 
-Build the application for production:
+1. Nuxt JS
+2. Tailwind CSS
+3. Vue
+4. Nuxt Content Module
+5. Shiki JS ES
 
-```bash
-npm run build
-```
+## Installation
 
-Locally preview production build:
+1. `git clone` this repo or click on `Use this template` button.
+2. `cd` into the project directory.
+3. Run `yarn install` to install the dependencies.
+4. Run `yarn dev` to start the development server.
 
-```bash
-npm run preview
-```
+## Contributing
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
-
-## reinstall && run preview
-
-```
-rm -rf node_modules package-lock.json .output .nuxt && npm install && npm run build
-```
-
-## check version
-
-```
-npm outdated
-
-npx npm-check-updates -u
-
-npm update <package-name>
-npm install
-```
-
-## 一些自定义组件的使用
-
-### Alert 框
-
-```
-::MyAlert{type="warning"}
-这里是内容
-::
-```
-
-目前提供了四种颜色提示
-- info
-- warning
-- danger
-- success
-
-### 粗字体
-
-```
-**这里是内容**{type="default"}
-```
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
