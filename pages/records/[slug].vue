@@ -1,8 +1,11 @@
 <template>
   <main class="min-h-screen">
     <div
-      class="prose dark:prose-invert prose-blockquote:not-italic prose-pre:bg-gray-900 prose-img:ring-1 prose-img:ring-gray-200 dark:prose-img:ring-white/10 prose-img:rounded-lg"
+      class="prose dark:prose-invert prose-blockquote:not-italic prose-pre:bg-gray-900"
     >
+
+    <button class="text-sm hover:scale-125 ease-in-out duration-150 delay-50 mb-8" @click="useRouter().back()">&larr; back</button>
+
       <ContentDoc v-slot="{ doc }" tag="article">
         <article>
           <h1>{{ doc.title }}</h1>

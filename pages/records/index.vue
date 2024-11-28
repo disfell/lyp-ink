@@ -28,14 +28,14 @@
   </main>
 </template>
 
-<script setup>
+<script setup ts>
 const description = "关于一些心得、心情、生活琐碎，我都会记录在此，以时间降序排列 🙂";
 useSeoMeta({
   title: "记录 | " + useAppConfig().site.title,
   description,
 });
 
-const currPage = ref(1);
+const currPage = useRecordsPage();
 const pageSize = ref(5);
 const records = ref([]);
 const { data: totalRecords  } = await useAsyncData("all-records-count", () => queryContent("/records").count())
@@ -63,6 +63,7 @@ const fetchRecords = async (page) => {
 const prevPage = async () => {
   if (currPage.value > 1) {
     currPage.value -= 1;
+    useState('recordsPage', () => currPage.value );
     await loadRecords();
     scrollToTop()
   }
@@ -72,6 +73,7 @@ const prevPage = async () => {
 const nextPage = async () => {
   if (currPage.value < totalPage) {
     currPage.value += 1;
+    useState('recordsPage', () => currPage.value );
     await loadRecords();
     scrollToTop()
   }

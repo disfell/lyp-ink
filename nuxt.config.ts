@@ -26,6 +26,7 @@ export default defineNuxtConfig({
       bodyAttrs: {
         class: "antialiased bg-gray-50 dark:bg-black min-h-screen",
       },
+      script: [{ src: "/js/lazyload.js" }],
     },
   },
 

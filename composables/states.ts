@@ -1,0 +1,1 @@
+export const useRecordsPage = () => useState<number>("recordsPage", () => 1);

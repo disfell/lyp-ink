@@ -1,10 +1,12 @@
 <template>
   <component
     :is="ImageComponent"
-    :src="refinedSrc"
+    :data-srcset="refinedSrc"
+    :src="colorMode.value === 'dark' ? '/loading/l.svg' : '/loading/d.svg'"
     :alt="props.alt"
     :width="props.width"
     :height="props.height"
+    class="dark:brightness-50 lazyload block m-auto my-4"
   />
 </template>
 
@@ -14,6 +16,7 @@ import { useRuntimeConfig, computed } from '#imports'
 
 import ImageComponent from '#build/mdc-image-component.mjs'
 
+const colorMode = useColorMode()
 const runtimeCf = useRuntimeConfig()
 const imgServer = runtimeCf.public.imgServer
 const imgCDN = runtimeCf.public.imgCDN
