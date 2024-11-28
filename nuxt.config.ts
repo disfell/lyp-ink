@@ -1,12 +1,18 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
+  runtimeConfig: {
+    public: {
+      imgServer: process.env.IMG_SERVER,
+      imgCDN: process.env.IMG_CDN,
+    },
+  },
+
   modules: [
     "@nuxt/ui",
     "@nuxtjs/google-fonts",
     "@nuxtjs/fontaine",
     "@nuxt/content",
-    "@nuxthq/studio",
     "@vueuse/nuxt",
   ],
 
@@ -25,6 +31,20 @@ export default defineNuxtConfig({
 
   content: {
     highlight: {
+      langs: [
+        "json",
+        "js",
+        "ts",
+        "html",
+        "css",
+        "vue",
+        "shell",
+        "mdc",
+        "md",
+        "yaml",
+        "java",
+        "xml",
+      ],
       theme: "github-dark",
     },
   },

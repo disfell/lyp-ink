@@ -1,6 +1,6 @@
 <template>
   <main class="min-h-screen">
-    <AppHeader class="mb-8" title="Bookmarks" :description="description" />
+    <AppHeader class="mb-8" title="书签" :description="description" />
     <ul class="space-y-2">
       <li v-for="bookmark in bookmarks" :key="bookmark.id">
         <a
@@ -27,10 +27,9 @@
 </template>
 
 <script setup>
-const description =
-  "Awesome things I've found on the internet. This page is still WIP, I want to add search like bmrks.com";
+const description = "我在互联网上发现的一些有趣、有用的东西，收集仍在进行中。";
 useSeoMeta({
-  title: "Bookmarks | Fayaz Ahmed",
+  title: "书签 | " + useAppConfig().site.title,
   description,
 });
 
@@ -110,6 +109,12 @@ const bookmarks = [
     label: "Rakko Tools",
     url: "https://en.rakko.tools/",
   },
+  {
+    id: 16,
+    label: "bmrks",
+    url: "https://bmrks.com/",
+  },
+  
 ];
 
 function getHost(url) {

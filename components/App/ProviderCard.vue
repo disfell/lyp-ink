@@ -16,7 +16,7 @@
         class="flex-1 border-b border-dashed border-gray-300 dark:border-gray-800 group-hover:border-gray-700"
       ></div>
       <UAvatar
-        :src="isDark ? obj.iconD : obj.iconL"
+        :src="isDark ? obj.iconL : obj.iconD"
         :ui="{ rounded: 'rounded z-10 relative' }"
         size="md"
         :alt="obj.name"

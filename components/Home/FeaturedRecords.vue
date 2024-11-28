@@ -4,14 +4,14 @@
       最近发布
     </h2>
     <ul class="space-y-16">
-      <li v-for="(article, id) in articles" :key="id">
+      <li v-for="(article, id) in records" :key="id">
         <AppArticleCard :article="article" />
       </li>
     </ul>
     <div class="flex items-center justify-center mt-6 text-sm">
       <UButton
-        label="All Articles &rarr;"
-        to="/articles"
+        label="查看全部 &rarr;"
+        to="/records"
         variant="link"
         color="gray"
       />
@@ -20,8 +20,8 @@
 </template>
 
 <script lang="ts" setup>
-const { data: articles } = await useAsyncData("articles-home", () =>
-  queryContent("/articles")
+const { data: records } = await useAsyncData("records-home", () =>
+  queryContent("/records")
     .sort({ published: -1 })
     .limit(3)
     .only(["title", "description", "published", "slug", "_path"])

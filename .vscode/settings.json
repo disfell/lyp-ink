@@ -12,7 +12,7 @@
   ],
   "tailwindCSS.classAttributes": ["class", "className", "ngClass", "ui", "active-class", "inactive-class"],
   "editor.fontSize": 14,
-  "editor.fontFamily": "Source Han Sans",
+  "editor.fontFamily": "",
   "debug.console.fontSize": 12,
   "debug.console.fontFamily": "等距更纱黑体 Slab SC",
   "terminal.integrated.fontFamily": "等距更纱黑体 Slab SC",

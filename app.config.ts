@@ -1,4 +1,8 @@
 export default defineAppConfig({
+  site: {
+    title: "LYP",
+    intro: "Hi，我是 LYP，该网站主要记录自己的学习、游戏、心得，捣鼓一些业余的东西。🌵",
+  },
   ui: {
     primary: "teal",
     gray: "neutral",
