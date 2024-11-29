@@ -12,8 +12,8 @@
     </ul>
 
     <!-- 分页按钮 -->
-    <div>
-      <UButton label="上一页" color="gray" v-if="currPage > 1" @click="prevPage" class="mr-4">
+    <div class="space-x-4">
+      <UButton label="上一页" color="gray" v-if="currPage > 1" @click="prevPage">
         <template #trailing>
           <UIcon name="i-heroicons-arrow-left-20-solid" class="w-5 h-5" />
         </template>
@@ -28,7 +28,7 @@
   </main>
 </template>
 
-<script setup ts>
+<script setup lang="ts">
 const description = "关于一些心得、心情、生活琐碎，我都会记录在此，以时间降序排列 🙂";
 useSeoMeta({
   title: "记录 | " + useAppConfig().site.title,
@@ -63,7 +63,7 @@ const fetchRecords = async (page) => {
 const prevPage = async () => {
   if (currPage.value > 1) {
     currPage.value -= 1;
-    useState('recordsPage', () => currPage.value );
+    useState<number>('recordsPage', () => currPage.value );
     await loadRecords();
     scrollToTop()
   }
@@ -73,7 +73,7 @@ const prevPage = async () => {
 const nextPage = async () => {
   if (currPage.value < totalPage) {
     currPage.value += 1;
-    useState('recordsPage', () => currPage.value );
+    useState<number>('recordsPage', () => currPage.value );
     await loadRecords();
     scrollToTop()
   }

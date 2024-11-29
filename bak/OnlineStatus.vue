@@ -1,6 +1,9 @@
 <template>
   <div
-    class="flex items-center rounded-full border border-white/10 bg-zinc-900/80 px-5 py-2 backdrop-blur-3xl mt-2 w-fit"
+    class="flex items-center rounded-full border cursor-pointer
+    dark:border-white/10 dark:bg-zinc-900/80 bg-zinc-50
+    ring-1 hover:ring-4 ring-gray-200 border-gray-300 dark:ring-white/10 dark:border-gray-800 transition-all duration-300 
+    px-4 py-2 backdrop-blur-3xl mt-2 w-fit"
     style="--stagger:2;"
     data-animate=""
   >

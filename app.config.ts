@@ -1,7 +1,22 @@
 export default defineAppConfig({
   site: {
     title: "LYP",
-    intro: "Hi，我是 LYP，该网站主要记录自己的学习、游戏、心得，捣鼓一些业余的东西。🌵",
+    intro:
+      "Hi，我是 LYP，该网站主要记录自己的学习、游戏、心得，捣鼓一些业余的东西。🌵",
+    menus: [
+      { name: "首页", path: "/", icon: "solar:home-smile-outline" },
+      {
+        name: "记录",
+        path: "/records",
+        icon: "solar:document-add-outline",
+      },
+      {
+        name: "书签",
+        path: "/bookmarks",
+        icon: "solar:bookmark-linear",
+      },
+      { name: "实验室", path: "/lab", icon: "heroicons:beaker" },
+    ],
   },
   ui: {
     primary: "teal",
