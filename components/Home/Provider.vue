@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2 class="uppercase text-xs font-semibold text-gray-400 mb-6">
-      网站的技术驱动
+      网站技术驱动
     </h2>
     <div class="space-y-4">
       <AppProviderCard

@@ -5,7 +5,6 @@
       <HomeFeaturedRecords />
       <HomeBlogClub />
       <HomeProvider />
-      <HomeNewsletter />
     </div>
   </main>
 </template>

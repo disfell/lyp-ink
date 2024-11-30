@@ -1,53 +1,59 @@
-[<img src="https://github.com/user-attachments/assets/60e89805-26fd-4074-8ced-447fb148c7e6">](http://supersaas.dev?ref=github)
+# Nuxt 3 Minimal Starter
 
+Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-# Zooper
+## Setup
 
-Zooper is a beautiful personal portfolio template for developers, programmers, freelancers and designers.
+Make sure to install the dependencies:
 
-![Zooper template home preview](https://zooper.pages.dev/preview.jpg)
+```bash
+# yarn
+yarn install
 
+# npm
+npm install
 
-## Features
+# pnpm
+pnpm install
+```
 
-Full features blog 📝.
-CMS ready 🚀.
-Super fast ⚡.
-SEO friendly 📈.
-Fully responsive 📱.
-Dark mode 🌗.
-Syntax highlighting 🌈.
-Social media links 🔗.
-Code preview playground 🎮.
-Uses page 🧑‍💻
-Bookmarks 📑.
+## Development Server
 
-## Roadmap
+Start the development server on `http://localhost:3000`
 
-Comments
-Tags
-Categories
-Pagination
-Sitemap
-RSS feeds
-Search
-Likes
+```bash
+npm run dev
+```
 
-## Tech Stack
+## Production
 
-1. Nuxt JS
-2. Tailwind CSS
-3. Vue
-4. Nuxt Content Module
-5. Shiki JS ES
+Build the application for production:
 
-## Installation
+```bash
+npm run build
+```
 
-1. `git clone` this repo or click on `Use this template` button.
-2. `cd` into the project directory.
-3. Run `yarn install` to install the dependencies.
-4. Run `yarn dev` to start the development server.
+Locally preview production build:
 
-## Contributing
+```bash
+npm run preview
+```
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+## reinstall && run preview
+
+```
+rm -rf node_modules package-lock.json .output .nuxt && npm install && npm run build
+```
+
+## check version
+
+```
+npm outdated
+
+npx npm-check-updates -u
+
+npm update <package-name>
+npm install
+```

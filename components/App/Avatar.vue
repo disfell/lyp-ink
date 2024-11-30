@@ -1,29 +1,57 @@
 <template>
-  <div
-    class="flex items-center rounded-full cursor-pointer
-    backdrop-blur-3xl size-16"
-    style="--stagger:2;"
-    data-animate=""
-  >
-    <span class="relative flex size-full">
-      <span
-        class="bg-green-600 absolute inline-flex size-full online-ping rounded-full z-0"
-      >
+  <UTooltip :text="showText" :popper="{ placement: 'right' }">
+    <div
+      class="flex items-center rounded-full cursor-pointer backdrop-blur-3xl size-16"
+      style="--stagger: 2"
+      data-animate="">
+      <span class="relative flex size-full">
+        <span
+          class="bg-green-600 absolute inline-flex size-full rounded-full z-0"
+          :class="ping ? 'online-ping' : ''">
+        </span>
+        <img
+          v-if="ping"
+          :src="showIcon"
+          class="size-6 inline-flex absolute rounded-sm z-50 -bottom-1 -right-1" />
+        <img
+          :src="appCf.site.avatar"
+          alt="LYP"
+          class="ring-2 border ring-gray-200 border-gray-300 dark:ring-white/10 dark:border-gray-800 transition-all duration-300 bg-gray-200 dark:bg-gray-900 rounded-full size-full cursor-pointer z-40"
+          format="webp" />
       </span>
-      <img
-        src="/avatar.webp"
-        alt="LYP"
-        class="ring-2 border ring-gray-200 border-gray-300 dark:ring-white/10 dark:border-gray-800 transition-all duration-300 
-            bg-gray-200 dark:bg-gray-900 rounded-full size-full cursor-pointer z-50"
-        placeholder
-        format="webp"
-      />
-    </span>
-  </div>
+    </div>
+  </UTooltip>
 </template>
+<script setup>
+import { inject } from "vue";
+const appCf = useAppConfig();
+const steamStatus = inject("steamStatus");
+const steamGameCN = inject("steamGameCN");
+const steamGameID = inject("steamGameID");
+const showText = ref("");
+const showIcon = ref("");
+const ping = ref(false);
+
+watchEffect(() => {
+  if (steamStatus.value == 1) {
+    ping.value = true;
+    showText.value = "Steam 在线";
+    showIcon.value = "/icon/other/steam.svg";
+  }
+  if (
+    steamGameID != null &&
+    steamGameID?.value != null &&
+    steamGameID?.value > 0
+  ) {
+    showText.value = "TA 正在游戏中：" + steamGameCN.value;
+    showIcon.value = "/icon/steam/" + steamGameID.value + ".jpg";
+  }
+});
+</script>
 <style>
 @keyframes online-ping {
-  75%, 100% {
+  75%,
+  100% {
     transform: scale(1.3);
     opacity: 0;
   }

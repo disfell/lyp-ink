@@ -2,6 +2,9 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   runtimeConfig: {
+    steamToken: process.env.STEAM_TOKEN,
+    steamId: process.env.STEAM_ID,
+    supabaseKey: process.env.SUPABASE_KEY,
     public: {
       imgServer: process.env.IMG_SERVER,
       imgCDN: process.env.IMG_CDN,
@@ -9,13 +12,14 @@ export default defineNuxtConfig({
   },
 
   css: ["~/assets/css/main.css"],
-  
+
   modules: [
     "@nuxt/ui",
     "@nuxtjs/google-fonts",
     "@nuxtjs/fontaine",
     "@nuxt/content",
     "@vueuse/nuxt",
+    "@vueuse/motion/nuxt",
   ],
 
   app: {
