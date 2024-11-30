@@ -1,116 +1,36 @@
 <template>
-  <div @contextmenu.prevent :class="`${appConfig.useMourn ? 'grayscale' : ''}`">
-    <Body class="antialiased dark:bg-black" />
-    <div v-show="loading">
-      <Transition>
-        <div class="grid place-items-center h-screen">
-          <LazyMyLoading />
-        </div>
-      </Transition>
-    </div>
-    <div v-show="!loading">
-      <LazyNuxtPage />
-    </div>
-    <MySideNav />
-    <MyChannel />
-  </div>
+  <NuxtLoadingIndicator color="#14b8a6" />
+  <AppNavbar />
+  <div class="h-32"></div>
+  <UContainer>
+    <NuxtPage />
+  </UContainer>
+  <div class="h-32"></div>
+  <AppFooter />
+  <AppScript />
 </template>
+
 <script setup>
-import { reactive, provide } from "vue";
-import "lazysizes";
-import "lazysizes/plugins/parent-fit/ls.parent-fit";
-import "@fontsource/noto-sans";
-import "@fontsource/roboto-slab";
-import { Fancybox } from "@fancyapps/ui";
-import "@fancyapps/ui/dist/fancybox/fancybox.css";
-
-const appConfig = useAppConfig();
-
-const colorsArr = [
-  "sky",
-  "green",
-  "lime",
-  "emerald",
-  "teal",
-  "cyan",
-  "indigo",
-  "violet",
-  "purple",
-];
-const colorIndex = Math.floor(Math.random() * colorsArr.length);
-const color = colorsArr[colorIndex];
-
-const state = reactive({
-  steamGames: [],
-  color: color,
-});
-
-// 提供 state 以便在其他组件中使用
-provide("state", state);
-
-onUnmounted(() => {
-  Fancybox.close();
-  Fancybox.destroy();
-});
-
-onMounted(() => {
-  // Fancybox
-  Fancybox.bind('[data-fancybox="gallery"]', {
-    Thumbs: {
-      type: "classic",
-      showOnStart: false,
-    },
-    Toolbar: {
-      display: {
-        left: ["infobar"],
-        middle: ["zoomIn", "zoomOut", "rotateCCW", "rotateCW"],
-        right: ["thumbs", "close"],
-      },
-    },
-  });
-
-  // light & dark
-  lod();
-  let lightMedia = window.matchMedia("(prefers-color-scheme: light)");
-  let darkMedia = window.matchMedia("(prefers-color-scheme: dark)");
-  if (
-    typeof darkMedia.addEventListener === "function" ||
-    typeof lightMedia.addEventListener === "function"
-  ) {
-    lightMedia.addEventListener("change", () => lod());
-    darkMedia.addEventListener("change", () => lod());
-  }
-});
-
-function lod() {
-  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-    document.documentElement.classList.remove("light");
-    document.documentElement.classList.add("dark");
-  } else {
-    document.documentElement.classList.remove("dark");
-    document.documentElement.classList.add("light");
-  }
-}
-
-const nuxtApp = useNuxtApp();
-const loading = ref(false);
-nuxtApp.hook("page:start", () => {
-  loading.value = true;
-});
-nuxtApp.hook("page:finish", () => {
-  loading.value = false;
-});
+import { provide } from "vue"
+provide('steamStatus', ref(-1));
+provide('steamGame', ref(""));
+provide('steamGameCN', ref(""));
+provide('steamGameID', ref(-1));
 </script>
+
 <style>
-.loading {
-  z-index: 9999;
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.2s;
 }
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.5s ease;
-}
-.v-enter-from,
-.v-leave-to {
+
+.page-leave-to {
   opacity: 0;
+  transform: translateY(-5px);
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(5px);
 }
 </style>

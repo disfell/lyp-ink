@@ -1,5 +1,4 @@
 import { createClient } from "@supabase/supabase-js";
-import { serverQueryContent } from "#content/server";
 
 export default defineEventHandler(async (event) => {
   const runtimeConfig = useRuntimeConfig();
@@ -10,18 +9,6 @@ export default defineEventHandler(async (event) => {
   );
   const body = await readBody(event);
   const url = body?.url;
-
-  const records = await serverQueryContent(event).only(["_path"]).find();
-
-  const map = {};
-
-  records.forEach((object) => {
-    map[object["_path"]] = "";
-  });
-
-  if (!map.hasOwnProperty(url)) {
-    return;
-  }
 
   let ret = [];
   try {

@@ -5,7 +5,7 @@ export default defineEventHandler(async (event) => {
   // Fetch all documents
   const docs = await serverQueryContent(event).find();
   const sitemap = new SitemapStream({
-    hostname: useAppConfig().domain,
+    hostname: useAppConfig().site.domain,
   });
 
   sitemap.write({
@@ -14,12 +14,10 @@ export default defineEventHandler(async (event) => {
   });
 
   for (const doc of docs) {
-    if (false != doc?.show) {
-      sitemap.write({
-        url: doc._path,
-        changefreq: "monthly",
-      });
-    }
+    sitemap.write({
+      url: doc._path,
+      changefreq: "monthly",
+    });
   }
   sitemap.end();
 

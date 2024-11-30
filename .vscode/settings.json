@@ -1,6 +1,18 @@
 {
-  "editor.fontSize": 12,
-  "editor.fontFamily": "Source Han Sans",
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "tailwindCSS.experimental.configFile": "tailwind.config.ts",
+  "tailwindCSS.experimental.classRegex": [
+    ["ui:\\s*{([^)]*)\\s*}", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["/\\*ui\\*/\\s*{([^;]*)}", ":\\s*[\"'`]([^\"'`]*).*?[\"'`]"]
+  ],
+  "tailwindCSS.classAttributes": ["class", "className", "ngClass", "ui", "active-class", "inactive-class"],
+  "editor.fontSize": 14,
+  "editor.fontFamily": "思源雅黑 CN",
   "debug.console.fontSize": 12,
   "debug.console.fontFamily": "等距更纱黑体 Slab SC",
   "terminal.integrated.fontFamily": "等距更纱黑体 Slab SC",
