@@ -6,6 +6,8 @@
       <HomeBlogClub />
       <HomeGames />
       <HomeProvider />
+      <HomeWallpaper />
+      <UDivider label="感谢浏览~😊" :ui="{ label: 'text-gray-500 dark:text-gray-400' }" />
     </div>
   </main>
 </template>

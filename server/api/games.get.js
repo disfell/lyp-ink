@@ -7,7 +7,15 @@ export default defineEventHandler(async (event) => {
   const appConfig = useAppConfig();
   const steamToken = runtimeConfig.steamToken;
   const steamId = runtimeConfig.steamId;
-  const steamGameDictCN = appConfig.steamGameDictCN;
+  const steamGameDictCN = appConfig.steamGameDictCN ? appConfig.steamGameDictCN : {};
+
+  if (isBlank(steamToken, steamId)) {
+    throw createError({
+      statusCode: 500,
+      statusMessage: '缺少配置，请查看 steamToken、steamId 是否完整',
+    })
+  }
+
   const supabase = createClient(
     appConfig.outer.supabaseUrl,
     runtimeConfig.supabaseKey

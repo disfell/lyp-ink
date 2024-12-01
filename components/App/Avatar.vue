@@ -14,7 +14,7 @@
           :src="showIcon"
           class="size-6 inline-flex absolute rounded-sm z-50 -bottom-1 -right-1" />
         <img
-          :src="appCf.site.avatar"
+          :src="avatar"
           alt="LYP"
           class="ring-2 border ring-gray-200 border-gray-300 dark:ring-white/10 dark:border-gray-800 transition-all duration-300 bg-gray-200 dark:bg-gray-900 rounded-full size-full cursor-pointer z-40"
           format="webp" />
@@ -23,29 +23,27 @@
   </UTooltip>
 </template>
 <script setup>
-import { inject } from "vue";
-const appCf = useAppConfig();
-const steamStatus = inject("steamStatus");
-const steamGameCN = inject("steamGameCN");
-const steamGameID = inject("steamGameID");
-const showText = ref("");
-const showIcon = ref("");
-const ping = ref(false);
-
-watchEffect(() => {
-  if (steamStatus.value == 1) {
-    ping.value = true;
-    showText.value = "Steam 在线";
-    showIcon.value = "/icon/other/steam.svg";
-  }
-  if (
-    steamGameID != null &&
-    steamGameID?.value != null &&
-    steamGameID?.value > 0
-  ) {
-    showText.value = "TA 正在游戏中：" + steamGameCN.value;
-    showIcon.value = "/icon/steam/" + steamGameID.value + ".jpg";
-  }
+defineProps({
+  ping: {
+    type: Boolean,
+    required: false,
+    default: false
+  },
+  showIcon: {
+    type: String,
+    required: false,
+    default: ""
+  },
+  avatar: {
+    type: String,
+    required: false,
+    default: ""
+  },
+  showText: {
+    type: String,
+    required: false,
+    default: ""
+  },
 });
 </script>
 <style>

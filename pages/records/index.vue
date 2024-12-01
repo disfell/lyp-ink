@@ -3,7 +3,7 @@
     <AppHeader class="mb-16" title="记录" :description="description" />
 
     <div v-if="totalRecords" class="mb-8 text-xs">
-      第 {{ currPage }} 页，共 {{ totalPage }} 页
+      第 {{ currPage }} / {{ totalPage }} 页
     </div>
 
     <!-- 列表展示 -->
@@ -16,7 +16,6 @@
     <!-- 分页按钮 -->
     <div class="grid grid-cols-2 gap-8 content-center">
       <UButton
-        v-motion-slide-visible-left
         :loading="prevLoading"
         label="上一页"
         color="gray"
@@ -28,7 +27,6 @@
       </UButton>
 
       <UButton
-        v-motion-slide-visible-right
         :loading="nextLoading"
         label="下一页"
         color="gray"

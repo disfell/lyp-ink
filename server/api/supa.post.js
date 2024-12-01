@@ -9,6 +9,14 @@ export default defineEventHandler(async (event) => {
 
   const runtimeConfig = useRuntimeConfig();
   const appConfig = useAppConfig();
+
+  if (isBlank(appConfig.outer.supabaseUrl, runtimeConfig.supabaseKey)) {
+    throw createError({
+      statusCode: 500,
+      statusMessage: '缺少配置，请查看 supabaseUrl、supabaseKey 是否完整',
+    })
+  }
+
   const supabaseClient = createClient(
     appConfig.outer.supabaseUrl,
     runtimeConfig.supabaseKey

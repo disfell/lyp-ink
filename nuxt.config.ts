@@ -13,14 +13,7 @@ export default defineNuxtConfig({
 
   css: ["~/assets/css/main.css"],
 
-  modules: [
-    "@nuxt/ui",
-    "@nuxtjs/google-fonts",
-    "@nuxtjs/fontaine",
-    "@nuxt/content",
-    "@vueuse/nuxt",
-    "@vueuse/motion/nuxt",
-  ],
+  modules: ["@nuxt/ui", "@nuxtjs/google-fonts", "@nuxtjs/fontaine", "@nuxt/content", "@vueuse/nuxt", "@vueuse/motion/nuxt"],
 
   app: {
     pageTransition: { name: "page", mode: "out-in" },
@@ -30,7 +23,7 @@ export default defineNuxtConfig({
         class: "h-full",
       },
       bodyAttrs: {
-        class: "antialiased bg-gray-50 dark:bg-black min-h-screen",
+        class: "antialiased bg-gray-50 dark:bg-zinc-900 min-h-screen",
       },
       script: [{ src: "/js/lazyload.js" }],
     },
@@ -38,20 +31,7 @@ export default defineNuxtConfig({
 
   content: {
     highlight: {
-      langs: [
-        "json",
-        "js",
-        "ts",
-        "html",
-        "css",
-        "vue",
-        "shell",
-        "mdc",
-        "md",
-        "yaml",
-        "java",
-        "xml",
-      ],
+      langs: ["json", "js", "ts", "html", "css", "vue", "shell", "mdc", "md", "yaml", "java", "xml"],
       theme: "github-dark",
     },
   },

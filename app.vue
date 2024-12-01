@@ -11,11 +11,12 @@
 </template>
 
 <script setup>
-import { provide } from "vue"
-provide('steamStatus', ref(-1));
-provide('steamGame', ref(""));
-provide('steamGameCN', ref(""));
-provide('steamGameID', ref(-1));
+import { provide } from "vue";
+provide("steamStatus", ref(-1));
+provide("steamGame", ref(""));
+provide("steamGameCN", ref(""));
+provide("steamGameID", ref(-1));
+provide("steamGameList", ref({ list: [], loaded: false }));
 </script>
 
 <style>

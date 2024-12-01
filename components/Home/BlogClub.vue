@@ -39,7 +39,7 @@ const links = [
     iconD: "/icon/other/BlogFinder.png"
   },
   {
-    name: "travellings",
+    name: "Travellings",
     url: "https://www.travellings.cn/go.html",
     iconL: "/icon/other/travellings-l.png",
     iconD: "/icon/other/travellings-d.png"

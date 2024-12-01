@@ -24,7 +24,7 @@ onMounted(() => {
   if (process.env.NODE_ENV === "production") {
     loadSteamData();
   }
-  steamTimer.value = window.setInterval(() => loadSteamData(), 15000);
+  steamTimer.value = window.setInterval(() => loadSteamData(), 30000);
 });
 
 onBeforeUnmount(() => {
