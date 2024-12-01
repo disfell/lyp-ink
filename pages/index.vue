@@ -4,6 +4,7 @@
       <HomeIntro />
       <HomeFeaturedRecords />
       <HomeBlogClub />
+      <HomeGames />
       <HomeProvider />
     </div>
   </main>

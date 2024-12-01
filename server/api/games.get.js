@@ -9,7 +9,7 @@ export default defineEventHandler(async (event) => {
   const steamId = runtimeConfig.steamId;
   const steamGameDictCN = appConfig.steamGameDictCN;
   const supabase = createClient(
-    appConfig.supabaseUrl,
+    appConfig.outer.supabaseUrl,
     runtimeConfig.supabaseKey
   );
   const steamRecentlyURL = `http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v1?key=${steamToken}&steamid=${steamId}`;
@@ -50,7 +50,7 @@ export default defineEventHandler(async (event) => {
         game_id: String(game.appid),
         name: game.name,
         name_cn: steamGameDictCN[game.appid] || game.name,
-        play_time: String(game.playtime_forever),
+        play_time: game.playtime_forever,
         play_time_2weeks: String(game.playtime_2weeks),
         updated_time: current.toISOString(),
       };
