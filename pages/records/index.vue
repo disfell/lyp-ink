@@ -14,24 +14,28 @@
     </ul>
 
     <!-- 分页按钮 -->
-    <div class="space-x-4">
+    <div class="grid grid-cols-2 gap-8 content-center">
       <UButton
+        v-motion-slide-visible-left
+        :loading="prevLoading"
         label="上一页"
         color="gray"
-        v-if="currPage > 1"
+        v-if="currPage > 1 || prevLoading"
         @click="prevPage">
         <template #trailing>
-          <UIcon name="i-heroicons-arrow-left-20-solid" class="w-5 h-5" />
+          <UIcon name="i-heroicons-arrow-left-20-solid" />
         </template>
       </UButton>
 
       <UButton
+        v-motion-slide-visible-right
+        :loading="nextLoading"
         label="下一页"
         color="gray"
-        v-if="currPage >= 1 && currPage < totalPage"
+        v-if="(currPage >= 1 && currPage < totalPage) || nextLoading"
         @click="nextPage">
         <template #trailing>
-          <UIcon name="i-heroicons-arrow-right-20-solid" class="w-5 h-5" />
+          <UIcon name="i-heroicons-arrow-right-20-solid" />
         </template>
       </UButton>
     </div>
@@ -49,6 +53,9 @@ useSeoMeta({
 const currPage = useRecordsPage();
 const pageSize = ref(5);
 const records = ref([]);
+const nextLoading = ref(false);
+const prevLoading = ref(false);
+
 const { data: totalRecords } = await useAsyncData("all-records-count", () =>
   queryContent("/records").count()
 );
@@ -75,9 +82,11 @@ const fetchRecords = async page => {
 // 上一页
 const prevPage = async () => {
   if (currPage.value > 1) {
+    prevLoading.value = true;
     currPage.value -= 1;
     useState("recordsPage", () => currPage.value);
     await loadRecords();
+    prevLoading.value = false;
     scrollToTop();
   }
 };
@@ -85,9 +94,11 @@ const prevPage = async () => {
 // 下一页
 const nextPage = async () => {
   if (currPage.value < totalPage) {
+    nextLoading.value = true;
     currPage.value += 1;
     useState("recordsPage", () => currPage.value);
     await loadRecords();
+    nextLoading.value = false;
     scrollToTop();
   }
 };

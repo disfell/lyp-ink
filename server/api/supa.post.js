@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
   const runtimeConfig = useRuntimeConfig();
   const appConfig = useAppConfig();
   const supabaseClient = createClient(
-    appConfig.supabaseUrl,
+    appConfig.outer.supabaseUrl,
     runtimeConfig.supabaseKey
   );
   const supabaseCannel = supabaseClient.channel("lyp-ink");

@@ -1,18 +1,20 @@
 <template>
   <main class="min-h-screen">
     <AppHeader class="mb-8" title="书签" :description="description" />
+
+    <div class="text-right italic text-xs mb-6 text-gray-500 dark:text-gray-400">
+      网站图标由 {{ appCf.outer.faviconCatcher }} 获取
+    </div>
     <ul class="space-y-2">
-      <li v-for="bookmark in bookmarks" :key="bookmark.id">
+      <li v-for="(bookmark, id) in bookmarks" :key="id">
         <a
           :href="bookmark.url"
           target="_blank"
-          class="flex items-center gap-3 hover:bg-gray-100 dark:hover:bg-white/10 p-2 rounded-lg -m-2 text-sm min-w-0"
-        >
+          class="flex items-center gap-3 hover:bg-gray-100 dark:hover:bg-white/10 p-2 rounded-lg -m-2 text-sm min-w-0">
           <UAvatar
             :src="getThumbnail(bookmark.url)"
             :alt="bookmark.label"
-            :ui="{ rounded: 'rounded-md' }"
-          />
+            :ui="{ rounded: 'rounded-md' }" />
           <p class="truncate text-gray-700 dark:text-gray-200">
             {{ bookmark.label }}
           </p>
@@ -32,6 +34,7 @@ useSeoMeta({
   title: "书签 | " + useAppConfig().site.title,
   description,
 });
+const appCf = useAppConfig();
 
 const bookmarks = [
   {
@@ -114,20 +117,15 @@ const bookmarks = [
     label: "bmrks",
     url: "https://bmrks.com/",
   },
-  
 ];
 
 function getHost(url) {
   const parsedUrl = new URL(url);
-  let host = parsedUrl.host;
-  if (host.startsWith("www.")) {
-    host = host.substring(4);
-  }
-  return host;
+  return parsedUrl.host;
 }
 
 function getThumbnail(url) {
   const host = getHost(url);
-  return `https://logo.clearbit.com/${host}`;
+  return `${appCf.outer.faviconCatcher}/${host}`;
 }
 </script>

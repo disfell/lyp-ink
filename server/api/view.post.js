@@ -4,7 +4,7 @@ export default defineEventHandler(async (event) => {
   const runtimeConfig = useRuntimeConfig();
   const appConfig = useAppConfig();
   const supabase = createClient(
-    appConfig.supabaseUrl,
+    appConfig.outer.supabaseUrl,
     runtimeConfig.supabaseKey
   );
   const body = await readBody(event);
