@@ -1,14 +1,10 @@
 <template>
-  <div>
+  <div class="">
     <div class="flex items-end space-x-4">
       <AppAvatar />
     </div>
-    
-    <h1
-      class="text-xl font-bold tracking-tight text-gray-800 dark:text-gray-100"
-    >
-      Hello!
-    </h1>
+
+    <h1 class="mt-8 text-xl font-bold tracking-tight text-gray-800 dark:text-gray-100">Hello!</h1>
     <p class="text-gray-900 dark:text-gray-400">
       {{ appCf.site.intro }}
     </p>
@@ -16,5 +12,5 @@
 </template>
 
 <script setup>
-const appCf = useAppConfig()
+const appCf = useAppConfig();
 </script>
