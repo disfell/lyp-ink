@@ -6,7 +6,7 @@
       data-animate="">
       <span class="relative flex size-full">
         <span
-          class="bg-green-600 absolute inline-flex size-full rounded-full z-0"
+          class="bg-primary absolute inline-flex size-full rounded-full z-0"
           :class="ping ? 'online-ping' : ''">
         </span>
         <img

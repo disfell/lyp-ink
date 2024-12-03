@@ -2,47 +2,38 @@
   <main class="min-h-screen">
     <AppHeader class="mb-16" title="记录" :description="description" />
 
-    <div v-if="totalRecords" class="mb-8 text-xs">
-      第 {{ currPage }} / {{ totalPage }} 页
-    </div>
+    <UtilsListLoading :loading="nextLoading || prevLoading || loading" />
 
-    <!-- 列表展示 -->
-    <ul class="space-y-16 mb-16">
-      <li v-for="(article, id) in records" :key="id">
-        <AppArticleCard :article="article" />
-      </li>
-    </ul>
+    <div>
+      <div v-if="!(nextLoading || prevLoading || loading) && totalRecords" class="mb-8 text-xs">第 {{ currPage }} / {{ totalPage }} 页</div>
 
-    <!-- 分页按钮 -->
-    <div class="grid grid-cols-2 gap-8 content-center">
-      <UButton
-        :loading="prevLoading"
-        label="上一页"
-        color="gray"
-        v-if="currPage > 1 || prevLoading"
-        @click="prevPage">
-        <template #trailing>
-          <UIcon name="i-heroicons-arrow-left-20-solid" />
-        </template>
-      </UButton>
+      <!-- 列表展示 -->
+      <ul v-if="!(nextLoading || prevLoading || loading) && totalRecords" class="space-y-16 mb-16">
+        <li v-for="(article, id) in records" :key="id">
+          <AppArticleCard :article="article" />
+        </li>
+      </ul>
 
-      <UButton
-        :loading="nextLoading"
-        label="下一页"
-        color="gray"
-        v-if="(currPage >= 1 && currPage < totalPage) || nextLoading"
-        @click="nextPage">
-        <template #trailing>
-          <UIcon name="i-heroicons-arrow-right-20-solid" />
-        </template>
-      </UButton>
+      <!-- 分页按钮 -->
+      <div v-if="totalRecords" class="grid grid-cols-2 gap-8 content-center">
+        <UButton :loading="prevLoading" label="上一页" color="gray" v-if="currPage > 1 || prevLoading" @click="prevPage">
+          <template #trailing>
+            <UIcon name="i-heroicons-arrow-left-20-solid" />
+          </template>
+        </UButton>
+
+        <UButton :loading="nextLoading" label="下一页" color="gray" v-if="(currPage >= 1 && currPage < totalPage) || nextLoading" @click="nextPage">
+          <template #trailing>
+            <UIcon name="i-heroicons-arrow-right-20-solid" />
+          </template>
+        </UButton>
+      </div>
     </div>
   </main>
 </template>
 
 <script setup>
-const description =
-  "关于一些心得、心情、生活琐碎，我都会记录在此，以时间降序排列 🙂";
+const description = "关于一些心得、心情、生活琐碎，我都会记录在此，以时间降序排列 🙂";
 useSeoMeta({
   title: "记录 | " + useAppConfig().site.title,
   description,
@@ -51,17 +42,18 @@ useSeoMeta({
 const currPage = useRecordsPage();
 const pageSize = ref(5);
 const records = ref([]);
+const loading = ref(false);
 const nextLoading = ref(false);
 const prevLoading = ref(false);
 
-const { data: totalRecords } = await useAsyncData("all-records-count", () =>
-  queryContent("/records").count()
-);
+const { data: totalRecords } = await useAsyncData("all-records-count", () => queryContent("/records").count());
 const totalPage = Math.ceil(totalRecords.value / pageSize.value);
 
 // 加载记录
 const loadRecords = async () => {
+  loading.value = true;
   await fetchRecords(currPage.value);
+  loading.value = false;
 };
 
 // 组件挂载时加载记录
