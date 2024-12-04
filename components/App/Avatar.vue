@@ -6,7 +6,7 @@
       data-animate="">
       <span class="relative flex size-full">
         <span
-          class="bg-primary absolute inline-flex size-full rounded-full z-0"
+          class="bg-green-600 absolute inline-flex size-full rounded-full z-0"
           :class="ping ? 'online-ping' : ''">
         </span>
         <img
@@ -16,7 +16,7 @@
         <img
           :src="avatar"
           alt="LYP"
-          class="ring-2 border ring-gray-200 border-gray-300 dark:ring-white/10 dark:border-gray-800 transition-all duration-300 bg-gray-200 dark:bg-gray-900 rounded-full size-full cursor-pointer z-40"
+          class="ring-1 border ring-gray-200 border-gray-300 dark:ring-white/10 dark:border-gray-800 transition-all duration-300 bg-gray-200 dark:bg-gray-900 rounded-full size-full cursor-pointer z-40"
           format="webp" />
       </span>
     </div>

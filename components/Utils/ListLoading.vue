@@ -1,5 +1,5 @@
 <template>
-  <div v-if="loading" class="flex items-center space-x-4">
+  <div v-if="loading" class="flex items-center space-x-4 my-8">
     <div class="space-y-2">
       <USkeleton class="h-4 w-[250px]" />
       <USkeleton class="h-4 w-[230px]" />

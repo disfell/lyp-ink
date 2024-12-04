@@ -6,7 +6,7 @@
       <h2 class="uppercase text-xs font-semibold text-gray-400 mb-4">最近在玩 \ 总时长</h2>
       <ul class="space-y-2">
         <li v-for="(game, id) in steamGameList.data" :key="id">
-          <a target="_blank" class="flex items-center gap-3 hover:bg-gray-100 dark:hover:bg-white/10 p-2 rounded-lg -m-2 text-sm min-w-0">
+          <a target="_blank" class="flex items-center gap-3 hover:bg-gray-200 dark:hover:bg-white/10 p-2 rounded-lg -m-2 text-sm min-w-0">
             <UAvatar :src="getThumbnail(game.game_id)" :alt="game.name" :ui="{ rounded: 'rounded-md' }" />
             <p class="truncate text-gray-700 dark:text-gray-200">
               {{ `${game.name_cn} - ${game.name}` }}

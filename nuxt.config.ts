@@ -23,7 +23,7 @@ export default defineNuxtConfig({
         class: "h-full",
       },
       bodyAttrs: {
-        class: "antialiased bg-gray-50 dark:bg-zinc-900 min-h-screen",
+        class: "antialiased bg-gray-100 dark:bg-zinc-900 min-h-screen",
       },
       script: [{ src: "/js/lazyload.js" }],
     },
