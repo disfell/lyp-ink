@@ -1,5 +1,5 @@
 <template>
-  <component :is="ImageComponent" :data-srcset="refinedSrc" :src="colorMode.value === 'dark' ? '/loading/l.svg' : '/loading/d.svg'" :alt="props.alt" :width="props.width" :height="props.height" class="dark:brightness-50 lazyload block m-auto my-4" />
+  <component :is="ImageComponent" :data-srcset="refinedSrc" :src="colorMode.preference === 'dark' ? '/loading/l.svg' : '/loading/d.svg'" :alt="props.alt" :width="props.width" :height="props.height" class="dark:brightness-50 lazyload block m-auto my-4" />
 </template>
 
 <script setup lang="ts">

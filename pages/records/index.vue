@@ -2,13 +2,13 @@
   <main class="min-h-screen">
     <AppHeader class="mb-16" title="记录" :description="description" />
 
-    <UtilsListLoading :loading="nextLoading || prevLoading || loading" />
+    <UtilsListLoading :loading="loading || nextLoading || prevLoading" />
 
     <div>
-      <div v-if="!(nextLoading || prevLoading || loading) && totalRecords" class="mb-8 text-xs">第 {{ currPage }} / {{ totalPage }} 页</div>
+      <div v-if="!(loading || nextLoading || prevLoading) && totalRecords" class="mb-8 text-xs">第 {{ currPage }} / {{ totalPage }} 页</div>
 
       <!-- 列表展示 -->
-      <ul v-if="!(nextLoading || prevLoading || loading) && totalRecords" class="space-y-16 mb-16">
+      <ul v-if="!(loading || nextLoading || prevLoading) && totalRecords" class="space-y-16 mb-16">
         <li v-for="(article, id) in records" :key="id">
           <AppArticleCard :article="article" />
         </li>
@@ -72,24 +72,24 @@ const fetchRecords = async page => {
 // 上一页
 const prevPage = async () => {
   if (currPage.value > 1) {
+    scrollToTop();
     prevLoading.value = true;
     currPage.value -= 1;
     useState("recordsPage", () => currPage.value);
     await loadRecords();
     prevLoading.value = false;
-    scrollToTop();
   }
 };
 
 // 下一页
 const nextPage = async () => {
   if (currPage.value < totalPage) {
+    scrollToTop();
     nextLoading.value = true;
     currPage.value += 1;
     useState("recordsPage", () => currPage.value);
     await loadRecords();
     nextLoading.value = false;
-    scrollToTop();
   }
 };
 

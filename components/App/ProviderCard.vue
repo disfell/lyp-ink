@@ -8,7 +8,7 @@
         <p class="text-gray-400 text-sm">{{ obj.description }}</p>
       </div>
       <div class="flex-1 border-b border-dashed border-gray-300 dark:border-gray-800 group-hover:border-gray-700"></div>
-      <img :src="colorMode.value === 'dark' ? obj.iconL : obj.iconD" :alt="obj.name" :class="obj.iconIsLen ? 'h-9' : 'size-9'" />
+      <img :src="colorMode.preference === 'dark' ? obj.iconL : obj.iconD" :alt="obj.name" :class="obj.iconIsLen ? 'h-9' : 'size-9'" />
     </NuxtLink>
   </ClientOnly>
 </template>
