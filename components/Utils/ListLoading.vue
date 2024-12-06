@@ -1,9 +1,9 @@
 <template>
-  <div v-if="loading" class="flex items-center space-x-4 my-8">
+  <div v-if="loading" class="flex items-center space-x-4 my-16">
     <div class="space-y-2">
-      <USkeleton class="h-4 w-[250px]" />
-      <USkeleton class="h-4 w-[230px]" />
-      <USkeleton class="h-4 w-[200px]" />
+      <USkeleton class="h-4 w-[250px]" :ui="{ background: 'bg-gray-200' }"/>
+      <USkeleton class="h-4 w-[230px]" :ui="{ background: 'bg-gray-200' }"/>
+      <USkeleton class="h-4 w-[200px]" :ui="{ background: 'bg-gray-200' }"/>
     </div>
   </div>
 </template>
