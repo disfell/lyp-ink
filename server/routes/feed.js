@@ -3,15 +3,22 @@ import { serverQueryContent } from "#content/server";
 
 export default defineEventHandler(async (event) => {
   const hostname = useAppConfig().site.domain;
+  const title = useAppConfig().site.title;
+  const email = useAppConfig().site.email;
   var feed = new Feed({
     title: useAppConfig().site.title,
     description: "This is my personal feed!",
-    id: hostname,
+    id: title,
     link: hostname,
-    generator: hostname,
+    generator: title,
     docs: hostname,
     language: "zh-CN",
     updated: new Date(),
+    author: {
+      name: title,
+      email: email,
+      link: hostname
+    }
   });
   const qryRes = await serverQueryContent(event)
     .only(["title", "description", "published", "slug", "_path"])

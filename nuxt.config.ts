@@ -23,9 +23,10 @@ export default defineNuxtConfig({
         class: "h-full",
       },
       bodyAttrs: {
-        class: "antialiased bg-gray-100 dark:bg-zinc-900 min-h-screen",
+        class: "antialiased bg-gray-50 dark:bg-zinc-900 min-h-screen",
       },
       script: [{ src: "/js/lazyload.js" }],
+      link: [{ href: "https://chinese-fonts-cdn.deno.dev/packages/jhlst/dist/%E4%BA%AC%E8%8F%AF%E8%80%81%E5%AE%8B%E4%BD%93v2_002/result.css", rel: "stylesheet" }],
     },
   },
 

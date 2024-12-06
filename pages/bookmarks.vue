@@ -15,7 +15,7 @@
             :src="getThumbnail(bookmark.url)"
             :alt="bookmark.label"
             :ui="{ rounded: 'rounded-md' }" />
-          <p class="truncate text-gray-700 dark:text-gray-200">
+          <p class="truncate text-gray-700">
             {{ bookmark.label }}
           </p>
           <span class="flex-1"></span>

@@ -8,5 +8,28 @@ html {
 
 body {
   /* 让 dark、light 主题可以平缓过渡 */
-  transition: background-color 0.5s, color 0.5s;
+  transition:
+    background-color 0.5s,
+    color 0.5s;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  a,
+  strong,
+  code {
+    @apply dark:text-gray-300;
+  }
+
+  p,
+  th,
+  td,
+  li {
+    @apply dark:text-gray-50/70;
+  }
 }

@@ -4,8 +4,8 @@
       <AppAvatar :ping="ping" :show-text="showText" :show-icon="showIcon" :avatar="appCf.site.avatar" />
     </div>
 
-    <h1 class="mt-8 text-xl font-bold tracking-tight text-gray-800 dark:text-gray-100">Hello!</h1>
-    <p class="text-gray-900 dark:text-gray-400">
+    <h1 class="mt-8 text-xl font-bold tracking-tight text-gray-800 dark:text-gray-300">Hello!</h1>
+    <p class="text-gray-900">
       {{ appCf.site.intro }}
     </p>
   </div>

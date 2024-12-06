@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
+    <h1 class="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-300">
       {{ title }}
     </h1>
     <p class="mt-6 text-base text-gray-600 dark:text-gray-400">
