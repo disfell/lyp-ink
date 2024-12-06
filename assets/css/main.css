@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   /* 让 dark、light 主题可以平缓过渡 */
   transition: background-color 0.5s, color 0.5s;
