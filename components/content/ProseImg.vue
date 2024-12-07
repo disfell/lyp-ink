@@ -1,5 +1,16 @@
 <template>
-  <component :is="ImageComponent" :data-srcset="refinedSrc" :src="colorMode.preference === 'dark' ? '/loading/l.svg' : '/loading/d.svg'" :alt="props.alt" :width="props.width" :height="props.height" class="dark:brightness-50 lazyload block m-auto my-4" />
+  <component
+    :is="ImageComponent"
+    :data-srcset="refinedSrc"
+    :src="
+      colorMode.preference === 'dark'
+        ? '/loading/light.svg'
+        : '/loading/dark.svg'
+    "
+    :alt="props.alt"
+    :width="props.width"
+    :height="props.height"
+    class="dark:brightness-50 lazyload block m-auto my-4" />
 </template>
 
 <script setup lang="ts">
@@ -38,14 +49,22 @@ const refinedSrc = computed(() => {
       if (props.src.indexOf(".webp") > 0 || props.src.indexOf(".gif") > 0) {
         return imgCDN + "/" + imgServer + props.src + "?org_if_sml=1";
       } else {
-        return imgCDN + "/" + imgServer + props.src + "?force_format=webp,jpeg&org_if_sml=1";
+        return (
+          imgCDN +
+          "/" +
+          imgServer +
+          props.src +
+          "?force_format=webp,jpeg&org_if_sml=1"
+        );
       }
     }
     return imgServer + props.src;
   }
 
   if (props.src?.startsWith("/") && !props.src.startsWith("//")) {
-    const _base = withLeadingSlash(withTrailingSlash(useRuntimeConfig().app.baseURL));
+    const _base = withLeadingSlash(
+      withTrailingSlash(useRuntimeConfig().app.baseURL)
+    );
     if (_base !== "/" && !props.src.startsWith(_base)) {
       return joinURL(_base, props.src);
     }
@@ -53,3 +72,9 @@ const refinedSrc = computed(() => {
   return props.src;
 });
 </script>
+
+<style>
+.bs {
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+</style>

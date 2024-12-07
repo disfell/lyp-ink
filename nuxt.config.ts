@@ -13,7 +13,14 @@ export default defineNuxtConfig({
 
   css: ["~/assets/css/main.css"],
 
-  modules: ["@nuxt/ui", "@nuxtjs/google-fonts", "@nuxtjs/fontaine", "@nuxt/content", "@vueuse/nuxt", "@vueuse/motion/nuxt"],
+  modules: [
+    "@nuxt/ui",
+    "@nuxtjs/google-fonts",
+    "@nuxtjs/fontaine",
+    "@nuxt/content",
+    "@vueuse/nuxt",
+    "@vueuse/motion/nuxt",
+  ],
 
   app: {
     pageTransition: { name: "page", mode: "out-in" },
@@ -26,13 +33,26 @@ export default defineNuxtConfig({
         class: "antialiased bg-gray-50 dark:bg-zinc-900 min-h-screen",
       },
       script: [{ src: "/js/lazyload.js" }],
-      link: [{ href: "https://chinese-fonts-cdn.deno.dev/packages/jhlst/dist/%E4%BA%AC%E8%8F%AF%E8%80%81%E5%AE%8B%E4%BD%93v2_002/result.css", rel: "stylesheet" }],
+      link: [],
     },
   },
 
   content: {
     highlight: {
-      langs: ["json", "js", "ts", "html", "css", "vue", "shell", "mdc", "md", "yaml", "java", "xml"],
+      langs: [
+        "json",
+        "js",
+        "ts",
+        "html",
+        "css",
+        "vue",
+        "shell",
+        "mdc",
+        "md",
+        "yaml",
+        "java",
+        "xml",
+      ],
       theme: "github-dark",
     },
   },

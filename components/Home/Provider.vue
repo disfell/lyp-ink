@@ -40,7 +40,7 @@ const links = [
   {
     name: "Cloudimage",
     url: "https://www.cloudimage.io/",
-    iconL: "/icon/other/cloudimage.png",
+    iconL: "/icon/other/cloudimage-light.svg",
     iconD: "/icon/other/cloudimage.png",
     description: "图片 CDN，网站大图片都靠它分流，By Free Plan.",
     iconIsLen: true,
@@ -59,5 +59,13 @@ const links = [
     iconD: "/icon/other/steam.svg",
     description: "用到了 Steam 的 API 获取游戏列表.",
   },
+  {
+    name: "中文网字计划",
+    url: "https://chinese-font.netlify.app/",
+    iconL: "/icon/other/chinese-font.netlify.app.ico",
+    iconD: "/icon/other/chinese-font.netlify.app.ico",
+    description: "用了网站切割好的字体：“抖音美好体”.",
+  },
+  
 ];
 </script>
