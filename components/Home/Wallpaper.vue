@@ -1,6 +1,6 @@
 <template>
   <div v-if="src.trim() != ''">
-    <div class="space-y-4 border-solid border-4 bs dark:border-gray-400">
+    <div class="space-y-4 border-solid border-4 bs dark:border-gray-800">
       <img :src="src" alt="isha" />
     </div>
   </div>

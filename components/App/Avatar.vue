@@ -12,7 +12,7 @@
         <img
           v-if="ping"
           :src="showIcon"
-          class="size-6 inline-flex absolute rounded-sm z-50 -bottom-1 -right-1" alt="status"/>
+          class="size-6 inline-flex absolute rounded-md z-50 -bottom-1 -right-1" alt="status"/>
         <img
           :src="avatar"
           alt="LYP"
