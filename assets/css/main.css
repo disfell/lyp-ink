@@ -7,29 +7,48 @@ html {
 }
 
 body {
-  /* 让 dark、light 主题可以平缓过渡 */
-  transition:
-    background-color 0.5s,
-    color 0.5s;
   background-attachment: fixed;
   background-image: linear-gradient(
-    215deg,
-    hsl(169deg 79% 91%) 0%,
-    hsl(168deg 78% 93%) 7%,
-    hsl(168deg 78% 95%) 12%,
-    hsl(168deg 78% 96%) 20%,
-    hsl(168deg 78% 98%) 36%,
-    hsl(0deg 0% 100%) 98%
+    20deg,
+    hsl(210deg 20% 98%) 0%,
+    hsl(210deg 20% 98%) 20%,
+    hsl(170deg 56% 97%) 40%,
+    hsl(166deg 76% 97%) 60%,
+    hsl(166deg 81% 95%) 80%,
+    hsl(167deg 85% 89%) 100%
   );
 }
 
-.dark body {
-  /* 让 dark、light 主题可以平缓过渡 */
-  transition:
-    background-color 0.5s,
-    color 0.5s;
-  background-attachment: inherit;
-  background-image: inherit;
+html.dark body {
+  background-attachment: fixed;
+  background-image: linear-gradient(
+    0deg,
+    hsl(240deg 6% 10%) 0%,
+    hsl(240deg 6% 10%) 13%,
+    hsl(240deg 6% 10%) 19%,
+    hsl(240deg 6% 10%) 24%,
+    hsl(240deg 6% 10%) 28%,
+    hsl(240deg 6% 10%) 32%,
+    hsl(240deg 6% 10%) 36%,
+    hsl(240deg 6% 10%) 40%,
+    hsl(240deg 6% 10%) 43%,
+    hsl(240deg 6% 10%) 47%,
+    hsl(240deg 6% 10%) 50%,
+    hsl(240deg 6% 10%) 53%,
+    hsl(240deg 6% 10%) 56%,
+    hsl(240deg 5% 11%) 59%,
+    hsl(240deg 5% 12%) 62%,
+    hsl(240deg 5% 13%) 65%,
+    hsl(240deg 4% 14%) 68%,
+    hsl(240deg 4% 15%) 71%,
+    hsl(240deg 4% 16%) 75%,
+    hsl(240deg 4% 18%) 78%,
+    hsl(240deg 3% 20%) 81%,
+    hsl(240deg 3% 23%) 85%,
+    hsl(240deg 3% 25%) 88%,
+    hsl(240deg 3% 28%) 93%,
+    hsl(240deg 3% 30%) 100%
+  );
 }
 
 @layer base {
