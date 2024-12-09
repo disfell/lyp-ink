@@ -9,7 +9,7 @@ html {
 body {
   background-attachment: fixed;
   background-image: linear-gradient(
-    15deg,
+    0deg,
     hsl(210deg 20% 98%) 0%,
     hsl(210deg 20% 98%) 4%,
     hsl(210deg 20% 98%) 8%,
@@ -32,9 +32,9 @@ body {
     hsl(203deg 86% 97%) 79%,
     hsl(196deg 100% 96%) 83%,
     hsl(190deg 100% 94%) 87%,
-    hsl(184deg 91% 92%) 92%,
-    hsl(176deg 84% 90%) 96%,
-    hsl(167deg 85% 89%) 100%
+    hsl(182, 78%, 93%) 92%,
+    hsl(176, 73%, 91%) 96%,
+    hsl(166, 66%, 91%) 100%
   );
 }
 
