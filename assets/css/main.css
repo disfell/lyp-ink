@@ -9,46 +9,38 @@ html {
 body {
   background-attachment: fixed;
   background-image: linear-gradient(
-    20deg,
+    15deg,
     hsl(210deg 20% 98%) 0%,
-    hsl(210deg 20% 98%) 20%,
-    hsl(170deg 56% 97%) 40%,
-    hsl(166deg 76% 97%) 60%,
-    hsl(166deg 81% 95%) 80%,
+    hsl(210deg 20% 98%) 4%,
+    hsl(210deg 20% 98%) 8%,
+    hsl(210deg 20% 98%) 13%,
+    hsl(210deg 20% 98%) 17%,
+    hsl(210deg 20% 98%) 21%,
+    hsl(210deg 20% 98%) 25%,
+    hsl(210deg 20% 98%) 29%,
+    hsl(210deg 20% 98%) 33%,
+    hsl(210deg 20% 98%) 37%,
+    hsl(210deg 20% 98%) 42%,
+    hsl(210deg 20% 98%) 46%,
+    hsl(210deg 20% 98%) 50%,
+    hsl(210deg 20% 98%) 54%,
+    hsl(210deg 20% 98%) 58%,
+    hsl(210deg 20% 98%) 63%,
+    hsl(210deg 20% 98%) 67%,
+    hsl(210deg 20% 98%) 71%,
+    hsl(210deg 20% 98%) 75%,
+    hsl(203deg 86% 97%) 79%,
+    hsl(196deg 100% 96%) 83%,
+    hsl(190deg 100% 94%) 87%,
+    hsl(184deg 91% 92%) 92%,
+    hsl(176deg 84% 90%) 96%,
     hsl(167deg 85% 89%) 100%
   );
 }
 
 html.dark body {
-  background-attachment: fixed;
-  background-image: linear-gradient(
-    0deg,
-    hsl(240deg 6% 10%) 0%,
-    hsl(240deg 6% 10%) 13%,
-    hsl(240deg 6% 10%) 19%,
-    hsl(240deg 6% 10%) 24%,
-    hsl(240deg 6% 10%) 28%,
-    hsl(240deg 6% 10%) 32%,
-    hsl(240deg 6% 10%) 36%,
-    hsl(240deg 6% 10%) 40%,
-    hsl(240deg 6% 10%) 43%,
-    hsl(240deg 6% 10%) 47%,
-    hsl(240deg 6% 10%) 50%,
-    hsl(240deg 6% 10%) 53%,
-    hsl(240deg 6% 10%) 56%,
-    hsl(240deg 5% 11%) 59%,
-    hsl(240deg 5% 12%) 62%,
-    hsl(240deg 5% 13%) 65%,
-    hsl(240deg 4% 14%) 68%,
-    hsl(240deg 4% 15%) 71%,
-    hsl(240deg 4% 16%) 75%,
-    hsl(240deg 4% 18%) 78%,
-    hsl(240deg 3% 20%) 81%,
-    hsl(240deg 3% 23%) 85%,
-    hsl(240deg 3% 25%) 88%,
-    hsl(240deg 3% 28%) 93%,
-    hsl(240deg 3% 30%) 100%
-  );
+  background-attachment: inherit;
+  background-image: none;
 }
 
 @layer base {

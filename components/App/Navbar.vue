@@ -14,6 +14,9 @@
         </li>
         <li class="flex-1"></li>
         <li>
+          <AppFunGif />
+        </li>
+        <li>
           <AppStatusIcon />
         </li>
         <li>
