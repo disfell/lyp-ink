@@ -22,12 +22,20 @@ interface RetType {
   game_cn?: string;
 }
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async event => {
   const runtimeConfig = useRuntimeConfig();
   const appConfig = useAppConfig();
   const steamGameDictCN: SteamGameDictCN = appConfig.steamGameDictCN;
   const steamToken: string = runtimeConfig.steamToken;
   const steamId: string = runtimeConfig.steamId;
+
+  if (isBlank(steamToken, steamId)) {
+    throw createError({
+      statusCode: 400,
+      message: "缺少配置，请查看 steamToken,steamId 是否完整",
+    });
+  }
+
   const steamPlayingURL = `https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${steamToken}&steamids=${steamId}`;
 
   const ret: RetType = {};

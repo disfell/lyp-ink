@@ -1,19 +1,21 @@
 import { createClient } from "@supabase/supabase-js";
 import dayjs from "dayjs";
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async event => {
   const current = new Date();
   const runtimeConfig = useRuntimeConfig();
   const appConfig = useAppConfig();
   const steamToken = runtimeConfig.steamToken;
   const steamId = runtimeConfig.steamId;
-  const steamGameDictCN = appConfig.steamGameDictCN ? appConfig.steamGameDictCN : {};
+  const steamGameDictCN = appConfig.steamGameDictCN
+    ? appConfig.steamGameDictCN
+    : {};
 
   if (isBlank(steamToken, steamId)) {
     throw createError({
-      statusCode: 500,
-      statusMessage: '缺少配置，请查看 steamToken、steamId 是否完整',
-    })
+      statusCode: 400,
+      message: "缺少配置，请查看 steamToken、steamId 是否完整",
+    });
   }
 
   const supabase = createClient(
@@ -51,7 +53,7 @@ export default defineEventHandler(async (event) => {
     const data = await result.json();
     const playerListTmp = data.response.games;
     // 创建一个新数组，只包含所需的字段
-    const playerList = playerListTmp.map((game, idx) => {
+    gameList = playerListTmp.map((game, idx) => {
       // 检查字典B中是否有对应的appid，并更新name字段
       return {
         id: idx + 1,
@@ -63,7 +65,6 @@ export default defineEventHandler(async (event) => {
         updated_time: current.toISOString(),
       };
     });
-    gameList = playerList;
   } catch (err) {
     console.error(err);
   }

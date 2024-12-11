@@ -9,4 +9,4 @@ trailingComma: "es5" # 在ES5中添加尾随逗号
 bracketSpacing: true # 在对象，数组括号和函数参数周围添加空格
 bracketSameLine: true # 将对象或函数的括号放在与声明同一行
 arrowParens: "avoid" # 尽可能避免在箭头函数参数周围添加括号
-printWidth: 80 # 格式化代码的宽度限制
+printWidth: 150 # 格式化代码的宽度限制

@@ -6,8 +6,8 @@ export default defineEventHandler(async (event) => {
 
   if (isBlank(appConfig.outer.supabaseUrl, runtimeConfig.supabaseKey)) {
     throw createError({
-      statusCode: 500,
-      statusMessage: '缺少配置，请查看 supabaseUrl、supabaseKey 是否完整',
+      statusCode: 400,
+      message: '缺少配置，请查看 supabaseUrl、supabaseKey 是否完整',
     })
   }
   
