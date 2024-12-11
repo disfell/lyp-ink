@@ -7,7 +7,7 @@
       <HomeProvider />
       <HomeBlogClub />
       <HomeWallpaper />
-      <UDivider label="感谢浏览~😊" :ui="{ label: 'text-gray-500 dark:text-gray-400' }" />
+      <UDivider :ui="{ label: 'text-gray-500 dark:text-gray-400' }" label="感谢浏览~😊" />
     </div>
   </main>
 </template>

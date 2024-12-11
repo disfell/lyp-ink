@@ -25,4 +25,4 @@ export const nuxtUI = {
   container: {
     constrained: "max-w-2xl",
   },
-}
+};

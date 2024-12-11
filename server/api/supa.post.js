@@ -1,6 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async event => {
   const { id, msg } = await readBody(event);
 
   if (id !== "19960928") {
@@ -13,17 +13,14 @@ export default defineEventHandler(async (event) => {
   if (isBlank(appConfig.outer.supabaseUrl, runtimeConfig.supabaseKey)) {
     throw createError({
       statusCode: 400,
-      message: '缺少配置，请查看 supabaseUrl、supabaseKey 是否完整',
-    })
+      message: "缺少配置，请查看 supabaseUrl、supabaseKey 是否完整",
+    });
   }
 
-  const supabaseClient = createClient(
-    appConfig.outer.supabaseUrl,
-    runtimeConfig.supabaseKey
-  );
+  const supabaseClient = createClient(appConfig.outer.supabaseUrl, runtimeConfig.supabaseKey);
   const supabaseCannel = supabaseClient.channel("lyp-ink");
 
-  supabaseCannel.subscribe((status) => {
+  supabaseCannel.subscribe(status => {
     if (status !== "SUBSCRIBED") {
       return null;
     }

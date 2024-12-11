@@ -66,6 +66,5 @@ const links = [
     iconD: "/icon/other/chinese-font.netlify.app.ico",
     description: "用到了字体：“抖音美好体”.",
   },
-  
 ];
 </script>

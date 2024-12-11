@@ -54,9 +54,10 @@ do shell script "curl -X POST ..."
 
 还差一点，要做到代码持续监控，就必须得保持代码后台运行，好在 AppleScript 也支持这么做，可使用 `on idle` 实现。
 
->idle Handlers
+> idle Handlers
 >
->If a stay-open script application includes an idle handler, AppleScript sends the script application periodic idle commands—by >default, every 30 seconds—allowing it to perform background tasks when it is not performing other actions.
+>If a stay-open script application includes an idle handler, AppleScript sends the script application periodic idle
+> commands—by >default, every 30 seconds—allowing it to perform background tasks when it is not performing other actions.
 
 ```
 on idle{}
@@ -73,7 +74,7 @@ end idle
 # 导出
 
 选择左上角：文件 -> 导出。
-  
+
 文件格式：应用程序  
 选项：运行处理程序后保持打开
 
@@ -84,7 +85,6 @@ end idle
 接着执行导出的 App，最后设置为开机自启动，这样只要电脑还在运作中，代码就会一直监控并且推送数据到服务器。
 
 ![Export as an App](/imgs/2023/my-online-status/4.jpg)
-
 
 # 缺点&疑惑
 

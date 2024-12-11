@@ -14,7 +14,7 @@ Mybatis 的实现，其最底层依赖于 JDBC 接口。
 JDBC 的核心接口如下：
 
 1. DriverManager - 用于注册数据库连接
-2. Connection    - 与数据库连接对象
+2. Connection - 与数据库连接对象
 3. Statement/PrepareStatement - 操作数据库SQL语句的对象
 4. ResultSet - 结果集或一张虚拟表
 
@@ -59,7 +59,7 @@ Mybatis 生成 Mapper 实现类用的是 **JDK动态代理**
 **new SqlSessionFactoryBuilder().build(inputStream)**  
 跟踪 `.build(inputStream)`  
 ↓  
-**org.apache.ibatis.builder.xml.XMLConfigBuilder#parseConfiguration**  
+**org.apache.ibatis.builder.xml.XMLConfigBuilder#parseConfiguration**
 
 ```java
 private void parseConfiguration(XNode root) {
@@ -85,13 +85,15 @@ private void parseConfiguration(XNode root) {
   }
 }
 ```
+
 一眼看去，有很多和 mybatis-config.xml 相关的标签的关键字，这里应该是解析标签的逻辑
 
 ***
 
 主要看了一下 **mapperElement(root.evalNode("mappers"))**
 
-`mappers` 标签，详见 [mybatis – MyBatis 3 | Configuration](https://mybatis.org/mybatis-3/configuration.html#mappers)：展示了 mappers 节点的几种配置方式
+`mappers` 标签，详见 [mybatis – MyBatis 3 | Configuration](https://mybatis.org/mybatis-3/configuration.html#mappers)：展示了
+mappers 节点的几种配置方式
 
 以下是公司项目里常用的方式：
 
@@ -202,7 +204,9 @@ private void configurationElement(XNode context) {
 }
 ```
 
-接着再看  **buildStatementFromContext(context.evalNodes("select|insert|update|delete"));** 根据 select、insert、update、delete 生成若干个 **MappedStatement**，并且存储在 **org.apache.ibatis.session.Configuration#mappedStatements** 中。
+接着再看  **buildStatementFromContext(context.evalNodes("select|insert|update|delete"));** 根据
+select、insert、update、delete 生成若干个 **MappedStatement**，并且存储在 *
+*org.apache.ibatis.session.Configuration#mappedStatements** 中。
 
 ```java
 protected final Map<String, MappedStatement> mappedStatements = new StrictMap<MappedStatement>...
@@ -219,11 +223,13 @@ return currentNamespace + "." + base;
 
 这里也大概能猜到 Mybatis 怎么执行 SQL 了。
 
-动态代理可以利用反射得到 java 类、方法的相关信息，结合接口名称+方法名称组成`currentNamespace` + `id`，再通过 Map 查到对应的 MappedStatement，也就是 Java 接口和 XML 建立起了映射关系。
+动态代理可以利用反射得到 java 类、方法的相关信息，结合接口名称+方法名称组成`currentNamespace` + `id`，再通过 Map 查到对应的
+MappedStatement，也就是 Java 接口和 XML 建立起了映射关系。
 
 *** 
 
-再回到 **mapperParser.parse** 调用的 **bindMapperForNamespace**，找到 **org.apache.ibatis.binding.MapperRegistry#addMapper**
+再回到 **mapperParser.parse** 调用的 **bindMapperForNamespace**，找到 *
+*org.apache.ibatis.binding.MapperRegistry#addMapper**
 
 ```java
 public <T> void addMapper(Class<T> type) {
@@ -249,7 +255,7 @@ public <T> void addMapper(Class<T> type) {
 }
 ```
 
-再找到 **org.apache.ibatis.binding.MapperProxyFactory** 
+再找到 **org.apache.ibatis.binding.MapperProxyFactory**
 
 ```java
 public class MapperProxyFactory<T> {
@@ -282,11 +288,13 @@ public class MapperProxyFactory<T> {
 }
 ```
 
-可以找到 **newInstance** 方法入参是 **org.apache.ibatis.binding.MapperProxy** ，实现了 InvocationHandler 接口，可以明确知道 Mybatis 是使用的 JDK 动态代理。
+可以找到 **newInstance** 方法入参是 **org.apache.ibatis.binding.MapperProxy** ，实现了 InvocationHandler 接口，可以明确知道
+Mybatis 是使用的 JDK 动态代理。
 
 ***
 
-看到这就不想再往下看了，了解 JDK 动态代理，大概也能知道里边在做些什么，知道了 `addMapper` 大致过程，再回过头看 `getMapper` 会很好理解。
+看到这就不想再往下看了，了解 JDK 动态代理，大概也能知道里边在做些什么，知道了 `addMapper` 大致过程，再回过头看 `getMapper`
+会很好理解。
 
 还没去看 Spring 注入的 Mapper 的原理，但是我的猜想是根据 `getMapper` 的方式获得一个 mybatis 生成的代理对象，最后赋给定义的引用。
 
@@ -303,7 +311,6 @@ AuthorMapper ≈ sqlSession.getMapper(StockMapper.class);
 一级缓存：mybatis有一级缓存，同一次会话里，相同sql的查询结果，从第二次开始往后的查询，都从一级缓存里取，除非中间发生了写操作。
 
 ......
-
 
 # 参考资料
 

@@ -41,7 +41,9 @@ last: 2023/10/11
 
 发现一点，同样的截图、大图，PNG 格式的传输大小要比 JPEG 格式大得多，为提高图片的传输效率，~~我的大图尽量选择 JPEG 格式~~。
 
-> Where PNGs are most frequently used is with small images, like web icons, where the lossless compression ensures crisp, clear imagery; PNGs are also used when a transparent background is needed to surround a central image (e.g., when using sprites).
+> Where PNGs are most frequently used is with small images, like web icons, where the lossless compression ensures
+> crisp, clear imagery; PNGs are also used when a transparent background is needed to surround a central image (e.g., when
+> using sprites).
 > 参考：[JPEG_vs_PNG](https://www.diffen.com/difference/JPEG_vs_PNG)
 
 后来知道了这个 WebP 格式，我发现知乎、哔哩哔哩等网站都有在用，该格式支持更好的压缩效果，可节省更多的服务器流量。
@@ -58,26 +60,31 @@ Content Delivery Network， CDN加速可以改善静态文件的响应速度，�
 
 传统的网站访问过程为:
 
-- 用户在浏览器中输入要访问的域名;  
-- 浏览器向域名解析服务器发出解析请求，获得此域名对应的 IP 地址;  
-- 浏览器利用所得到的 IP 地址，向该 IP 对应的服务器发出访问请求;  
-- 服务器对此响应，将数据回传至用户浏览器端显示出来。  
+- 用户在浏览器中输入要访问的域名;
+- 浏览器向域名解析服务器发出解析请求，获得此域名对应的 IP 地址;
+- 浏览器利用所得到的 IP 地址，向该 IP 对应的服务器发出访问请求;
+- 服务器对此响应，将数据回传至用户浏览器端显示出来。
 
-与传统访问方式不同，CDN 网络则是在用户和服务器之间增加 Cache 层，将用户的访问请求引导到 Cache 节点而不是服务器源站点，且该节点是所有节点里，距离请求地址比较近的一个节点，以此来降低网络传输的消耗。要实现这一目的，主要是通过接管 DNS 实现。
+与传统访问方式不同，CDN 网络则是在用户和服务器之间增加 Cache 层，将用户的访问请求引导到 Cache
+节点而不是服务器源站点，且该节点是所有节点里，距离请求地址比较近的一个节点，以此来降低网络传输的消耗。要实现这一目的，主要是通过接管
+DNS 实现。
 
 # Cloudimage
 
-> [Cloudimage](https://www.cloudimage.io/en/home) works on a pull basis, meaning that upon first load of an image via a Cloudimage URL, the image is downloaded by the Cloudimage resizing infrastructure, optimised and cached in the CDN.
+> [Cloudimage](https://www.cloudimage.io/en/home) works on a pull basis, meaning that upon first load of an image via a
+> Cloudimage URL, the image is downloaded by the Cloudimage resizing infrastructure, optimised and cached in the CDN.
 
 它的具体用处如下图
 
 ![](/imgs/2019/web-optimize/1.webp)
 
 使用方式：
+
 - 图片源地址 URL=https://xx.cn/xx.png
 - 改代理地址 URL=https://token.cloudimg.io/https://xx.cn/xx.png
 
 原理还是 CDN 那套，实测速度也还行吧，主要是以下两点有必要：
+
 - 提供 WebP 格式压缩与响应
 - 提供图片缓存，减小源服务器流量
 

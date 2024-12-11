@@ -16,5 +16,5 @@ export const site = {
       path: "/bookmarks",
       icon: "solar:bookmark-linear",
     },
-  ]
-}
+  ],
+};

@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <div class="flex items-end space-x-4">
-      <AppAvatar :ping="ping" :show-text="showText" :show-icon="showIcon" :avatar="appCf.site.avatar" />
+      <AppAvatar :avatar="appCf.site.avatar" :ping="ping" :show-icon="showIcon" :show-text="showText" />
     </div>
 
     <h1 class="mt-8 text-xl font-bold tracking-tight text-gray-800 dark:text-gray-300">Hello!</h1>
@@ -13,6 +13,7 @@
 
 <script setup>
 import { inject } from "vue";
+
 const appCf = useAppConfig();
 const steamStatus = inject("steamStatus");
 const steamGameCN = inject("steamGameCN");

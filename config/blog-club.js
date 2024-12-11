@@ -17,4 +17,4 @@ export const blogClub = [
     iconL: "/icon/other/icp.gov.moe.png",
     iconD: "/icon/other/icp.gov.moe.png",
   },
-]
+];

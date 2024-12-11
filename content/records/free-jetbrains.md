@@ -26,9 +26,11 @@ last: 2023/04/19
 
 > Hello Steve,
 >
-> Thank you for your OSS development license request. We will evaluate your project, and we’ll notify you of our decision by email.
+> Thank you for your OSS development license request. We will evaluate your project, and we’ll notify you of our
+> decision by email.
 >
-> Please allow up to 1 week for your application to be processed, as we're currently experiencing a high volume of requests. We appreciate your patience.
+> Please allow up to 1 week for your application to be processed, as we're currently experiencing a high volume of
+> requests. We appreciate your patience.
 >
 > If you need assistance with an urgent license renewal request, please contact us at opensource@jetbrains.com.
 >
@@ -36,7 +38,7 @@ last: 2023/04/19
 > JetBrains Community Support Team  
 > www.jetbrains.com  
 > The Drive to Develop
-> 
+>
 
 # 答复
 

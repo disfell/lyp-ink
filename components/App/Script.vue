@@ -1,6 +1,7 @@
 <template></template>
 <script setup>
 import { inject } from "vue";
+
 const steamStatus = inject("steamStatus");
 const steamGame = inject("steamGame");
 const steamGameCN = inject("steamGameCN");

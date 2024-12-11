@@ -13,6 +13,7 @@
 <script setup>
 import "@chinese-fonts/dymh/dist/DouyinSansBold/result.css";
 import { provide } from "vue";
+
 provide("steamStatus", ref(-1));
 provide("steamGame", ref(""));
 provide("steamGameCN", ref(""));

@@ -13,7 +13,7 @@ export default defineNuxtConfig({
 
   css: ["~/assets/css/main.css"],
 
-  modules: ["@nuxt/ui", "@nuxtjs/google-fonts", "@nuxtjs/fontaine", "@nuxt/content", "@vueuse/nuxt", "@vueuse/motion/nuxt"],
+  modules: ["@nuxt/ui", "@nuxtjs/google-fonts", "@nuxtjs/fontaine", "@nuxt/content", "@vueuse/nuxt", "@vueuse/motion/nuxt", "@nuxt/eslint"],
 
   app: {
     pageTransition: { name: "page", mode: "out-in" },
@@ -33,7 +33,15 @@ export default defineNuxtConfig({
   content: {
     highlight: {
       langs: ["json", "js", "ts", "html", "css", "vue", "shell", "mdc", "md", "yaml", "java", "xml"],
-      theme: "github-dark",
+      // OR
+      theme: {
+        // Default theme (same as single string)
+        default: "github-light",
+        // Theme used if `html.dark`
+        dark: "github-dark",
+        // Theme used if `html.sepia`
+        sepia: "monokai",
+      },
     },
   },
 

@@ -1,18 +1,9 @@
 <template>
-  <UTooltip :text="showText" :popper="{ placement: 'right' }">
-    <div
-      class="flex items-center rounded-full cursor-pointer backdrop-blur-3xl size-16"
-      style="--stagger: 2"
-      data-animate="">
+  <UTooltip :popper="{ placement: 'right' }" :text="showText">
+    <div class="flex items-center rounded-full cursor-pointer backdrop-blur-3xl size-16" data-animate="" style="--stagger: 2">
       <span class="relative flex size-full">
-        <span
-          class="bg-green-600 absolute inline-flex size-full rounded-full z-0"
-          :class="ping ? 'online-ping' : ''">
-        </span>
-        <img
-          v-if="ping"
-          :src="showIcon"
-          class="size-6 inline-flex absolute rounded-md z-50 -bottom-1 -right-1" alt="status"/>
+        <span :class="ping ? 'online-ping' : ''" class="bg-green-600 absolute inline-flex size-full rounded-full z-0"> </span>
+        <img v-if="ping" :src="showIcon" alt="status" class="size-6 inline-flex absolute rounded-md z-50 -bottom-1 -right-1" />
         <img
           :src="avatar"
           alt="LYP"
@@ -27,22 +18,22 @@ defineProps({
   ping: {
     type: Boolean,
     required: false,
-    default: false
+    default: false,
   },
   showIcon: {
     type: String,
     required: false,
-    default: ""
+    default: "",
   },
   avatar: {
     type: String,
     required: false,
-    default: ""
+    default: "",
   },
   showText: {
     type: String,
     required: false,
-    default: ""
+    default: "",
   },
 });
 </script>
@@ -54,6 +45,7 @@ defineProps({
     opacity: 0;
   }
 }
+
 .online-ping {
   animation: online-ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
 }

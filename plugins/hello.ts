@@ -1,3 +1,3 @@
-export default defineNuxtPlugin((nuxtApp) => {
+export default defineNuxtPlugin(nuxtApp => {
   // Doing something with nuxtApp
 });

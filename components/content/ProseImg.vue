@@ -1,21 +1,17 @@
 <template>
   <component
     :is="ImageComponent"
-    :data-srcset="refinedSrc"
-    :src="
-      colorMode.preference === 'dark'
-        ? '/loading/light.svg'
-        : '/loading/dark.svg'
-    "
     :alt="props.alt"
-    :width="props.width"
+    :data-srcset="refinedSrc"
     :height="props.height"
+    :src="colorMode.preference === 'dark' ? '/loading/light.svg' : '/loading/dark.svg'"
+    :width="props.width"
     class="dark:brightness-50 lazyload block m-auto my-4" />
 </template>
 
-<script setup lang="ts">
-import { withTrailingSlash, withLeadingSlash, joinURL } from "ufo";
-import { useRuntimeConfig, computed } from "#imports";
+<script lang="ts" setup>
+import { joinURL, withLeadingSlash, withTrailingSlash } from "ufo";
+import { computed, useRuntimeConfig } from "#imports";
 
 import ImageComponent from "#build/mdc-image-component.mjs";
 
@@ -49,22 +45,14 @@ const refinedSrc = computed(() => {
       if (props.src.indexOf(".webp") > 0 || props.src.indexOf(".gif") > 0) {
         return imgCDN + "/" + imgServer + props.src + "?org_if_sml=1";
       } else {
-        return (
-          imgCDN +
-          "/" +
-          imgServer +
-          props.src +
-          "?force_format=webp,jpeg&org_if_sml=1"
-        );
+        return imgCDN + "/" + imgServer + props.src + "?force_format=webp,jpeg&org_if_sml=1";
       }
     }
     return imgServer + props.src;
   }
 
   if (props.src?.startsWith("/") && !props.src.startsWith("//")) {
-    const _base = withLeadingSlash(
-      withTrailingSlash(useRuntimeConfig().app.baseURL)
-    );
+    const _base = withLeadingSlash(withTrailingSlash(useRuntimeConfig().app.baseURL));
     if (_base !== "/" && !props.src.startsWith(_base)) {
       return joinURL(_base, props.src);
     }

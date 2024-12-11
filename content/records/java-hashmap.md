@@ -9,31 +9,42 @@ published: 2019/11/12
 
 ## 概述
 
-  > [散列表](https://baike.baidu.com/item/散列表/10027933)（Hash table，也叫哈希表），是根据关键码值(Key value)而直接进行访问的[数据结构](https://baike.baidu.com/item/数据结构/1450)。也就是说，它通过把关键码值映射到表中一个位置来访问记录，以加快查找的速度。这个映射函数叫做[散列函数](https://baike.baidu.com/item/散列函数/2366288)，存放记录的[数组](https://baike.baidu.com/item/数组/3794097)叫做[散列表](https://baike.baidu.com/item/散列表/10027933)。
+> [散列表](https://baike.baidu.com/item/散列表/10027933)（Hash table，也叫哈希表），是根据关键码值(Key value)
+> 而直接进行访问的[数据结构](https://baike.baidu.com/item/数据结构/1450)
+> 。也就是说，它通过把关键码值映射到表中一个位置来访问记录，以加快查找的速度。这个映射函数叫做[散列函数](https://baike.baidu.com/item/散列函数/2366288)
+> ，存放记录的[数组](https://baike.baidu.com/item/数组/3794097)叫做[散列表](https://baike.baidu.com/item/散列表/10027933)。
 
 **HashMap** 在 Java 项目里随处可见，它内部维护了一个哈希表，用于映射(键值对)处理的数据类型。
 
 ## 要点
 
-官方[文档](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html)里已经对 HashMap 进行了描述，大致有下列 5 个要点：
+官方[文档](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html)里已经对 HashMap 进行了描述，大致有下列 5
+个要点：
 
-  1. 允许 `null` 值与 `null` key
-  2. 无法保证顺序
-  3. 影响性能的两个因素：*capacity* 和 *load factor*
-  4. 不保证线程同步
-  5. 具备 *fail-fast* 保护机制
+1. 允许 `null` 值与 `null` key
+2. 无法保证顺序
+3. 影响性能的两个因素：*capacity* 和 *load factor*
+4. 不保证线程同步
+5. 具备 *fail-fast* 保护机制
 
 *capacity* 指的是哈希表的容量， *load factor* 指的是哈希表的负载因子，关于这两个变量的关系，官方的描述是：
 
-  > The *load factor* is a measure of how full the hash table is allowed to get before its capacity is automatically increased. When the number of entries in the hash table exceeds the product of the load factor and the current capacity, the hash table is ***rehashed*** (that is, internal data structures are rebuilt) so that the hash table has approximately twice the number of buckets.
+> The *load factor* is a measure of how full the hash table is allowed to get before its capacity is automatically
+> increased. When the number of entries in the hash table exceeds the product of the load factor and the current capacity,
+> the hash table is ***rehashed*** (that is, internal data structures are rebuilt) so that the hash table has
+> approximately twice the number of buckets.
 
-  > As a general rule, the default load factor (.75) offers a good tradeoff between time and space costs. Higher values decrease the space overhead but increase the lookup cost (reflected in most of the operations of the `HashMap` class, including `get` and `put`). The expected number of entries in the map and its load factor should be taken into account when setting its initial capacity,
+> As a general rule, the default load factor (.75) offers a good tradeoff between time and space costs. Higher values
+> decrease the space overhead but increase the lookup cost (reflected in most of the operations of the `HashMap` class,
+> including `get` and `put`). The expected number of entries in the map and its load factor should be taken into account
+> when setting its initial capacity,
 
 简而言之：
 
-  * 只要满足条件 `总数据量 > load factor * current capacity`，HashMap 内部的哈希表就会被重构 (简称 rehash)，哈希表容量扩大至原来的 2 倍。
-  * 为避免哈希表 rehash 带来的性能损耗，建议考虑初始容量大小 *initial capacity*。
-  * *load factor* 默认值是 0.75，该值的定义权衡了时间与空间的成本，设置太高或者太低都会导致性能失衡。
+* 只要满足条件 `总数据量 > load factor * current capacity`，HashMap 内部的哈希表就会被重构 (简称 rehash)，哈希表容量扩大至原来的
+  2 倍。
+* 为避免哈希表 rehash 带来的性能损耗，建议考虑初始容量大小 *initial capacity*。
+* *load factor* 默认值是 0.75，该值的定义权衡了时间与空间的成本，设置太高或者太低都会导致性能失衡。
 
 ## 初始化
 
@@ -46,18 +57,22 @@ public HashMap(int initialCapacity, float loadFactor) // 指定初始化容量�
 public HashMap(Map<? extends K, ? extends V> m) // 初始化并且复制另外一个 Map
 ```
 
-如果未指定 `initialCapacity`，那么 (初始) 哈希表容量默认是 **16**，如果未指定 `loadFactor`，那么负载因子默认是 **0.75**。正常情况下，开发人员无需改动 `loadFactor` 数值。
+如果未指定 `initialCapacity`，那么 (初始) 哈希表容量默认是 **16**，如果未指定 `loadFactor`，那么负载因子默认是 **0.75**
+。正常情况下，开发人员无需改动 `loadFactor` 数值。
 
 ```java
 static final int DEFAULT_INITIAL_CAPACITY = 1 << 4; // aka 16
 static final float DEFAULT_LOAD_FACTOR = 0.75f;
 ```
 
-根据 HashMap 的文档所述，可通过预估需要存储的数据量，来避免不必要的 rehash。[阿里巴巴Java开发手册](https://github.com/alibaba/p3c)也针对这种情况进行了描述：
+根据 HashMap 的文档所述，可通过预估需要存储的数据量，来避免不必要的
+rehash。[阿里巴巴Java开发手册](https://github.com/alibaba/p3c)也针对这种情况进行了描述：
 
 > 说明：HashMap 使用 HashMap(int initialCapacity) 初始化，如果暂时无法确定集合大小，那么指定默认值（16）即可。  
->正例：initialCapacity = (需要存储的元素个数 / 负载因子) + 1。注意负载因子（即 loader factor）默认为 0.75，如果暂时无法确定初始值大小，请设置为 16（即默认值）。  
->反例：HashMap 需要放置 1024 个元素，由于没有设置容量初始大小，随着元素不断增加，容量 7 次被迫扩大，resize 需要重建 hash 表。当放置的集合元素个数达千万级别时，不断扩容会严重影响性能。
+> 正例：initialCapacity = (需要存储的元素个数 / 负载因子) + 1。注意负载因子（即 loader factor）默认为
+> 0.75，如果暂时无法确定初始值大小，请设置为 16（即默认值）。  
+> 反例：HashMap 需要放置 1024 个元素，由于没有设置容量初始大小，随着元素不断增加，容量 7 次被迫扩大，resize 需要重建 hash
+> 表。当放置的集合元素个数达千万级别时，不断扩容会严重影响性能。
 
 类似的，Google 出品的 Guava 库也针对 HashMap 的初始化进行了封装：
 
@@ -76,7 +91,8 @@ static int capacity(int expectedSize) {
 }
 ```
 
-无一例外，它们都使用 `((float) expectedSize / loadFactor) + 1.0F` 作为 HashMap 的入参。因此在开发过程中，如果知道需要存储的数据量较大，可以采用这些方式进行初始化，提高系统运行的效率。
+无一例外，它们都使用 `((float) expectedSize / loadFactor) + 1.0F` 作为 HashMap
+的入参。因此在开发过程中，如果知道需要存储的数据量较大，可以采用这些方式进行初始化，提高系统运行的效率。
 
 ## 存数据(put)
 
@@ -84,16 +100,16 @@ static int capacity(int expectedSize) {
 
 ------
 
-  1.  根据字符串 *one* 的 *hashCode()* 做一次 *hash* 计算
-  2.  判断哈希表是否初始化。否，则进行初始化 `resize`
-  3.  根据 *hash* 计算 *one* 在哈希表的实际位置 *index*
-  4.  判断所处位置是否有数据 (哈希碰撞)
-      * 有且等于 *one* ，把旧数据覆盖掉
-      * 有且不等于 *one*
+1. 根据字符串 *one* 的 *hashCode()* 做一次 *hash* 计算
+2. 判断哈希表是否初始化。否，则进行初始化 `resize`
+3. 根据 *hash* 计算 *one* 在哈希表的实际位置 *index*
+4. 判断所处位置是否有数据 (哈希碰撞)
+    * 有且等于 *one* ，把旧数据覆盖掉
+    * 有且不等于 *one*
         * 在当前位置以链表方式追加。如果链表长度大于等于 7，链表重构为红黑树  
           如果追加过程发现相同数据  *one*，覆盖旧数据
-      * 无，直接存入哈希表
-  5.  如果当前满足 `总数据量 > load factor * current capacity`，则数据结构重构 `resize`
+    * 无，直接存入哈希表
+5. 如果当前满足 `总数据量 > load factor * current capacity`，则数据结构重构 `resize`
 
 ------
 
@@ -112,8 +128,6 @@ public HashMap(int initialCapacity)
                                   |
 static final int tableSizeFor(int cap)
 ```
-
-
 
 ```java
 /**
@@ -143,7 +157,8 @@ n |= n >>> 16;   0 1 1 1 | 0 0 0 0 = 0 1 1 1 = 7
 return n + 1     7 + 1 = 8 
 ```
 
-所以计算出的哈希表容量是 8 = 2^3，然后再根据`load factor * current capacity`计算出当前有效存储量为 6，并将 6 赋予给 HashMap 的实例变量 `threshold` 。
+所以计算出的哈希表容量是 8 = 2^3，然后再根据`load factor * current capacity`计算出当前有效存储量为 6，并将 6 赋予给
+HashMap 的实例变量 `threshold` 。
 
 ```java
 int threshold;
@@ -158,7 +173,7 @@ if (++size > threshold)
 
 哈希表的扩容计算方式很简单：
 
- `newCap = oldCap << 1`，`newThr = oldThr << 1`
+`newCap = oldCap << 1`，`newThr = oldThr << 1`
 
 ## 计算位置(下标)
 
@@ -195,7 +210,14 @@ n - 1:              0000 0000 0000 0000 0000 0000 0000 0111
 
 关于 hash 函数的设计，代码注释的说法是：
 
->   Computes key.hashCode() and spreads (XORs) higher bits of hash to lower.  Because the table uses power-of-two masking, sets of hashes that vary only in bits above the current mask will always collide. (Among known examples are sets of Float keys holding consecutive whole numbers in small tables.)  So we apply a transform that spreads the impact of higher bits downward. There is a tradeoff between speed, utility, and quality of bit-spreading. Because many common sets of hashes are already reasonably distributed (so don't benefit from spreading), and because we use trees to handle large sets of collisions in bins, we just XOR some shifted bits in the cheapest possible way to reduce systematic lossage, as well as to incorporate impact of the highest bits that would otherwise never be used in index calculations because of table bounds.
+> Computes key.hashCode() and spreads (XORs) higher bits of hash to lower. Because the table uses power-of-two masking,
+> sets of hashes that vary only in bits above the current mask will always collide. (Among known examples are sets of
+> Float keys holding consecutive whole numbers in small tables.)  So we apply a transform that spreads the impact of
+> higher bits downward. There is a tradeoff between speed, utility, and quality of bit-spreading. Because many common sets
+> of hashes are already reasonably distributed (so don't benefit from spreading), and because we use trees to handle large
+> sets of collisions in bins, we just XOR some shifted bits in the cheapest possible way to reduce systematic lossage, as
+> well as to incorporate impact of the highest bits that would otherwise never be used in index calculations because of
+> table bounds.
 
 注释中说到，大多数的 hashCode 的分布已经非常合理了，如果还发生冲突就使用链表或者树结构解决，因此设计者使用最节省系统性能开销的移位以及异或运算来避免更多的冲突。
 
@@ -213,28 +235,30 @@ n - 1:              0000 0000 0000 0000 0000 0000 0000 0111
 (n - 1) & hashCode: 0000 0000 0000 0000 0000 0000 0000 0111 // Index is always the same: 7
 ```
 
-可以看到，如果三个 hashCode 的高位不同，而低 3 位完全相同(全为 0)，那  `(n -1) & hashCode` 运算的结果都相同 (7)，这种情况所有的数据都以链表或者树结构形式存在同一位置 (7)。如果发生更多冲突，时间复杂度从 O(1) 变为 O(n) 或者 O(log n)，性能就会有所降低。
+可以看到，如果三个 hashCode 的高位不同，而低 3 位完全相同(全为 0)，那  `(n -1) & hashCode` 运算的结果都相同 (7)
+，这种情况所有的数据都以链表或者树结构形式存在同一位置 (7)。如果发生更多冲突，时间复杂度从 O(1) 变为 O(n) 或者 O(log n)
+，性能就会有所降低。
 
 使用 XOR 的原因，是因为这样的运算可使得 1 和 0 具有 50% / 50% 的分布，相比于 `&` 和 `|` 的 25/75 和 75/25 更加平均、稳定。
 
-| XOR   | 1    | 0    |
-| ----- | ---- | ---- |
-| **1** | 0    | 1    |
-| **0** | 1    | 0    |
+| XOR   | 1 | 0 |
+|-------|---|---|
+| **1** | 0 | 1 |
+| **0** | 1 | 0 |
 
 1 和 0 数量各占总数一半。
 
-| &   | 1    | 0    |
-| ----- | ---- | ---- |
-| **1** | 1    | 0    |
-| **0** | 0    | 0    |
+| &     | 1 | 0 |
+|-------|---|---|
+| **1** | 1 | 0 |
+| **0** | 0 | 0 |
 
 1 和 0 数量各占总数 25% 和 75%。
 
-| \|    | 1    | 0    |
-| ----- | ---- | ---- |
-| **1** | 1    | 1    |
-| **0** | 1    | 0    |
+| \|    | 1 | 0 |
+|-------|---|---|
+| **1** | 1 | 1 |
+| **0** | 1 | 0 |
 
 1 和 0 数量各占总数 75% 和 25%。
 
@@ -246,9 +270,12 @@ n - 1:              0000 0000 0000 0000 0000 0000 0000 0111
 final Node<K,V>[] resize()
 ```
 
-> Initializes or doubles table size.  If null, allocates in accord with initial capacity target held in field threshold. Otherwise, because we are using power-of-two expansion, the elements from each bin must either stay at same index, or move with a power of two offset in the new table.
+> Initializes or doubles table size. If null, allocates in accord with initial capacity target held in field threshold.
+> Otherwise, because we are using power-of-two expansion, the elements from each bin must either stay at same index, or
+> move with a power of two offset in the new table.
 
-大致意思就是说，当超过限制的时候会 resize，然而又因为我们使用的是2次幂的扩展(指长度扩为原来2倍)，所以，元素的位置要么是在原位置，要么是在原位置再移动2次幂的位置。
+大致意思就是说，当超过限制的时候会 resize，然而又因为我们使用的是2次幂的扩展(指长度扩为原来2倍)
+，所以，元素的位置要么是在原位置，要么是在原位置再移动2次幂的位置。
 
 ![](/imgs/2019/java-hashmap/java-hashmap.png)
 
@@ -260,7 +287,6 @@ final Node<K,V>[] resize()
 0 + 8 = 8
 ```
 
-
 再次扩容亦是如此，如 16 -> 32 ，那么改变的也是移动2次幂的位置(+16)。
 
 ```java
@@ -269,7 +295,8 @@ final Node<K,V>[] resize()
 8  + 16 = 24
 ```
 
-对于是否需要改变索引，只需要看看原来的 hash 值新增的那个 bit 是 1 还是 0 就好了，是 0 则无需改变位置。例如上图的 hash2，扩容后由 `100` 变为 `0100`，多出的一位数是 0，那么 0 和其它数字进行与运算都是 0。
+对于是否需要改变索引，只需要看看原来的 hash 值新增的那个 bit 是 1 还是 0 就好了，是 0 则无需改变位置。例如上图的 hash2，扩容后由
+`100` 变为 `0100`，多出的一位数是 0，那么 0 和其它数字进行与运算都是 0。
 
 ```java
 hash2:   100
@@ -293,8 +320,8 @@ n = 16: 1111
 2. 利用 `(n - 1) & hash` 计算出实际位置(索引)
 3. 如果根据索引直接匹配到，直接返回， O(1)
 4. 如果根据索引未能匹配到
-   * 若为树，则使用查询树的操作，O(logn)
-   * 若为链表，则循环链表查找，O(n)
+    * 若为树，则使用查询树的操作，O(logn)
+    * 若为链表，则循环链表查找，O(n)
 
 ## 测试
 
@@ -310,31 +337,32 @@ n = 16: 1111
 
 使用默认构造函数：
 
-| Benchmark                   | Mode  | Cnt  | Score                       | Error | Units |
-| --------------------------- | ----- | ---- | --------------------------- | ----- | ----- |
-| MapBenchmark.measure_level1 | thrpt | 5    | 141991260.547 ±  419002.953 |       | ops/s |
-| MapBenchmark.measure_level2 | thrpt | 5    | 66501311.793 ± 5285311.107  |       | ops/s |
-| MapBenchmark.measure_level3 | thrpt | 5    | 70077920.597 ± 6574269.856  |       | ops/s |
-| MapBenchmark.measure_level4 | thrpt | 5    | 58270016.113 ± 3106384.470  |       | ops/s |
-| MapBenchmark.measure_level5 | thrpt | 5    | 25518813.878 ± 1097213.863  |       | ops/s |
+| Benchmark                   | Mode  | Cnt | Score                       | Error | Units |
+|-----------------------------|-------|-----|-----------------------------|-------|-------|
+| MapBenchmark.measure_level1 | thrpt | 5   | 141991260.547 ±  419002.953 |       | ops/s |
+| MapBenchmark.measure_level2 | thrpt | 5   | 66501311.793 ± 5285311.107  |       | ops/s |
+| MapBenchmark.measure_level3 | thrpt | 5   | 70077920.597 ± 6574269.856  |       | ops/s |
+| MapBenchmark.measure_level4 | thrpt | 5   | 58270016.113 ± 3106384.470  |       | ops/s |
+| MapBenchmark.measure_level5 | thrpt | 5   | 25518813.878 ± 1097213.863  |       | ops/s |
 
 使用初始化容量的构造函数，并且考虑实际数据量传入合理的参数：
 
-| Benchmark                   | Mode  | Cnt  | Score                        | Error | Units |
-| --------------------------- | ----- | ---- | ---------------------------- | ----- | ----- |
-| MapBenchmark.measure_level1 | thrpt | 5    | 122338131.327 ±  9689798.828 |       | ops/s |
-| MapBenchmark.measure_level2 | thrpt | 5    | 102039334.216 ±  2403155.914 |       | ops/s |
-| MapBenchmark.measure_level3 | thrpt | 5    | 96752178.779 ±  4839327.658  |       | ops/s |
-| MapBenchmark.measure_level4 | thrpt | 5    | 88239132.356 ±  9597356.077  |       | ops/s |
-| MapBenchmark.measure_level5 | thrpt | 5    | 55940080.977 ± 13094145.548  |       | ops/s |
+| Benchmark                   | Mode  | Cnt | Score                        | Error | Units |
+|-----------------------------|-------|-----|------------------------------|-------|-------|
+| MapBenchmark.measure_level1 | thrpt | 5   | 122338131.327 ±  9689798.828 |       | ops/s |
+| MapBenchmark.measure_level2 | thrpt | 5   | 102039334.216 ±  2403155.914 |       | ops/s |
+| MapBenchmark.measure_level3 | thrpt | 5   | 96752178.779 ±  4839327.658  |       | ops/s |
+| MapBenchmark.measure_level4 | thrpt | 5   | 88239132.356 ±  9597356.077  |       | ops/s |
+| MapBenchmark.measure_level5 | thrpt | 5   | 55940080.977 ± 13094145.548  |       | ops/s |
 
 关注 Score 的结果，它们都是 xxx ± xxx，Units 代表单位每秒多少次操作。
 
-可以看到无论哪种初始化操作，随着数据量增大，每秒操作次数都随之降低。而同样条件下，使用**初始化容量的构造函数**相比使用**默认构造函数**，前者性能更佳。
+可以看到无论哪种初始化操作，随着数据量增大，每秒操作次数都随之降低。而同样条件下，使用**初始化容量的构造函数**相比使用*
+*默认构造函数**，前者性能更佳。
 
-  # 附录
+# 附录
 
- benchmark 测试代码。
+benchmark 测试代码。
 
 ```java
 @State(Scope.Thread)
@@ -754,17 +782,21 @@ MapBenchmark.measure_level5  thrpt    5   55940080.977 ± 13094145.548  ops/s
 Process finished with exit code 0
 ```
 
+# 参考资料
 
-
-  # 参考资料
-
-  * [Oracle, Class HashMap, *Oracle Java Documentation*.](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html)
-  * [Yikun, Java-HashMap工作原理及实现, *Yikun’s* Blog, 2015.](https://yikun.github.io/2015/04/01/Java-HashMap工作原理及实现/)
-  * [美团, Java 8系列之重新认识HashMap, *美团技术团队*, 2015.](https://tech.meituan.com/2016/06/24/java-hashmap.html)
-  * [Aniket Thakur, “Why HashMap insert new Node on index (n - 1) & hash?”, *Stack Overflow*, 2017.](https://stackoverflow.com/a/44615382)
-  * [Jul, "Why return (h = key.hashCode()) ^ (h >>> 16) other than key.hashcode?", *Stack Overflow*, 2017.](https://stackoverflow.com/a/45140621)
-  * [Andy Turner, "HashMap.tableSizeFor(…). How does this code round up to the next power of 2?", *Stack Overflow*, 2018.](https://stackoverflow.com/a/51121765)
-  * [Mincong Huang, learning-hashmap, *Mincong Huang’s* Blog, 2019.](https://mincong.io/2018/04/08/learning-hashmap/)
-  * [飞污熊博客, Java微基准测试框架JMH, *飞污熊博客’s* Blog, 2018.](https://www.xncoding.com/2018/01/07/java/jmh.html)
-  * [Jakob Jenkov, JMH - Java Microbenchmark Harness, *Jakob Jenkov's* Blog, 2015.](http://tutorials.jenkov.com/java-performance/jmh.html)
-  * [jhm samples.](https://hg.openjdk.java.net/code-tools/jmh/file/tip/jmh-samples/src/main/java/org/openjdk/jmh/samples/)
+* [Oracle, Class HashMap, *Oracle Java
+  Documentation*.](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html)
+* [Yikun, Java-HashMap工作原理及实现,
+  *Yikun’s* Blog, 2015.](https://yikun.github.io/2015/04/01/Java-HashMap工作原理及实现/)
+* [美团, Java 8系列之重新认识HashMap, *美团技术团队*, 2015.](https://tech.meituan.com/2016/06/24/java-hashmap.html)
+* [Aniket Thakur, “Why HashMap insert new Node on index (n - 1) & hash?”, *Stack
+  Overflow*, 2017.](https://stackoverflow.com/a/44615382)
+* [Jul, "Why return (h = key.hashCode()) ^ (h >>> 16) other than key.hashcode?", *Stack
+  Overflow*, 2017.](https://stackoverflow.com/a/45140621)
+* [Andy Turner, "HashMap.tableSizeFor(…). How does this code round up to the next power of 2?", *Stack
+  Overflow*, 2018.](https://stackoverflow.com/a/51121765)
+* [Mincong Huang, learning-hashmap, *Mincong Huang’s* Blog, 2019.](https://mincong.io/2018/04/08/learning-hashmap/)
+* [飞污熊博客, Java微基准测试框架JMH, *飞污熊博客’s* Blog, 2018.](https://www.xncoding.com/2018/01/07/java/jmh.html)
+* [Jakob Jenkov, JMH - Java Microbenchmark Harness, *Jakob
+  Jenkov's* Blog, 2015.](http://tutorials.jenkov.com/java-performance/jmh.html)
+* [jhm samples.](https://hg.openjdk.java.net/code-tools/jmh/file/tip/jmh-samples/src/main/java/org/openjdk/jmh/samples/)

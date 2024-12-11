@@ -1,7 +1,7 @@
 import { Feed } from "feed";
 import { serverQueryContent } from "#content/server";
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async event => {
   const hostname = useAppConfig().site.domain;
   const title = useAppConfig().site.title;
   const email = useAppConfig().site.email;
@@ -17,18 +17,11 @@ export default defineEventHandler(async (event) => {
     author: {
       name: title,
       email: email,
-      link: hostname
-    }
+      link: hostname,
+    },
   });
-  const qryRes = await serverQueryContent(event)
-    .only(["title", "description", "published", "slug", "_path"])
-    .sort({ published: -1 })
-    .find();
-  const records = qryRes.filter(
-    (doc) =>
-      doc?._path?.includes("/records") &&
-      "/records" != doc?._path
-  );
+  const qryRes = await serverQueryContent(event).only(["title", "description", "published", "slug", "_path"]).sort({ published: -1 }).find();
+  const records = qryRes.filter(doc => doc?._path?.includes("/records") && "/records" != doc?._path);
 
   for (const doc of records) {
     feed.addItem({

@@ -1,5 +1,4 @@
 export const bookmark = [
-  
   {
     label: "本网站参考的原模板.",
     url: " https://github.com/fayazara/zooper",
@@ -26,14 +25,14 @@ export const bookmark = [
   },
   {
     label: "SVG Spinners (CSS & SMIL)",
-    url: "https://github.com/n3r4zzurr0/svg-spinners"
+    url: "https://github.com/n3r4zzurr0/svg-spinners",
   },
   {
     label: "好用的渐变色板",
-    url: "https://www.joshwcomeau.com/gradient-generator/"
+    url: "https://www.joshwcomeau.com/gradient-generator/",
   },
   {
     label: "bmrks",
     url: "https://bmrks.com/",
   },
-]
+];

@@ -7,9 +7,7 @@ export default defineEventHandler(async event => {
   const appConfig = useAppConfig();
   const steamToken = runtimeConfig.steamToken;
   const steamId = runtimeConfig.steamId;
-  const steamGameDictCN = appConfig.steamGameDictCN
-    ? appConfig.steamGameDictCN
-    : {};
+  const steamGameDictCN = appConfig.steamGameDictCN ? appConfig.steamGameDictCN : {};
 
   if (isBlank(steamToken, steamId)) {
     throw createError({
@@ -18,10 +16,7 @@ export default defineEventHandler(async event => {
     });
   }
 
-  const supabase = createClient(
-    appConfig.outer.supabaseUrl,
-    runtimeConfig.supabaseKey
-  );
+  const supabase = createClient(appConfig.outer.supabaseUrl, runtimeConfig.supabaseKey);
   const steamRecentlyURL = `http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v1?key=${steamToken}&steamid=${steamId}`;
 
   // 先从数据库获取

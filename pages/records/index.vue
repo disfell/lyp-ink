@@ -1,20 +1,14 @@
 <template>
   <main class="min-h-screen">
-    <AppHeader class="mb-16" title="记录" :description="description" />
+    <AppHeader :description="description" class="mb-16" title="记录" />
 
     <UtilsListLoading :loading="loading || nextLoading || prevLoading" />
 
     <div>
-      <div
-        v-if="!(loading || nextLoading || prevLoading) && totalRecords"
-        class="mb-8 text-xs">
-        第 {{ currPage }} / {{ totalPage }} 页
-      </div>
+      <div v-if="!(loading || nextLoading || prevLoading) && totalRecords" class="mb-8 text-xs">第 {{ currPage }} / {{ totalPage }} 页</div>
 
       <!-- 列表展示 -->
-      <ul
-        v-if="!(loading || nextLoading || prevLoading) && totalRecords"
-        class="space-y-16 mb-16">
+      <ul v-if="!(loading || nextLoading || prevLoading) && totalRecords" class="space-y-16 mb-16">
         <li v-for="(article, id) in records" :key="id">
           <AppArticleCard :article="article" />
         </li>
@@ -22,23 +16,13 @@
 
       <!-- 分页按钮 -->
       <div v-if="totalRecords" class="grid grid-cols-2 gap-8 content-center">
-        <UButton
-          :loading="prevLoading"
-          label="上一页"
-          color="gray"
-          v-if="currPage > 1 || prevLoading"
-          @click="prevPage">
+        <UButton v-if="currPage > 1 || prevLoading" :loading="prevLoading" color="gray" label="上一页" @click="prevPage">
           <template #trailing>
             <UIcon name="i-heroicons-arrow-left-20-solid" />
           </template>
         </UButton>
 
-        <UButton
-          :loading="nextLoading"
-          label="下一页"
-          color="gray"
-          v-if="(currPage >= 1 && currPage < totalPage) || nextLoading"
-          @click="nextPage">
+        <UButton v-if="(currPage >= 1 && currPage < totalPage) || nextLoading" :loading="nextLoading" color="gray" label="下一页" @click="nextPage">
           <template #trailing>
             <UIcon name="i-heroicons-arrow-right-20-solid" />
           </template>
@@ -49,8 +33,7 @@
 </template>
 
 <script setup>
-const description =
-  "关于一些心得、心情、生活琐碎，我都会记录在此，以时间降序排列 🙂";
+const description = "关于一些心得、心情、生活琐碎，我都会记录在此，以时间降序排列 🙂";
 useSeoMeta({
   title: "记录 | " + useAppConfig().site.title,
   description,
@@ -63,9 +46,7 @@ const loading = ref(false);
 const nextLoading = ref(false);
 const prevLoading = ref(false);
 
-const { data: totalRecords } = await useAsyncData("all-records-count", () =>
-  queryContent("/records").count()
-);
+const { data: totalRecords } = await useAsyncData("all-records-count", () => queryContent("/records").count());
 const totalPage = Math.ceil(totalRecords.value / pageSize.value);
 
 // 加载记录
