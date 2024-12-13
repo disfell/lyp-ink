@@ -2,11 +2,9 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   runtimeConfig: {
-    steamToken: process.env.STEAM_TOKEN,
-    steamId: process.env.STEAM_ID,
-    supabaseKey: process.env.SUPABASE_KEY,
     public: {
       imgServer: process.env.IMG_SERVER,
+      apiServer: process.env.API_SERVER,
       imgCDN: process.env.IMG_CDN,
     },
   },

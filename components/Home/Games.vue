@@ -27,13 +27,14 @@ import duration from "dayjs/plugin/duration";
 
 const steamGameList = inject("steamGameList");
 const loading = ref(false);
+const apiServer = useRuntimeConfig().public.apiServer;
 
 dayjs.extend(duration); // 使用插件
 
 onMounted(async () => {
   if (!steamGameList.value.loaded) {
     loading.value = true;
-    $fetch("/api/games")
+    $fetch(apiServer + "/games")
       .then(response => {
         steamGameList.value.data = response.data;
         steamGameList.value.loaded = true;

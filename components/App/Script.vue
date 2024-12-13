@@ -2,6 +2,7 @@
 <script setup>
 import { inject } from "vue";
 
+const apiServer = useRuntimeConfig().public.apiServer;
 const steamStatus = inject("steamStatus");
 const steamGame = inject("steamGame");
 const steamGameCN = inject("steamGameCN");
@@ -36,7 +37,7 @@ onBeforeUnmount(() => {
 });
 
 async function loadSteamData() {
-  await $fetch("/api/steam")
+  await $fetch(apiServer + "/steam")
     .then(response => {
       steamStatus.value = response?.status;
       steamGame.value = response?.game;
