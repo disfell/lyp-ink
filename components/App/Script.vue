@@ -37,12 +37,12 @@ onBeforeUnmount(() => {
 });
 
 async function loadSteamData() {
-  await $fetch(apiServer + "/steam")
+  await $fetch(apiServer + "/api/public/steam/status")
     .then(response => {
-      steamStatus.value = response?.status;
-      steamGame.value = response?.game;
-      steamGameCN.value = response?.game_cn;
-      steamGameID.value = response?.game_id;
+      steamStatus.value = response?.data?.response?.players[0]?.personastate;
+      steamGame.value = response?.data?.response?.players[0]?.gameextrainfo;
+      steamGameCN.value = response?.data?.response?.players[0]?.gameextrainfo;
+      steamGameID.value = response?.data?.response?.players[0]?.gameid;
     })
     .catch(error => {
       console.error("Error:", error);

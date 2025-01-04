@@ -34,7 +34,7 @@ dayjs.extend(duration); // 使用插件
 onMounted(async () => {
   if (!steamGameList.value.loaded) {
     loading.value = true;
-    $fetch(apiServer + "/games")
+    $fetch(apiServer + "/api/public/steam/games", { method: "POST" })
       .then(response => {
         steamGameList.value.data = response.data;
         steamGameList.value.loaded = true;
