@@ -4,6 +4,7 @@ import { site } from "./config/site";
 import { outer } from "./config/outer";
 import { blogClub } from "./config/blog-club";
 import { bookmark } from "./config/bookmark";
+import { provider } from "./config/provider";
 
 export default defineAppConfig({
   site: site,
@@ -12,4 +13,5 @@ export default defineAppConfig({
   ui: nuxtUI,
   steamGameDictCN: steamDict,
   bookmark: bookmark,
+  provider: provider,
 });
