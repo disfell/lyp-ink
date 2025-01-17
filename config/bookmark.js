@@ -1,7 +1,11 @@
 export const bookmark = [
   {
-    label: "本网站参考的原模板.",
+    label: "网站原模板.",
     url: " https://github.com/fayazara/zooper",
+  },
+  {
+    label: "敲键盘与练单词",
+    url: "https://qwerty.kaiyi.cool/",
   },
   {
     label: "基于 Nuxt、Tailwind CSS 的样式框架.",

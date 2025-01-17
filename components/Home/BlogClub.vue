@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="uppercase text-xs font-semibold text-gray-400 mb-4">加入他们</h2>
+    <h2 class="uppercase text-xs font-semibold text-gray-400 mb-4">发现更多</h2>
     <div class="space-y-5">
       <NuxtLink
         v-for="link in useAppConfig().blogClub"
