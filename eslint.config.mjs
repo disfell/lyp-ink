@@ -13,5 +13,6 @@ export default withNuxt({
     "no-tabs": "error",
     "no-undef": "off",
     "no-unused-vars": "warn",
+    "vue/html-self-closing": "off"
   },
 });
