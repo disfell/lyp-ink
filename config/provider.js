@@ -7,6 +7,13 @@ export const provider = [
     description: "网站基于 Nuxt 构建.",
   },
   {
+    name: "golang",
+    url: "https://golang.google.cn/",
+    iconL: "/icon/other/golang-svgrepo-com.svg",
+    iconD: "/icon/other/golang-svgrepo-com.svg",
+    description: "网站基于 golang 构建后台 api.",
+  },
+  {
     name: "Tailwind CSS",
     url: "https://tailwindcss.com/",
     iconL: "/icon/other/tailwindcss.svg",
