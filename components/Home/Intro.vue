@@ -8,6 +8,9 @@
     <p class="text-gray-900">
       {{ appCf.site.intro }}
     </p>
+
+    <div class="pt-8"></div>
+    <HomeBlogClub />
   </div>
 </template>
 

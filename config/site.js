@@ -6,11 +6,11 @@ export const site = {
   email: "gooday.alan@foxmail.com",
   menus: [
     { name: "首页", path: "/", icon: "solar:home-smile-outline" },
-    {
-      name: "记录",
-      path: "/records",
-      icon: "solar:document-add-outline",
-    },
+    // {
+    //   name: "记录",
+    //   path: "/records",
+    //   icon: "solar:document-add-outline",
+    // },
     {
       name: "书签",
       path: "/bookmarks",
