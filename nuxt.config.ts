@@ -28,20 +28,20 @@ export default defineNuxtConfig({
     },
   },
 
-  // content: {
-  //   highlight: {
-  //     langs: ["json", "js", "ts", "html", "css", "vue", "shell", "mdc", "md", "yaml", "java", "xml"],
-  //     // OR
-  //     theme: {
-  //       // Default theme (same as single string)
-  //       default: "github-light",
-  //       // Theme used if `html.dark`
-  //       dark: "github-dark",
-  //       // Theme used if `html.sepia`
-  //       sepia: "monokai",
-  //     },
-  //   },
-  // },
+  content: {
+    highlight: {
+      langs: ["json", "js", "ts", "html", "css", "vue", "shell", "mdc", "md", "yaml", "java", "xml"],
+      // OR
+      theme: {
+        // Default theme (same as single string)
+        default: "github-light",
+        // Theme used if `html.dark`
+        dark: "github-dark",
+        // Theme used if `html.sepia`
+        sepia: "monokai",
+      },
+    },
+  },
 
   googleFonts: {
     display: "swap",

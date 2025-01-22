@@ -26,7 +26,7 @@ const showText = ref("");
 const showIcon = ref("");
 const ping = ref(false);
 
-const { data: intro } = await useAsyncData("intro", () => queryCollection("content").path("/docs/intro").first());
+const { data: intro } = await useAsyncData("intro", () => queryContent("/docs/intro").findOne());
 
 watchEffect(() => {
   if (steamStatus.value == 1) {
