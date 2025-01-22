@@ -1,9 +1,5 @@
 export const bookmark = [
   {
-    label: "网站原模板.",
-    url: " https://github.com/fayazara/zooper",
-  },
-  {
     label: "敲键盘与练单词",
     url: "https://qwerty.kaiyi.cool/",
   },

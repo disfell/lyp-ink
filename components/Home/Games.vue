@@ -2,7 +2,7 @@
   <div>
     <UtilsListLoading :loading="loading" />
 
-    <div v-if="steamGameList.data && steamGameList.data.length > 0 && !loading" class="space-y-6">
+    <div v-if="steamGameList.data && steamGameList.data.length > 0 && !loading">
       <h2 class="uppercase text-xs font-semibold text-gray-400 mb-4">最近在玩 \ 总时长</h2>
       <ul class="space-y-2">
         <li v-for="(game, id) in steamGameList.data" :key="id">

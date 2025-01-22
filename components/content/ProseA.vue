@@ -16,7 +16,7 @@ const props = defineProps({
   },
   target: {
     type: String as PropType<"_blank" | "_parent" | "_self" | "_top" | (string & object) | null | undefined>,
-    default: undefined,
+    default: "_blank",
     required: false,
   },
 });

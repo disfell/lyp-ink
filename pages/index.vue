@@ -1,10 +1,9 @@
 <template>
   <main class="min-h-screen">
-    <div class="space-y-24">
+    <div class="space-y-16">
       <HomeIntro />
-      <!-- <HomeGames /> -->
-      <!-- <HomeProvider /> -->
-      <!-- <HomeWallpaper /> -->
+      <HomeGames />
+      <HomeWallpaper />
       <UDivider :ui="{ label: 'text-gray-500 dark:text-gray-400' }" label="感谢浏览~😊" />
     </div>
   </main>

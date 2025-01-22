@@ -4,14 +4,11 @@
       <AppAvatar :avatar="appCf.site.avatar" :ping="ping" :show-icon="showIcon" :show-text="showText" />
     </div>
 
-    <h1 class="mt-8 text-xl font-bold tracking-tight text-gray-800 dark:text-gray-300">Hello!</h1>
-
     <div class="prose dark:prose-invert prose-blockquote:not-italic prose-pre:bg-gray-100 dark:prose-pre:bg-gray-900 break-words">
       <ContentRenderer v-if="intro" :value="intro" class="" />
     </div>
 
     <div class="pt-8"></div>
-    <HomeBlogClub />
   </div>
 </template>
 
