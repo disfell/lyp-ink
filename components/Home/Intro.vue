@@ -5,9 +5,10 @@
     </div>
 
     <h1 class="mt-8 text-xl font-bold tracking-tight text-gray-800 dark:text-gray-300">Hello!</h1>
-    <p class="text-gray-900">
-      {{ appCf.site.intro }}
-    </p>
+
+    <div class="prose dark:prose-invert prose-blockquote:not-italic prose-pre:bg-gray-100 dark:prose-pre:bg-gray-900 break-words">
+      <ContentRenderer v-if="intro" :value="intro" class="" />
+    </div>
 
     <div class="pt-8"></div>
     <HomeBlogClub />
@@ -24,6 +25,8 @@ const steamGameID = inject("steamGameID");
 const showText = ref("");
 const showIcon = ref("");
 const ping = ref(false);
+
+const { data: intro } = await useAsyncData("intro", () => queryCollection("content").path("/docs/intro").first());
 
 watchEffect(() => {
   if (steamStatus.value == 1) {
