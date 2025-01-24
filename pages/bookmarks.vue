@@ -3,15 +3,18 @@
     <AppHeader :description="description" class="mb-8" title="书签" />
 
     <div class="text-right italic text-xs mb-6 text-gray-500 dark:text-gray-400">网站图标由 {{ appCf.outer.faviconCatcher }} 获取</div>
-    <ul class="space-y-2">
-      <li v-for="(bookmark, id) in useAppConfig().bookmark" :key="id">
+
+    <UtilsListLoading :loading="loading" />
+
+    <ul v-if="bookmarks.data && bookmarks.data.length > 0 && !loading" class="space-y-2">
+      <li v-for="(bookmark, id) in bookmarks.data" :key="id">
         <a
           :href="bookmark.url"
           class="flex items-center gap-3 hover:bg-gray-200 dark:hover:bg-white/10 p-2 rounded-lg -m-2 text-sm min-w-0"
           target="_blank">
-          <UAvatar :alt="bookmark.label" :src="getThumbnail(bookmark.url)" :ui="{ rounded: 'rounded-md' }" />
+          <UAvatar :alt="bookmark.name" :src="getThumbnail(bookmark.url)" :ui="{ rounded: 'rounded-md' }" />
           <p class="truncate text-gray-700">
-            {{ bookmark.label }}
+            {{ bookmark.name }}
           </p>
           <span class="flex-1"></span>
           <span class="text-xs font-medium text-gray-400 dark:text-gray-600">
@@ -29,7 +32,10 @@ useSeoMeta({
   title: "书签 | " + useAppConfig().site.title,
   description,
 });
+const apiServer = useRuntimeConfig().public.apiServer;
 const appCf = useAppConfig();
+const bookmarks = inject("bookmarks");
+const loading = ref(false);
 
 function getHost(url) {
   const parsedUrl = new URL(url);
@@ -39,5 +45,43 @@ function getHost(url) {
 function getThumbnail(url) {
   const host = getHost(url);
   return `${appCf.outer.faviconCatcher}/${host}`;
+}
+
+onMounted(() => {
+  loadBookmarks();
+});
+
+async function loadBookmarks() {
+  loading.value = true;
+  if (bookmarks.value.loaded) {
+    loading.value = false;
+    return;
+  }
+
+  const request = new Request(apiServer + "/api/public/notion/qryDatabase?databaseId=18542b97f2bc80f0bd65ff76351b35a8", {
+    method: "POST",
+    headers: {
+      "content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      sorts: [
+        {
+          timestamp: "created_time",
+          direction: "ascending",
+        },
+      ],
+    }),
+  });
+
+  await $fetch(request)
+    .then(response => {
+      bookmarks.value.data = response.data;
+      bookmarks.value.loaded = true;
+      loading.value = false;
+    })
+    .catch(error => {
+      console.error("Error:", error);
+      loading.value = false;
+    });
 }
 </script>

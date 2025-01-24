@@ -8,6 +8,7 @@ const steamStatus = inject("steamStatus");
 const steamGame = inject("steamGame");
 const steamGameCN = inject("steamGameCN");
 const steamGameID = inject("steamGameID");
+
 const innerWidth = useDeviceWidth();
 const steamTimer = ref();
 

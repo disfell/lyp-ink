@@ -4,8 +4,8 @@ export const bookmark = [
     url: "https://qwerty.kaiyi.cool/",
   },
   {
-    label: "基于 Nuxt、Tailwind CSS 的样式框架.",
-    url: "https://ui.nuxt.com/",
+    label: "PixelArt 像素素材",
+    url: "https://itch.io/game-assets/free/tag-pixel-art"
   },
   {
     label: "wallhaven 壁纸网站.",
@@ -20,11 +20,11 @@ export const bookmark = [
     url: "https://emojipedia.org/telegram",
   },
   {
-    label: "影视 DB，可以看看.",
+    label: "影视 DB.",
     url: "https://www.themoviedb.org/",
   },
   {
-    label: "SVG Spinners (CSS & SMIL)",
+    label: "SVG Spinners 加载素材",
     url: "https://github.com/n3r4zzurr0/svg-spinners",
   },
   {

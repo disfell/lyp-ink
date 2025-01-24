@@ -18,7 +18,8 @@ provide("steamStatus", ref(-1));
 provide("steamGame", ref(""));
 provide("steamGameCN", ref(""));
 provide("steamGameID", ref(-1));
-provide("steamGameList", ref({ list: [], loaded: false }));
+provide("steamGameList", ref({ data: [], loaded: false }));
+provide("bookmarks", ref({ data: [], loaded: false }));
 </script>
 
 <style>
