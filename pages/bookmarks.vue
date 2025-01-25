@@ -2,7 +2,9 @@
   <main class="min-h-screen">
     <AppHeader :description="description" class="mb-8" title="书签" />
 
-    <div class="text-right italic text-xs mb-6 text-gray-500 dark:text-gray-400">网站图标由 {{ appCf.outer.faviconCatcher }} 获取</div>
+    <div v-if="bookmarks.data && bookmarks.data.length > 0 && !loading" class="text-right italic text-xs mb-6 text-gray-500 dark:text-gray-400">
+      网站图标由<a :href="appCf.outer.faviconCatcher" class="text-gray-500 dark:text-gray-400 underline" target="_blank">icon.horse</a>获取
+    </div>
 
     <UtilsListLoading :loading="loading" />
 
