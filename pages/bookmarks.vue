@@ -35,6 +35,7 @@ useSeoMeta({
   description,
 });
 const apiServer = useRuntimeConfig().public.apiServer;
+const imgCDN = useRuntimeConfig().public.imgCDN;
 const appCf = useAppConfig();
 const bookmarks = inject("bookmarks");
 const loading = ref(false);
@@ -46,7 +47,7 @@ function getHost(url) {
 
 function getThumbnail(url) {
   const host = getHost(url);
-  return `${appCf.outer.faviconCatcher}/${host}`;
+  return `${imgCDN}/${appCf.outer.faviconCatcher}/${host}`;
 }
 
 onMounted(() => {
