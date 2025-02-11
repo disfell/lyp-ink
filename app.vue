@@ -11,7 +11,6 @@
 </template>
 
 <script setup>
-import "@chinese-fonts/mkzyt/dist/猫啃珠圆体/result.css";
 import { provide } from "vue";
 
 provide("steamStatus", ref(-1));

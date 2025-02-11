@@ -24,7 +24,10 @@ export default defineNuxtConfig({
         class: "antialiased bg-gray-50 dark:bg-zinc-900 min-h-screen",
       },
       script: [{ src: "/js/lazyload.js" }],
-      link: [],
+      link: [
+        { rel: "preconnect", href: "https://static.zeoseven.com", crossorigin: "anonymous" },
+        { rel: "stylesheet", href: "https://static.zeoseven.com/zsft/88/main/result.css" },
+      ],
     },
   },
 

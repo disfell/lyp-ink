@@ -20,7 +20,6 @@
     "vue-eslint-parser": "9.4.3"
   },
   "dependencies": {
-    "@chinese-fonts/mkzyt": "2.0.1",
     "@iconify-json/lucide": "1.2.17",
     "@iconify-json/solar": "1.2.1",
     "@nuxt/content": "2.13.4",
