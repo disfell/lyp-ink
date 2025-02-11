@@ -12,6 +12,8 @@ export default defineNuxtConfig({
   css: ["~/assets/css/main.css"],
 
   modules: ["@nuxt/ui", "@nuxtjs/google-fonts", "@nuxtjs/fontaine", "@nuxt/content", "@vueuse/nuxt", "@vueuse/motion/nuxt", "@nuxt/eslint"],
+  
+  plugins: ["~/plugins/lazy-image.directive"],
 
   app: {
     pageTransition: { name: "page", mode: "out-in" },

@@ -5,7 +5,7 @@
         <span :class="ping ? 'online-ping' : ''" class="bg-green-600 absolute inline-flex size-full rounded-full z-0"> </span>
         <img v-if="ping" :src="showIcon" alt="status" class="size-6 inline-flex absolute rounded-md z-50 -bottom-1 -right-1" />
         <img
-          :src="avatar"
+          v-lazy-image="avatar"
           alt="LYP"
           class="ring-1 border ring-gray-200 border-gray-300 dark:ring-white/10 dark:border-gray-800 transition-all duration-300 bg-gray-200 dark:bg-gray-900 rounded-full size-full cursor-pointer z-40"
           format="webp" />
