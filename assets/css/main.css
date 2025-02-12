@@ -3,44 +3,57 @@
 @tailwind utilities;
 
 @layer base {
-    html {
-        scroll-behavior: smooth;
-    }
+  :root {
+    --color-primary-50: 0 0 0 0;
+    --color-primary-100: 0 0 0 0;
+    --color-primary-200: 0 0 0 0;
+    --color-primary-300: 0 0 0 0;
+    --color-primary-400: 0 0 0 0;
+    --color-primary-500: 0 0 0 0;
+    --color-primary-600: 0 0 0 0;
+    --color-primary-700: 0 0 0 0;
+    --color-primary-800: 0 0 0 0;
+    --color-primary-900: 0 0 0 0;
+    --color-primary-950: 0 0 0 0;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
 
-    body {
-        background-attachment: fixed;
-        background-image: linear-gradient(
-                215deg,
-                hsl(169deg 79% 91%) 0%,
-                hsl(168deg 78% 93%) 7%,
-                hsl(168deg 78% 95%) 12%,
-                hsl(168deg 78% 96%) 20%,
-                hsl(168deg 78% 98%) 36%,
-                hsl(0deg 0% 100%) 98%
-        );
-    }
+  /* body {
+    background-attachment: fixed;
+    background-image: linear-gradient(
+      215deg,
+      hsl(169deg 79% 91%) 0%,
+      hsl(168deg 78% 93%) 7%,
+      hsl(168deg 78% 95%) 12%,
+      hsl(168deg 78% 96%) 20%,
+      hsl(168deg 78% 98%) 36%,
+      hsl(0deg 0% 100%) 98%
+    );
+  }
 
-    html.dark body {
-        background-attachment: inherit;
-        background-image: none;
-    }
+  html.dark body {
+    background-attachment: inherit;
+    background-image: none;
+  } */
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    a,
-    strong,
-    code {
-        @apply dark:text-gray-300;
-    }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  a,
+  strong,
+  code {
+    @apply dark:text-gray-300;
+  }
 
-    p,
-    th,
-    td,
-    li {
-        @apply dark:text-gray-50/70;
-    }
+  p,
+  th,
+  td,
+  li {
+    @apply dark:text-gray-50/70;
+  }
 }

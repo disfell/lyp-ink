@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import typography from "@tailwindcss/typography";
 
 module.exports = {
   content: [
@@ -35,8 +36,19 @@ module.exports = {
         "Segoe UI Symbol",
         "Noto Color Emoji",
       ],
-      mono: ["MaokenZhuyuanTi", "Cascadia Code", "ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"],
+      mono: [
+        "MaokenZhuyuanTi",
+        "Cascadia Code",
+        "ui-monospace",
+        "SFMono-Regular",
+        "Menlo",
+        "Monaco",
+        "Consolas",
+        "Liberation Mono",
+        "Courier New",
+        "monospace",
+      ],
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [typography],
 } satisfies Config;
