@@ -14,7 +14,7 @@
           :href="bookmark.url"
           class="flex items-center gap-3 hover:bg-gray-200 dark:hover:bg-white/10 p-2 rounded-lg -m-2 text-sm min-w-0"
           target="_blank">
-          <UAvatar :alt="bookmark.name" :src="getThumbnail(bookmark.url)" :ui="{ rounded: 'rounded-md' }" />
+          <img v-lazy-image="getThumbnail(bookmark.url)" alt="" class="rounded-md w-8 h-8" />
           <p class="truncate text-gray-700">
             {{ bookmark.name }}
           </p>

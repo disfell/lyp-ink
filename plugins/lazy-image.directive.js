@@ -24,7 +24,7 @@ export default defineNuxtPlugin((nuxtApp) => {
           img.src = imgURL;
         } catch (error) {
           console.error(`Error loading image: ${error.message}`);
-          img.src = "/path/to/default-image.jpg"; // 替换为默认图片路径
+          img.src = "/avatar.webp"; // 替换为默认图片路径
         }
       }
 

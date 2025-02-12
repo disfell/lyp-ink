@@ -1,12 +1,12 @@
 <template>
   <component
     :is="ImageComponent"
-    :alt="props.alt"
-    :data-srcset="refinedSrc"
+    v-lazy-image="refinedSrc"
     :height="props.height"
     :src="colorMode.preference === 'dark' ? '/loading/light.svg' : '/loading/dark.svg'"
     :width="props.width"
-    class="dark:brightness-50 lazyload block m-auto my-4" />
+    class="dark:brightness-50 block m-auto my-4"
+    alt="" />
 </template>
 
 <script lang="ts" setup>

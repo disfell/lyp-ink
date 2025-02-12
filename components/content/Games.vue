@@ -8,9 +8,9 @@
     <UtilsListLoading :loading="loading" />
     <div v-if="steamGameList.data && steamGameList.data.length > 0 && !loading">
       <ul class="space-y-2 pl-0">
-        <li v-for="(game, id) in steamGameList.data" :key="id" class="list-none my-0">
+        <li v-for="(game, id) in steamGameList.data" :key="id" class="list-none py-2">
           <span class="flex items-center gap-3 hover:bg-gray-200 dark:hover:bg-white/10 p-2 rounded-lg -m-2 text-sm min-w-0" target="_blank">
-            <UAvatar :alt="game.name" :src="getThumbnail(game.game_id)" :ui="{ rounded: 'rounded-md' }" />
+            <img v-lazy-image="getThumbnail(game.game_id)" alt="" class="my-0 rounded-md" />
             <p class="truncate text-gray-700 my-0">
               {{ gameTitle(game.name_cn, game.name) }}
             </p>
