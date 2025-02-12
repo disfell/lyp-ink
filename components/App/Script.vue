@@ -17,9 +17,11 @@ onMounted(() => {
   }
   steamTimer.value = window.setInterval(() => loadSteamData(), 30000);
 
-  const initialShades = colors.teal;
+  const colorKeys = Object.keys(colors);
+  const randomIndex = Math.floor(Math.random() * colorKeys.length);
+  const randomKey = colorKeys[randomIndex];
+  const initialShades = colors[randomKey];
   for (const shade in initialShades) {
-    console.debug(hexToRgb(initialShades[shade]));
     document.documentElement.style.setProperty(`--color-primary-${shade}`, hexToRgb(initialShades[shade]));
   }
 });
