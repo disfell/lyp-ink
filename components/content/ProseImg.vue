@@ -3,7 +3,6 @@
     :is="ImageComponent"
     v-lazy-image="refinedSrc"
     :height="props.height"
-    :src="colorMode.preference === 'dark' ? '/loading/light.svg' : '/loading/dark.svg'"
     :width="props.width"
     class="dark:brightness-50 block m-auto my-4"
     alt="" />
@@ -15,7 +14,6 @@ import { computed, useRuntimeConfig } from "#imports";
 
 import ImageComponent from "#build/mdc-image-component.mjs";
 
-const colorMode = useColorMode();
 const runtimeCf = useRuntimeConfig();
 const imgServer = runtimeCf.public.imgServer;
 const imgCDN = runtimeCf.public.imgCDN;
