@@ -3,6 +3,11 @@ export default defineNuxtPlugin((nuxtApp) => {
     mounted(el, binding) {
       const img = el;
       const cache = new Map();
+      if (img.hasAttribute("need-load")) {
+        const colorMode = useColorMode();
+        const isDark = colorMode.preference === "light" ? false : true;
+        img.src = isDark ? "/loading/light.svg" : "/loading/dark.svg";
+      }
 
       // 加载并缓存图片
       async function loadAndCacheImage(url) {

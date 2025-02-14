@@ -5,7 +5,8 @@
     :height="props.height"
     :width="props.width"
     class="dark:brightness-50 block m-auto my-4"
-    alt="" />
+    alt=""
+    need-load />
 </template>
 
 <script lang="ts" setup>
