@@ -2,7 +2,7 @@
 
 一名开发者，主职是[后端开发]{class="bg-violet-200 dark:bg-violet-800"} 🧑‍💻，但是对前端挺感兴趣🌵，网站模板取自 [Zooper](https://github.com/fayazara/zooper)
 
-[孤独患者]{class="bg-primary-300 dark:bg-primary-800"}，独来独往，不善言辞，别人找我耍我也不一定耍得起来🤦‍♂️
+[孤独患者]{class="bg-cyan-200 dark:bg-cyan-800"}，独来独往，不善言辞，别人找我耍我也不一定耍得起来🤦‍♂️
 
 开发网站是为了保持生活热情，摸鱼🐟或者找点业余的事做，因此网站大概率没啥内容
 

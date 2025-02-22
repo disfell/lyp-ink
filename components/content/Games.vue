@@ -10,7 +10,7 @@
       <ul class="space-y-2 pl-0">
         <li v-for="(game, id) in steamGameList.data" :key="id" class="list-none py-2">
           <span class="flex items-center gap-3 hover:bg-gray-200 dark:hover:bg-white/10 p-2 rounded-lg -m-2 text-sm min-w-0" target="_blank">
-            <img v-lazy-image="getThumbnail(game.game_id)" alt="" class="my-0 rounded-md" />
+            <img v-lazy-image="getThumbnail(game.game_id)" alt="" class="my-0 rounded-md max-w-8" />
             <p class="truncate text-gray-700 my-0">
               {{ gameTitle(game.name_cn, game.name) }}
             </p>
