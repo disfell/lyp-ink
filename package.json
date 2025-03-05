@@ -32,7 +32,7 @@
     "dayjs": "1.11.13",
     "feed": "4.2.2",
     "lazysizes": "5.3.2",
-    "nuxt": "3.14.1592",
+    "nuxt": "3.15.4",
     "sitemap": "8.0.0",
     "typeit": "8.8.7",
     "vue-use-fixed-header": "2.0.3"
