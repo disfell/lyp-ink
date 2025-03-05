@@ -12,14 +12,14 @@ export default defineNuxtConfig({
   css: ["~/assets/css/main.css"],
 
   modules: ["@nuxt/ui", "@nuxtjs/google-fonts", "@nuxtjs/fontaine", "@nuxt/content", "@vueuse/nuxt", "@vueuse/motion/nuxt", "@nuxt/eslint"],
-  
+
   plugins: ["~/plugins/lazy-image.directive"],
 
   app: {
     pageTransition: { name: "page", mode: "out-in" },
     head: {
       htmlAttrs: {
-        lang: "en",
+        lang: "zh-Hans-CN",
         class: "h-full",
       },
       bodyAttrs: {
@@ -27,6 +27,12 @@ export default defineNuxtConfig({
       },
       script: [],
       link: [
+        { rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16x16.png" },
+        { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32x32.png" },
+        { rel: "icon", type: "image/png", sizes: "192x192", href: "/favicon-192x192.png" },
+        { rel: "icon", type: "image/png", sizes: "512x512", href: "/favicon-512x512.png" },
+        { rel: "icon", type: "image/png", sizes: "2048x2048", href: "/favicon-2048x2048.png" },
+        { rel: "apple-touch-icon", type: "image/png", href: "/apple-touch-icon.png" },
         { rel: "preconnect", href: "https://static.zeoseven.com", crossorigin: "anonymous" },
         { rel: "stylesheet", href: "https://static.zeoseven.com/zsft/88/main/result.css" },
       ],

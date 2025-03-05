@@ -2,7 +2,6 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.directive("lazy-image", {
     mounted(el, binding) {
       const img = el;
-      const cache = new Map();
       if (img.hasAttribute("need-load")) {
         const colorMode = useColorMode();
         const isDark = colorMode.preference === "light" ? false : true;
@@ -11,10 +10,6 @@ export default defineNuxtPlugin((nuxtApp) => {
 
       // 加载并缓存图片
       async function loadAndCacheImage(url) {
-        if (cache.has(url)) {
-          img.src = cache.get(url);
-          return;
-        }
 
         try {
           const response = await fetch(url);
@@ -25,7 +20,6 @@ export default defineNuxtPlugin((nuxtApp) => {
           const blob = await response.blob();
           const imgURL = URL.createObjectURL(blob);
 
-          cache.set(url, imgURL);
           img.src = imgURL;
         } catch (error) {
           console.error(`Error loading image: ${error.message}`);

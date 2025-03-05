@@ -3,7 +3,10 @@
     <AppHeader :description="description" class="mb-8" title="书签" />
 
     <div v-if="bookmarks.data && bookmarks.data.length > 0 && !loading" class="text-right italic text-xs mb-6 text-gray-500 dark:text-gray-400">
-      网站图标由<a :href="appCf.outer.faviconCatcher" class="text-gray-500 dark:text-gray-400 underline" target="_blank">icon.horse</a>获取
+      网站图标由<a :href="appCf.outer.faviconCatcher" class="text-gray-500 dark:text-gray-400 underline" target="_blank">{{
+        getHost(appCf.outer.faviconCatcher)
+      }}</a
+      >获取
     </div>
 
     <UtilsListLoading :loading="loading" />
@@ -35,19 +38,28 @@ useSeoMeta({
   description,
 });
 const apiServer = useRuntimeConfig().public.apiServer;
-const imgCDN = useRuntimeConfig().public.imgCDN;
 const appCf = useAppConfig();
 const bookmarks = inject("bookmarks");
 const loading = ref(false);
 
 function getHost(url) {
-  const parsedUrl = new URL(url);
-  return parsedUrl.host;
+  try {
+    // 处理没有协议的情况（如 "example.com/path"）
+    if (!url.startsWith("http://") && !url.startsWith("https://")) {
+      url = "http://" + url; // 临时添加协议以正确解析
+    }
+    const urlObj = new URL(url);
+    return urlObj.hostname;
+  } catch (e) {
+    console.error("无效的 URL:", e);
+    return null;
+  }
 }
 
 function getThumbnail(url) {
   const host = getHost(url);
-  return `${imgCDN}/${appCf.outer.faviconCatcher}/${host}`;
+  console.log(host);
+  return `${appCf.outer.faviconCatcher}/${host}`;
 }
 
 onMounted(() => {
