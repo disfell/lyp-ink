@@ -17,7 +17,7 @@
           :href="bookmark.url"
           class="flex items-center gap-3 hover:bg-gray-200 dark:hover:bg-white/10 p-2 rounded-lg -m-2 text-sm min-w-0"
           target="_blank">
-          <img v-lazy-image="getThumbnail(bookmark.url)" alt="" class="rounded-md w-8 h-8" />
+          <img v-lazy-image="getThumbnail(bookmark.url)" alt="" class="rounded-md w-8 h-8" defaultWH="32px,32px" />
           <p class="truncate text-gray-700">
             {{ bookmark.name }}
           </p>

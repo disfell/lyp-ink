@@ -2,10 +2,23 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.directive("lazy-image", {
     mounted(el, binding) {
       const img = el;
+
+      const originalWidth = img.style.width;
+      const originalHeight = img.style.height;
+
       if (img.hasAttribute("need-load")) {
         const colorMode = useColorMode();
         const isDark = colorMode.preference === "light" ? false : true;
         img.src = isDark ? "/loading/light.svg" : "/loading/dark.svg";
+      }
+
+      if (img.hasAttribute("defaultWH")) {
+        const defaultWH = img.getAttribute("defaultWH");
+        const wh = defaultWH.split(",");
+        const defaultWidth = wh[0];
+        const defaultHeight = wh[1];
+        img.style.width = defaultWidth;
+        img.style.height = defaultHeight;
       }
 
       // 加载并缓存图片
@@ -24,6 +37,18 @@ export default defineNuxtPlugin((nuxtApp) => {
         } catch (error) {
           console.error(`Error loading image: ${error.message}`);
           img.src = "/avatar.webp"; // 替换为默认图片路径
+        } finally {
+          if (originalWidth) {
+            img.style.width = originalWidth;
+          } else {
+            img.style.removeProperty("width");
+          }
+
+          if (originalHeight) {
+            img.style.height = originalHeight;
+          } else {
+            img.style.removeProperty("height");
+          }
         }
       }
 
