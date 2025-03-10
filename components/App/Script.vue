@@ -17,10 +17,33 @@ onMounted(() => {
   }
   steamTimer.value = window.setInterval(() => loadSteamData(), 30000);
 
-  const colorKeys = Object.keys(colors);
+  const keysToPick = [
+    "red",
+    "orange",
+    "amber",
+    "yellow",
+    "lime",
+    "green",
+    "emerald",
+    "teal",
+    "cyan",
+    "sky",
+    "blue",
+    "indigo",
+    "violet",
+    "purple",
+    "fuchsia",
+    "pink",
+    "rose",
+  ];
+
+  const pickedColors = Object.fromEntries(Object.entries(colors).filter(([key]) => keysToPick.includes(key)));
+
+  const colorKeys = Object.keys(pickedColors);
+
   const randomIndex = Math.floor(Math.random() * colorKeys.length);
   const randomKey = colorKeys[randomIndex];
-  const initialShades = colors[randomKey];
+  const initialShades = pickedColors[randomKey];
   for (const shade in initialShades) {
     document.documentElement.style.setProperty(`--color-primary-${shade}`, hexToRgb(initialShades[shade]));
   }
@@ -32,6 +55,9 @@ onBeforeUnmount(() => {
 });
 
 async function loadSteamData() {
+  if ("development" === process.env.NODE_ENV) {
+    return;
+  }
   await $fetch(apiServer + "/api/public/steam/status")
     .then(response => {
       steamStatus.value = response?.data?.response?.players[0]?.personastate;
