@@ -14,7 +14,7 @@
     <ul v-if="bookmarks.data && bookmarks.data.length > 0 && !loading" class="space-y-2">
       <li v-for="(bookmark, id) in bookmarks.data" :key="id">
         <a
-          :href="getHttps(getHost(bookmark.url))"
+          :href="genHttps(bookmark.url)"
           class="flex items-center gap-3 hover:bg-gray-200 dark:hover:bg-white/10 p-2 rounded-lg -m-2 text-sm min-w-0"
           target="_blank">
           <img v-lazy-image="getThumbnail(bookmark.url)" :remark="bookmark.name" alt="" class="rounded-md w-8 h-8" defaultWH="32px,32px" />
@@ -42,6 +42,13 @@ const appCf = useAppConfig();
 const bookmarks = inject("bookmarks");
 const loading = ref(false);
 
+function genHttps(url) {
+  if (!url.startsWith("http://") && !url.startsWith("https://")) {
+    url = "https://" + url;
+  }
+  return url;
+}
+
 function getHost(url) {
   try {
     // 处理没有协议的情况（如 "example.com/path"）
@@ -54,10 +61,6 @@ function getHost(url) {
     console.error("无效的 URL:", e);
     return null;
   }
-}
-
-function getHttps(host) {
-  return "https://" + host;
 }
 
 function getThumbnail(url) {
