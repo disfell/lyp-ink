@@ -1,6 +1,8 @@
 <template>
+  <NuxtLoadingIndicator :color="(colorMode.preference === `light` ? false : true) ? `#ffffff` : `#000000`" />
   <AppNavbar />
   <div class="h-32"></div>
+  <div> {{ }}</div>
   <UContainer>
     <NuxtPage />
   </UContainer>
@@ -18,6 +20,8 @@ provide("steamGameCN", ref(""));
 provide("steamGameID", ref(-1));
 provide("steamGameList", ref({ data: [], loaded: false }));
 provide("bookmarks", ref({ data: [], loaded: false }));
+
+const colorMode = useColorMode();
 </script>
 
 <style>
