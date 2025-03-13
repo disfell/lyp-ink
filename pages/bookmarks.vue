@@ -2,7 +2,20 @@
   <main class="min-h-screen">
     <AppHeader :description="description" class="mb-8" title="书签" />
 
-    <div v-if="bookmarks.data && bookmarks.data.length > 0 && !loading" class="text-right italic text-xs mb-6 text-gray-500 dark:text-gray-400">
+    <div v-if="bookmarks.tags && !loading" class="space-x-1 space-y-2 my-8">
+      <UBadge size="sm" label="全部" color="gray" class="cursor-pointer" @click="selectTag('')" >
+        <template v-if="tag === bookmarks.selected" #trailing>
+          <UIcon name="i-heroicons-rocket-launch" class="w-4 h-4" />
+        </template>
+      </UBadge>
+      <UBadge v-for="(tag, idx) in bookmarks.tags" :key="idx" size="sm" :label="tag" color="gray" class="cursor-pointer" @click="selectTag(tag)">
+        <template v-if="tag === bookmarks.selected" #trailing>
+          <UIcon name="i-heroicons-rocket-launch" class="w-4 h-4" />
+        </template>
+      </UBadge>
+    </div>
+
+    <div v-if="bookmarks.list && bookmarks.list.length > 0 && !loading" class="text-right italic text-xs mb-6 text-gray-500 dark:text-gray-400">
       网站图标由<a :href="appCf.outer.faviconCatcher" class="text-gray-500 dark:text-gray-400 underline" target="_blank">{{
         getHost(appCf.outer.faviconCatcher)
       }}</a
@@ -11,8 +24,8 @@
 
     <UtilsListLoading :loading="loading" />
 
-    <ul v-if="bookmarks.data && bookmarks.data.length > 0 && !loading" class="space-y-2">
-      <li v-for="(bookmark, id) in bookmarks.data" :key="id">
+    <ul v-if="bookmarks.list && bookmarks.list.length > 0 && !loading" class="space-y-2">
+      <li v-for="(bookmark, id) in bookmarks.list" :key="id">
         <a
           :href="genHttps(bookmark.url)"
           class="flex items-center gap-3 hover:bg-gray-200 dark:hover:bg-white/10 p-2 rounded-lg -m-2 text-sm min-w-0"
@@ -69,17 +82,17 @@ function getThumbnail(url) {
 }
 
 onMounted(() => {
-  loadBookmarks();
+  loadBookmarks("", false);
 });
 
-async function loadBookmarks() {
+async function loadBookmarks(tag, reload) {
   loading.value = true;
-  if (bookmarks.value.loaded) {
+  if (bookmarks.value.loaded && !reload) {
     loading.value = false;
     return;
   }
 
-  const request = new Request(apiServer + "/api/public/notion/qryDatabase?databaseId=18542b97f2bc80f0bd65ff76351b35a8", {
+  const requestData = new Request(apiServer + "/api/public/notion/qryDatabase?databaseId=18542b97f2bc80f0bd65ff76351b35a8", {
     method: "POST",
     headers: {
       "content-Type": "application/json",
@@ -91,12 +104,27 @@ async function loadBookmarks() {
           direction: "ascending",
         },
       ],
+      filter: {
+        property: "tags",
+        multi_select: {
+          contains: tag,
+        },
+      },
     }),
   });
 
-  await $fetch(request)
+  const requestTags = new Request(apiServer + "/api/public/notion/qryDatabase?databaseId=18542b97f2bc80f0bd65ff76351b35a8&filter_properties=fI%3Ac", {
+    method: "POST",
+    headers: {
+      "content-Type": "application/json",
+    },
+    body: JSON.stringify({}),
+  });
+
+  await $fetch(requestData)
     .then(response => {
-      bookmarks.value.data = response.data;
+      bookmarks.value.list = response.data;
+      bookmarks.value.selected = tag;
       bookmarks.value.loaded = true;
       loading.value = false;
     })
@@ -104,5 +132,23 @@ async function loadBookmarks() {
       console.error("Error:", error);
       loading.value = false;
     });
+
+  await $fetch(requestTags)
+    .then(response => {
+      let arr = [];
+      for (let i = 0; i < response.data.length; i++) {
+        const tags = response.data[i].tags;
+        arr = arr.concat(tags);
+      }
+      const result = Array.from(new Set(arr));
+      bookmarks.value.tags = result;
+    })
+    .catch(error => {
+      console.error("Error:", error);
+    });
+}
+
+function selectTag(tag) {
+  loadBookmarks(tag, true);
 }
 </script>
