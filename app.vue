@@ -1,5 +1,5 @@
 <template>
-  <NuxtLoadingIndicator :color="(colorMode.preference === `light` ? false : true) ? `#ffffff` : `#000000`" />
+  <NuxtLoadingIndicator :color="(colorMode.preference === `light` ? false : true) ? `#4281E8` : `#000000`" />
   <AppNavbar />
   <div class="h-32"></div>
   <UContainer>
