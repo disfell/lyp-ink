@@ -1,5 +1,5 @@
 <template>
-  <UTooltip v-if="ping && $route.path !== '/'" v-motion-roll-visible-left :text="showText" :ui="{ popper: { strategy: 'absolute' } }">
+  <UTooltip v-if="ping && $route.path !== '/'" v-motion-roll-visible-left :text="showText">
     <ULink
       active-class="text-primary-600 dark:text-primary-400"
       class="relative px-3 py-4 flex items-center justify-center transition hover:text-primary-500 dark:hover:text-primary-400">

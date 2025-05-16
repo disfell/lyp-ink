@@ -1,13 +1,15 @@
 <template>
-  <NuxtLoadingIndicator :color="(colorMode.preference === `light` ? false : true) ? `#4281E8` : `#000000`" />
-  <AppNavbar />
-  <div class="h-32"></div>
-  <UContainer>
-    <NuxtPage />
-  </UContainer>
-  <div class="h-32"></div>
-  <AppFooter />
-  <AppScript />
+  <UApp>
+    <NuxtLoadingIndicator :color="(colorMode.preference === `light` ? false : true) ? `#4281E8` : `#000000`" />
+    <AppNavbar />
+    <div class="h-32"></div>
+    <UContainer>
+      <NuxtPage />
+    </UContainer>
+    <div class="h-32"></div>
+    <AppFooter />
+    <AppScript />
+  </UApp>
 </template>
 
 <script setup>

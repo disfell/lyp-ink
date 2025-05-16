@@ -31,8 +31,8 @@ export default defineNuxtConfig({
         { rel: "icon", type: "image/png", sizes: "192x192", href: "/favicon-192x192.png" },
         { rel: "icon", type: "image/png", sizes: "512x512", href: "/favicon-512x512.png" },
         { rel: "apple-touch-icon", type: "image/png", href: "/apple-touch-icon.png" },
-        { rel: "preconnect", href: "https://static.zeoseven.com", crossorigin: "anonymous" },
-        { rel: "stylesheet", href: "https://static.zeoseven.com/zsft/88/main/result.css" },
+        // { rel: "preconnect", href: "https://static.zeoseven.com", crossorigin: "anonymous" },
+        // { rel: "stylesheet", href: "https://static.zeoseven.com/zsft/88/main/result.css" },
       ],
     },
   },
@@ -58,6 +58,8 @@ export default defineNuxtConfig({
       Inter: [400, 500, 600, 700, 800, 900],
     },
   },
-
+  ui: {
+    fonts: false,
+  },
   compatibilityDate: "2024-11-27",
 });

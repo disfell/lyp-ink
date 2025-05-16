@@ -2,7 +2,7 @@
   <main class="min-h-screen">
     <div class="space-y-16">
       <HomeIntro />
-      <UDivider :ui="{ label: 'text-gray-500 dark:text-gray-400' }" label="感谢浏览~😊" />
+      <USeparator :ui="{ label: 'text-gray-500 dark:text-gray-400' }" label="感谢浏览~😊" />
     </div>
   </main>
 </template>

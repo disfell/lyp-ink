@@ -1,6 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@layer theme, base, components, utilities;
+
+@import "tailwindcss";
+@import "@nuxt/ui";
 
 @layer base {
   :root {
@@ -20,24 +21,6 @@
     scroll-behavior: smooth;
   }
 
-  /* body {
-    background-attachment: fixed;
-    background-image: linear-gradient(
-      215deg,
-      hsl(169deg 79% 91%) 0%,
-      hsl(168deg 78% 93%) 7%,
-      hsl(168deg 78% 95%) 12%,
-      hsl(168deg 78% 96%) 20%,
-      hsl(168deg 78% 98%) 36%,
-      hsl(0deg 0% 100%) 98%
-    );
-  }
-
-  html.dark body {
-    background-attachment: inherit;
-    background-image: none;
-  } */
-
   h1,
   h2,
   h3,
@@ -56,4 +39,44 @@
   li {
     @apply dark:text-gray-50/70;
   }
+
+  .typography {
+    p {
+      font-size: var(--text-base);
+      line-height: calc(var(--text-base) * 1.75);
+    }
+    h1 {
+      font-size: var(--text-4xl);
+      line-height: var(--text-4xl--line-height);
+      font-weight: var(--font-weight-bold);
+    }
+    h2 {
+      font-size: var(--text-3xl);
+      line-height: var(--text-3xl--line-height);
+      font-weight: var(--font-weight-bold);
+    }
+    h3 {
+      font-size: var(--text-2xl);
+      line-height: var(--text-2xl--line-height);
+      font-weight: var(--font-weight-bold);
+    }
+    h4 {
+      font-size: var(--text-xl);
+      line-height: var(--text-xl--line-height);
+      font-weight: var(--font-weight-bold);
+    }
+    h5 {
+      font-size: var(--text-lg);
+      line-height: var(--text-lg--line-height);
+      font-weight: var(--font-weight-bold);
+    }
+    h6 {
+      font-size: var(--text-base);
+      line-height: var(--text-base--line-height);
+      font-weight: var(--font-weight-bold);
+    }
+  }
+}
+
+@layer components {
 }

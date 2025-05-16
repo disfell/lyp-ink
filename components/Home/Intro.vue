@@ -1,11 +1,11 @@
 <template>
   <div class="">
-    <div class="flex items-end space-x-4">
+    <div class="flex items-end space-x-4 mb-10">
       <AppAvatar :avatar="appCf.site.avatar" :ping="ping" :show-icon="showIcon" :show-text="showText" />
     </div>
 
-    <div class="prose dark:prose-invert prose-blockquote:not-italic prose-pre:bg-gray-100 dark:prose-pre:bg-gray-900 break-words">
-      <ContentRenderer v-if="intro" :value="intro" class="" />
+    <div class="typography prose dark:prose-invert prose-blockquote:not-italic prose-pre:bg-gray-100 dark:prose-pre:bg-gray-900 break-words">
+      <ContentRenderer v-if="intro" :value="intro" />
     </div>
 
     <div class="pt-8"></div>
